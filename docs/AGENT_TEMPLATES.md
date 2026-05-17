@@ -25,6 +25,8 @@ They are designed for Cursor, coding agents, and humans who want a fast starting
 | Research Agent | Receipt-gated reports, watchlists, digests, and research feeds. | [JSON](../templates/agents/research/research-agent.json) |
 | Custom Agent / Make Your Own | Safe blank skeleton for hybrid paid flows. | [JSON](../templates/agents/custom/custom-agent.json) |
 
+Parad0x signal source options are available on the Prediction Market Agent and selected signal, room, copy-alert, and research templates. Builders can use Parad0x Sports, Polymarket, or Crypto feeds when their license allows it.
+
 ### Meme Casino Pack
 
 For Solana trenches, signal sellers, copy traders, meme researchers, and paid-agent experiments.
@@ -133,6 +135,7 @@ Each template includes:
 - `copyRules`
 - `monetization`
 - `receiptBehavior`
+- optional `signalLicensing`
 - `cursorPrompt`
 - `exampleFlow`
 - `notInBetaScope`

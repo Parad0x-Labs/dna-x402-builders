@@ -21,9 +21,30 @@ Builders can add visible builder fees in beta:
 
 Builder direct collection is a separate approval path.
 
+## Parad0x Signal Source Fees
+
+Builders can use Parad0x signal feeds inside their own agents, bots, rooms, and dashboards.
+
+If a paid product uses a Parad0x signal source, the fee waterfall should include:
+
+- builder fee, if the builder charges one
+- Parad0x signal source fee
+- DNA 0.1% rail fee
+- optional alpha/success fee where copy-profit rules apply
+
+Parad0x source fees cannot be removed when the source is:
+
+- `PARADOX_SPORTS_BETS_FEED`
+- `PARADOX_POLYMARKET_FEED`
+- `PARADOX_CRYPTO_SIGNAL_FEED`
+
+Receipts should bind `signalId`, `signalSource`, `usageType`, `sourceAttribution`, `signalDigest`, and `feeWaterfallHash`.
+
 ## Forbidden
 
 - hidden fee
+- removing Parad0x signal source fee
+- removing Parad0x source attribution
 - backend custody
 - backend signing
 - backend auto-sweep
@@ -50,6 +71,11 @@ Builder direct collection is a separate approval path.
       "kind": "BUILDER_FEE",
       "amount": "5000",
       "collectionStatus": "ACCRUED_NOT_COLLECTED"
+    },
+    {
+      "kind": "PARADOX_SIGNAL_SOURCE_FEE",
+      "amount": "10000",
+      "collectionStatus": "COLLECTED_DIRECT_SPLIT"
     }
   ]
 }

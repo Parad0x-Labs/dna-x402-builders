@@ -9,6 +9,9 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Paid MCP tool | Charge per tool call | Works well for agents and coding tools. |
 | Data feed | Pay per snapshot, stream, or bundle | Market, weather, sports, social, research. |
 | Memecoin scanner / Memescope-style feed | Paid signal/data endpoint | Signal/feed only unless separate live-trading gate approves execution. |
+| Parad0x sports signal bot | Metered Parad0x signal source plus builder Telegram/Discord UX | Source attribution, source fee, builder fee, and DNA rail fee stay receipt-bound. |
+| Parad0x prediction dashboard | Paid dashboard view or signal reasoning unlock | Receipt binds signal ID, source, usage type, digest, and fee waterfall. |
+| Parad0x result update webhook | Meter result/settlement updates | Good for sports, prediction, and copied-lot updates. |
 | Meme Casino agents | Wallet stalkers, fresh pair scouts, rug radar, paid signal tollbooths | Signal, paper, receipt-gated alert, and user-confirmed intent flows. |
 | Copy-the-Chad agents | Follower-controlled copy settings | Caps, entry filters, TP/SL, copied lots, alpha fees only on positive finalized copied-lot PnL. |
 | Social/X campaign room | Human-reviewed proof workflows | Briefs, proof URLs/hashes, receipts, and rewards without fake engagement or auto-spam. |
@@ -58,6 +61,8 @@ DNA x402 can sit behind:
 
 - [Agent Templates](./AGENT_TEMPLATES.md)
 - [Community Agents](./COMMUNITY_AGENTS.md)
+- [Parad0x Signal Feeds](./PARADOX_SIGNAL_FEEDS.md)
+- [Signal Resale And Licensing](./SIGNAL_RESALE_AND_LICENSING.md)
 - [Meme Casino Agents](./MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./SOCIAL_X_AGENTS.md)
 - [Telegram Agent Launcher](./TELEGRAM_AGENT_LAUNCHER.md)

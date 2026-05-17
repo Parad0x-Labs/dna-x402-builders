@@ -18,6 +18,10 @@
     "examples:copy-settings": "tsx examples/copy-settings-ts/src/index.ts",
     "examples:alpha": "tsx examples/alpha-monetization-ts/src/index.ts",
     "examples:direct-split": "tsx examples/direct-split-demo-ts/src/index.ts",
+    "examples:paradox-signal-reseller": "tsx examples/paradox-signal-reseller-ts/src/index.ts",
+    "examples:paradox-sports-telegram": "tsx examples/paradox-sports-feed-telegram-ts/src/index.ts",
+    "examples:paradox-dashboard": "tsx examples/paradox-signal-dashboard-ts/src/index.ts",
+    "examples:paradox-result-webhook": "tsx examples/paradox-result-update-webhook-ts/src/index.ts",
     "examples:templates": "tsx examples/agent-templates/src/index.ts",
     "examples:community": "tsx examples/community-agents/src/index.ts",
     "examples:meme-casino": "tsx examples/meme-casino-agents/src/index.ts",
@@ -27,10 +31,11 @@
     "examples:live-solana-devnet": "tsx examples/live-solana-devnet/src/index.ts",
     "acceptance:templates:devnet": "vitest run tests/agent-template-gallery.test.ts tests/community-agent-templates.test.ts tests/meme-casino-templates.test.ts tests/social-x-templates.test.ts tests/template-devnet-acceptance.test.ts",
     "acceptance:community-agents": "vitest run tests/community-agent-templates.test.ts tests/community-launcher-commands.test.ts",
+    "acceptance:paradox-signals": "vitest run tests/paradox-signal-licensing.test.ts",
     "acceptance:telegram-launcher": "vitest run tests/telegram-launcher.test.ts",
     "acceptance:discord-launcher": "vitest run tests/discord-launcher.test.ts",
     "acceptance:live:solana-devnet": "tsx examples/live-solana-devnet/src/index.ts",
-    "examples:all": "npm run examples:buyer && npm run examples:seller && npm run examples:builder-fee && npm run examples:webhook && npm run examples:receipt && npm run examples:agent-builder && npm run examples:paper-agent && npm run examples:copy-settings && npm run examples:alpha && npm run examples:direct-split && npm run examples:templates && npm run examples:community && npm run examples:meme-casino && npm run examples:social-x && npm run examples:telegram-launcher && npm run examples:discord-launcher"
+    "examples:all": "npm run examples:buyer && npm run examples:seller && npm run examples:builder-fee && npm run examples:webhook && npm run examples:receipt && npm run examples:agent-builder && npm run examples:paper-agent && npm run examples:copy-settings && npm run examples:alpha && npm run examples:direct-split && npm run examples:paradox-signal-reseller && npm run examples:paradox-sports-telegram && npm run examples:paradox-dashboard && npm run examples:paradox-result-webhook && npm run examples:templates && npm run examples:community && npm run examples:meme-casino && npm run examples:social-x && npm run examples:telegram-launcher && npm run examples:discord-launcher"
   },
   "keywords": [
     "x402",

@@ -36,6 +36,31 @@
     "alphaFeeBps": null,
     "appliesTo": "PROOF_REVIEWED_ACTION"
   },
+  "signalLicensing": {
+    "signalSourceOptions": [
+      "MANUAL_USER_SIGNAL",
+      "BUILDER_EXTERNAL_FEED",
+      "PARADOX_SPORTS_BETS_FEED",
+      "PARADOX_POLYMARKET_FEED",
+      "PARADOX_CRYPTO_SIGNAL_FEED"
+    ],
+    "paradoxUsageTypes": [
+      "SIGNAL_WITH_REASONING",
+      "DASHBOARD_VIEW",
+      "WEBHOOK_DELIVERY",
+      "RESULT_UPDATE",
+      "SETTLEMENT_UPDATE"
+    ],
+    "resaleAllowedWithLicense": true,
+    "sourceAttributionRequired": true,
+    "paradoxSourceFeeRequired": true,
+    "receiptBindsSignalId": true,
+    "forbiddenClaims": [
+      "Guaranteed profit",
+      "Fake result",
+      "Removed source attribution"
+    ]
+  },
   "feeBehavior": "Research unlock price, builder fee, and DNA 0.1% fee are visible before payment.",
   "receiptBehavior": {
     "receiptRequired": true,

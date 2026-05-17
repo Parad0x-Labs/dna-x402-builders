@@ -34,6 +34,31 @@
     "alphaFeeBps": null,
     "appliesTo": "PROOF_REVIEWED_ACTION"
   },
+  "signalLicensing": {
+    "signalSourceOptions": [
+      "MANUAL_USER_SIGNAL",
+      "BUILDER_EXTERNAL_FEED",
+      "PARADOX_SPORTS_BETS_FEED",
+      "PARADOX_POLYMARKET_FEED"
+    ],
+    "paradoxUsageTypes": [
+      "SIGNAL_PING",
+      "SIGNAL_WITH_REASONING",
+      "RESULT_UPDATE",
+      "DASHBOARD_VIEW",
+      "TELEGRAM_DELIVERY",
+      "DISCORD_DELIVERY"
+    ],
+    "resaleAllowedWithLicense": true,
+    "sourceAttributionRequired": true,
+    "paradoxSourceFeeRequired": true,
+    "receiptBindsSignalId": true,
+    "forbiddenClaims": [
+      "Guaranteed profit",
+      "Fake PnL",
+      "Source fee removal"
+    ]
+  },
   "receiptBehavior": {
     "receiptRequired": true,
     "bindsProof": true,

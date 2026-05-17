@@ -127,6 +127,58 @@ Builder fee quote parameters:
 
 Builder fees are visible and receipt-bound. DNA's platform fee remains first-class in the same fee waterfall.
 
+## Parad0x Signal Usage
+
+Parad0x-powered builder agents should treat every signal delivery or unlock as a usage event:
+
+```json
+{
+  "usageId": "usage_signal_001",
+  "signalId": "px_poly_btc_5m_001",
+  "source": "PARADOX_POLYMARKET_FEED",
+  "builderId": "builder-id",
+  "agentId": "agent-id",
+  "usageType": "SIGNAL_WITH_REASONING",
+  "receiptId": "receipt-id"
+}
+```
+
+Supported usage types include:
+
+- `SIGNAL_PING`
+- `SIGNAL_WITH_REASONING`
+- `RESULT_UPDATE`
+- `SETTLEMENT_UPDATE`
+- `COPY_INTENT`
+- `DASHBOARD_VIEW`
+- `WEBHOOK_DELIVERY`
+- `TELEGRAM_DELIVERY`
+- `DISCORD_DELIVERY`
+
+Parad0x signal receipts should include:
+
+```json
+{
+  "signalId": "px_poly_btc_5m_001",
+  "signalSource": "PARADOX_POLYMARKET_FEED",
+  "builderId": "builder-id",
+  "agentId": "agent-id",
+  "usageType": "SIGNAL_WITH_REASONING",
+  "sourceAttribution": "Parad0x Labs",
+  "signalDigest": "sha256:...",
+  "feeWaterfallHash": "..."
+}
+```
+
+Rules:
+
+- active builder signal license required for Parad0x sources
+- source attribution must remain visible
+- Parad0x signal source fee cannot be removed
+- DNA platform fee cannot be removed
+- fee lines must be visible before payment
+- no guaranteed-profit or fake-PnL claims
+
 ## Agent Wallet Public-Key Registration
 
 `POST /v1/agents/:agentId/wallets/register`

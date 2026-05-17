@@ -36,6 +36,30 @@
     "alphaFeeBps": 200,
     "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
   },
+  "signalLicensing": {
+    "signalSourceOptions": [
+      "MANUAL_USER_SIGNAL",
+      "BUILDER_EXTERNAL_FEED",
+      "PARADOX_POLYMARKET_FEED",
+      "PARADOX_CRYPTO_SIGNAL_FEED"
+    ],
+    "paradoxUsageTypes": [
+      "SIGNAL_PING",
+      "COPY_INTENT",
+      "TELEGRAM_DELIVERY",
+      "DISCORD_DELIVERY",
+      "RESULT_UPDATE"
+    ],
+    "resaleAllowedWithLicense": true,
+    "sourceAttributionRequired": true,
+    "paradoxSourceFeeRequired": true,
+    "receiptBindsSignalId": true,
+    "forbiddenClaims": [
+      "Guaranteed profit",
+      "Success fee on losses",
+      "Fake copied-lot PnL"
+    ]
+  },
   "feeBehavior": "Alpha fee applies only to positive finalized copied-lot PnL; room access fees are visible and receipt-bound.",
   "receiptBehavior": {
     "receiptRequired": true,

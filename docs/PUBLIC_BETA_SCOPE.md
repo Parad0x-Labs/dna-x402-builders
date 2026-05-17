@@ -11,6 +11,8 @@ Open:
 - builder APIs
 - paid data feeds
 - paid tools
+- Parad0x signal-source integrations with active license
+- metered signal resale with visible source attribution
 - low-risk capped live payments
 
 Live payment requirements:
@@ -32,6 +34,8 @@ Outside Public Beta scope:
 - backend custody
 - backend signing
 - hidden fees
+- Parad0x source attribution removal
+- Parad0x source fee removal
 - auto-sweep
 - unrestricted autonomous live trading
 

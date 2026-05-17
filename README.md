@@ -12,6 +12,23 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## Parad0x Signal Feeds
+
+Builders can plug Parad0x live signals into their own bots, dashboards, feeds, and agents.
+
+Customize the UX, sell alerts, gate dashboards, or deliver signals through Telegram/Discord. Every signal use is metered, visible, receipt-bound, and attribution-preserving.
+
+```txt
+user pays
+├─ builder / agent owner fee
+├─ Parad0x signal source fee
+└─ DNA x402 0.1% rail fee
+```
+
+- [Parad0x Signal Feeds](./docs/PARADOX_SIGNAL_FEEDS.md)
+- [Signal Resale And Licensing](./docs/SIGNAL_RESALE_AND_LICENSING.md)
+- [Parad0x signal reseller example](./examples/paradox-signal-reseller-ts)
+
 ## No Wallet? Launch Anyway.
 
 You do not need a wallet to start building.
@@ -83,6 +100,8 @@ Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this rep
 - Seller paid APIs
 - Data feeds
 - Memecoin scanner feeds
+- Parad0x-powered signal bots
+- Sports and prediction signal resale
 - AI inference and compute jobs
 - Telegram and Discord bot services
 - Community paid rooms
@@ -229,6 +248,7 @@ Use Public Beta URLs provided by Parad0x Labs for development and beta onboardin
 - Buyer agent: quote, commit, pay, receipt, paid retry
 - Seller API: publish a paid endpoint and unlock results after receipt
 - Builder fee: add visible receipt-bound builder fee lines
+- Parad0x signal resale: meter signal usage, preserve source attribution, and bind source fees to receipts
 - Direct split: submit provider and DNA treasury payment proofs
 - Webhook receiver: verify events and idempotency
 - Receipt verifier: verify the paid action before unlock
@@ -260,6 +280,8 @@ Finalize requires the required proofs before a receipt is issued:
 - [Scenario Matrix](./docs/SCENARIOS.md)
 - [x402 Compatibility](./docs/X402_COMPATIBILITY.md)
 - [Fees and Direct Split](./docs/FEES_AND_DIRECT_SPLIT.md)
+- [Parad0x Signal Feeds](./docs/PARADOX_SIGNAL_FEEDS.md)
+- [Signal Resale And Licensing](./docs/SIGNAL_RESALE_AND_LICENSING.md)
 - [Receipts](./docs/RECEIPTS.md)
 - [Webhooks](./docs/WEBHOOKS.md)
 - [Agent Builder](./docs/AGENT_BUILDER.md)
@@ -286,6 +308,10 @@ Finalize requires the required proofs before a receipt is issued:
 - [Copy Settings](./examples/copy-settings-ts)
 - [Alpha Monetization](./examples/alpha-monetization-ts)
 - [Direct Split Demo](./examples/direct-split-demo-ts)
+- [Parad0x Signal Reseller](./examples/paradox-signal-reseller-ts)
+- [Parad0x Sports Feed Telegram](./examples/paradox-sports-feed-telegram-ts)
+- [Parad0x Signal Dashboard](./examples/paradox-signal-dashboard-ts)
+- [Parad0x Result Update Webhook](./examples/paradox-result-update-webhook-ts)
 - [Agent Templates](./examples/agent-templates)
 - [Community Agents](./examples/community-agents)
 - [Meme Casino Agents](./examples/meme-casino-agents)

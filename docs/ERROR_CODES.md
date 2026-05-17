@@ -16,3 +16,9 @@ Common integration errors:
 | `BACKEND_CUSTODY_FORBIDDEN` | Private keys or custody flow attempted. |
 | `BACKEND_SIGNING_FORBIDDEN` | Backend signing attempted. |
 | `OUT_OF_BETA_SCOPE` | Requested vertical/action is outside Public Beta. |
+| `SIGNAL_LICENSE_REQUIRED` | Parad0x signal source use requires an active builder signal license. |
+| `SIGNAL_ATTRIBUTION_REQUIRED` | Parad0x signal attribution was removed or changed. |
+| `PARADOX_SIGNAL_FEE_REQUIRED` | Parad0x signal source fee was removed from a Parad0x-powered paid flow. |
+| `HIDDEN_FEE_REJECTED` | Signal resale or builder fee lines were hidden from the buyer. |
+| `GUARANTEED_PROFIT_CLAIM_REJECTED` | Signal resale tried to market guaranteed profit or similar claims. |
+| `SIGNAL_USAGE_CAP_EXCEEDED` | Builder signal usage exceeded the license cap. |

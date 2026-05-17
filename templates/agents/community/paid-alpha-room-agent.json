@@ -36,6 +36,30 @@
     "alphaFeeBps": null,
     "appliesTo": "PROOF_REVIEWED_ACTION"
   },
+  "signalLicensing": {
+    "signalSourceOptions": [
+      "MANUAL_USER_SIGNAL",
+      "BUILDER_EXTERNAL_FEED",
+      "PARADOX_SPORTS_BETS_FEED",
+      "PARADOX_POLYMARKET_FEED",
+      "PARADOX_CRYPTO_SIGNAL_FEED"
+    ],
+    "paradoxUsageTypes": [
+      "SIGNAL_PING",
+      "SIGNAL_WITH_REASONING",
+      "TELEGRAM_DELIVERY",
+      "DISCORD_DELIVERY"
+    ],
+    "resaleAllowedWithLicense": true,
+    "sourceAttributionRequired": true,
+    "paradoxSourceFeeRequired": true,
+    "receiptBindsSignalId": true,
+    "forbiddenClaims": [
+      "Guaranteed profit",
+      "Fake PnL",
+      "Removing Parad0x fee"
+    ]
+  },
   "feeBehavior": "Visible builder fee and DNA 0.1% fee are shown before room unlock and bound to the receipt.",
   "receiptBehavior": {
     "receiptRequired": true,

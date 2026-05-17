@@ -4,6 +4,8 @@ Ready-made Public Beta recipes for builders.
 
 Use these JSON files as starting points for paid APIs, agents, data feeds, tools, compute jobs, alerts, automation, paper strategies, copy settings, and alpha monetization.
 
+Selected signal templates also include Parad0x signal licensing metadata for Sports, Polymarket, and Crypto signal-source resale.
+
 ## Agent Hub Templates
 
 - [Prediction Market Agent](./prediction-market/prediction-market-agent.json)
@@ -54,7 +56,7 @@ Use these JSON files as starting points for paid APIs, agents, data feeds, tools
 - [Community Task Agent](./community/community-task-agent.json)
 - [Receipt-Gated Access Agent](./community/receipt-gated-access-agent.json)
 - [Daily Market Brief Agent](./community/daily-market-brief-agent.json)
-- [Holder-Only Alpha Room Agent](./community/holder-only-alpha-room-agent.json)
+- [Holder-Gated Room Agent](./community/holder-only-alpha-room-agent.json)
 - [Paid Discord Command Agent](./community/paid-discord-command-agent.json)
 - [Paid Telegram Command Agent](./community/paid-telegram-command-agent.json)
 - [Agent Leaderboard Bot](./community/agent-leaderboard-bot.json)
@@ -90,6 +92,7 @@ These templates are built around the hosted DNA x402 rail:
 - signed receipts
 - replay-safe paid retry
 - receipt-bound builder fees
+- receipt-bound Parad0x signal source fees where a Parad0x feed is used
 - client-side wallet ownership
 - no backend custody
 - no backend signing
