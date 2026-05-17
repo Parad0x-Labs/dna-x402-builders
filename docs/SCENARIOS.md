@@ -27,6 +27,16 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Telegram Agent Launcher | Run an agent bot on a phone, PC, Mac, Linux, Docker, or VPS | Self-hosted token, hosted DNA x402 rail. |
 | Discord Agent Launcher | Run paid agent slash commands inside a Discord server | Self-hosted app token, local interactions endpoint, hosted DNA x402 rail. |
 | Discord alpha room | Receipt-gated signals, research drops, bounties, and copy alerts | Community-native monetization without backend custody or backend signing. |
+| Degen Mode agent | Connect wallet, pick agent, set max pain, launch | Watch, signal, paper sim, user-confirmed intent, and capped-live architecture. |
+| Fresh Pair Goblin Live | Fresh Solana pair signals | Liquidity, age, volume, holder, creator-wallet, and token-risk filters. |
+| Wallet Stalker Live | Wallet-flow alerts and optional copy intents | Wallet allow/block lists and user-owned wallet signing. |
+| Telegram Ape Button | Telegram paid signals plus user-confirmed intent preview | Bot never holds wallet keys or signs trades. |
+| Discord Ape Room | Discord paid signals, copy links, PnL panels, and receipts | Room-native Degen Mode with visible fee waterfalls. |
+| Live PnL Leaderboard | PnL, ROI, average entry, drawdown, and proof count | Prevents 99c win-rate flex with sample-size warnings. |
+| Referral links | Share fee revenue from rooms, signals, APIs, or profiles | No default rake on follower losses. |
+| Jupiter swap intent | Quote and user-signed swap intent | Backend does not sign or submit without live gate and client signature. |
+| Raydium/Pump.fun watchers | Watch, signal, and mock/gated intent previews | Live execution remains gated until adapter tests exist. |
+| Memecoin-native payments | Allowlisted token payment config | USDC default; meme/high-risk tokens require allowlist. |
 | Community paid room | Telegram or Discord room access after receipt verification | Walletless mock start, wallet only for real settlement. |
 | Signal role gate | Discord role or Telegram signal lane after payment | Receipt-bound access and no hidden fees. |
 | Bounty board | Proof-reviewed tasks, notes, memes, research, and bug reports | Human review before receipt/reward flow. |
@@ -65,6 +75,8 @@ DNA x402 can sit behind:
 - [Signal Resale And Licensing](./SIGNAL_RESALE_AND_LICENSING.md)
 - [Meme Casino Agents](./MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./SOCIAL_X_AGENTS.md)
+- [Degen Mode](./DEGEN_MODE.md)
+- [Live Execution Adapters](./LIVE_EXECUTION_ADAPTERS.md)
 - [Telegram Agent Launcher](./TELEGRAM_AGENT_LAUNCHER.md)
 - [Discord Agent Launcher](./DISCORD_AGENT_LAUNCHER.md)
 

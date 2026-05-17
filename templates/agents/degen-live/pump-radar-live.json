@@ -1,0 +1,77 @@
+{
+  "name": "Pump Radar Live",
+  "slug": "pump-radar-live",
+  "pack": "degen-live",
+  "category": "momentum-scanner",
+  "description": "Momentum scanner for volume, social, liquidity, and price acceleration signals with no coordination or manipulation behavior.",
+  "degenPitch": "Catch acceleration signals without turning the room into a coordination mess.",
+  "whatItDoes": [
+    "Monitors volume, social, price, and liquidity acceleration.",
+    "Emits paid signal alerts with receipt trails.",
+    "Creates optional user-confirmed intents after risk rules pass."
+  ],
+  "publicBetaMode": "signal_or_user_confirmed_live_intent",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "SIGNAL_ONLY",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 100,
+    "maxDailySpendUsd": 700,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300
+  },
+  "riskConfig": {
+    "maxTradeUsd": 100,
+    "maxDailySpendUsd": 700,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300,
+    "maxSlippageBps": 150
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Coordinated buying",
+    "Manipulation calls",
+    "Backend signing",
+    "Guaranteed profit claims"
+  ],
+  "cursorPrompt": "Build a Pump Radar Live momentum scanner with DNA x402. Monitor acceleration signals, sell receipt-gated alerts, avoid coordination/manipulation wording, and require client-side signing for optional live intents.",
+  "suggestedPrompt": "Build a Pump Radar Live momentum scanner with DNA x402. Monitor acceleration signals, sell receipt-gated alerts, avoid coordination/manipulation wording, and require client-side signing for optional live intents.",
+  "exampleFlow": [
+    "Momentum signal triggers",
+    "Agent ranks acceleration",
+    "User pays for alert detail",
+    "Receipt unlocks detail",
+    "Optional user-confirmed trade intent is created"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/degen/intents"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds alert ID and signal digest.",
+    "Receipt binds fee waterfall.",
+    "Live intent remains user-signed."
+  ]
+}

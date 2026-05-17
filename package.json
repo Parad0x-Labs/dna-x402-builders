@@ -35,6 +35,7 @@
     "acceptance:telegram-launcher": "vitest run tests/telegram-launcher.test.ts",
     "acceptance:discord-launcher": "vitest run tests/discord-launcher.test.ts",
     "acceptance:live:solana-devnet": "tsx examples/live-solana-devnet/src/index.ts",
+    "acceptance:degen-mode": "vitest run tests/degen-mode.test.ts tests/live-execution-adapters.test.ts tests/alpha-profit-share.test.ts tests/referral-links.test.ts tests/live-leaderboards.test.ts tests/memecoin-payments.test.ts tests/demo-backtest-agents.test.ts",
     "examples:all": "npm run examples:buyer && npm run examples:seller && npm run examples:builder-fee && npm run examples:webhook && npm run examples:receipt && npm run examples:agent-builder && npm run examples:paper-agent && npm run examples:copy-settings && npm run examples:alpha && npm run examples:direct-split && npm run examples:paradox-signal-reseller && npm run examples:paradox-sports-telegram && npm run examples:paradox-dashboard && npm run examples:paradox-result-webhook && npm run examples:templates && npm run examples:community && npm run examples:meme-casino && npm run examples:social-x && npm run examples:telegram-launcher && npm run examples:discord-launcher"
   },
   "keywords": [

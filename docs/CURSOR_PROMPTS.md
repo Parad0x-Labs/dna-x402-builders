@@ -87,3 +87,17 @@ Keep bot tokens local.
 Do not store wallet private keys.
 Do not implement backend signing.
 ```
+
+## Degen Mode
+
+```txt
+Use templates/agents/degen-live as the starting point.
+Build a Degen Mode agent with DNA x402.
+The flow is: connect wallet, pick agent, set max pain, launch.
+Create trade intents with riskConfigHash.
+Require client-side signing for live movement.
+Show PnL, average entry, sample-size badge, receipts, copy links, referral stats, and pause control.
+Do not implement backend custody.
+Do not implement backend signing.
+Do not show fake PnL or guaranteed-profit claims.
+```

@@ -1,0 +1,79 @@
+{
+  "name": "Degen Alpha Room",
+  "slug": "degen-alpha-room",
+  "pack": "degen-live",
+  "category": "alpha-room",
+  "description": "Telegram or Discord alpha room with paid access, copy links, live PnL panels, receipts, and explicit profit-share consent.",
+  "degenPitch": "Turn the room into a paid alpha machine with receipts instead of trust-me-bro screenshots.",
+  "whatItDoes": [
+    "Quotes room access and premium signal unlocks.",
+    "Shows live/paper badges, PnL stats, copy links, and receipts.",
+    "Applies Degen Alpha Room fees only after followers win and consent."
+  ],
+  "publicBetaMode": "paid_room_with_signal_and_copy_controls",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "SIGNAL_ONLY",
+  "venue": "NONE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "riskConfig": {
+    "maxTradeUsd": 0,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0,
+    "maxSlippageBps": 0
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 150,
+    "alphaFeeBps": 1500,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "alphaFeeTier": "DEGEN_ALPHA_ROOM",
+  "explicitFollowerConsentRequired": true,
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Fake PnL",
+    "Claims that promise certain wins",
+    "Hidden alpha fees",
+    "Backend signing"
+  ],
+  "cursorPrompt": "Build a Degen Alpha Room using DNA x402. Gate room access with receipts, show live/paper PnL badges, support copy links, require explicit follower consent for a 15% alpha fee only on positive finalized copied-lot PnL, and show 'No win, no alpha fee.'",
+  "suggestedPrompt": "Build a Degen Alpha Room using DNA x402. Gate room access with receipts, show live/paper PnL badges, support copy links, require explicit follower consent for a 15% alpha fee only on positive finalized copied-lot PnL, and show 'No win, no alpha fee.'",
+  "exampleFlow": [
+    "User requests room access",
+    "DNA x402 quote displays fee waterfall",
+    "Receipt unlocks room",
+    "User opts into copy link",
+    "Winning finalized copied lot accrues alpha fee"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/copy/settings",
+    "POST /v1/copy/lots/:id/finalize"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates room access.",
+    "Receipt binds copied-lot alpha fee consent.",
+    "Fee waterfall stays visible before payment."
+  ]
+}

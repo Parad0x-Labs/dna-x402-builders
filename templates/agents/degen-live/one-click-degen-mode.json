@@ -1,0 +1,80 @@
+{
+  "name": "One-Click Degen Mode",
+  "slug": "one-click-degen-mode",
+  "pack": "degen-live",
+  "category": "degen-mode",
+  "description": "Connect wallet, pick an agent, set max pain, and launch a capped watch, signal, or user-confirmed live degen agent.",
+  "degenPitch": "Connect wallet. Pick agent. Set max pain. Let it cook.",
+  "whatItDoes": [
+    "Creates a degen risk profile with ape budget, max pain, slippage, and kill switch rules.",
+    "Generates trade intents that require client-side wallet signing before live movement.",
+    "Binds paid actions and fee waterfalls into DNA x402 receipts."
+  ],
+  "publicBetaMode": "watch_signal_user_confirmed_or_capped_auto_live_with_wallet_and_caps",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "mode": "USER_CONFIRMED_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "riskConfig": {
+    "maxTradeUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500,
+    "maxSlippageBps": 150,
+    "pauseOnDrawdownBps": 2000
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": false,
+    "copyExits": true,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unlimited live execution",
+    "Backend wallet custody",
+    "Backend trade signing",
+    "Hidden fees"
+  ],
+  "cursorPrompt": "Build One-Click Degen Mode with DNA x402. Connect wallet, pick an agent, set max pain, create trade intents, require client-side signing for live movement, show receipts, and never use backend custody or backend signing.",
+  "suggestedPrompt": "Build One-Click Degen Mode with DNA x402. Connect wallet, pick an agent, set max pain, create trade intents, require client-side signing for live movement, show receipts, and never use backend custody or backend signing.",
+  "exampleFlow": [
+    "Connect wallet",
+    "Pick agent",
+    "Set ape budget and max pain",
+    "Generate trade intent",
+    "User signs client-side",
+    "Verify receipt trail"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/agent-builder/draft",
+    "POST /v1/degen/intents",
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds the risk profile hash.",
+    "Receipt binds fee waterfall and paid unlock metadata.",
+    "Live trade proof stays user-wallet signed."
+  ]
+}

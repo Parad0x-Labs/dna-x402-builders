@@ -1,0 +1,76 @@
+{
+  "name": "Jupiter Swap Intent Agent",
+  "slug": "jupiter-swap-intent-agent",
+  "pack": "degen-live",
+  "category": "execution-adapter",
+  "description": "Jupiter quote and swap-intent template that prepares capped user-signed trade intents without backend transaction signing.",
+  "degenPitch": "Jupiter route preview, wallet signs if the max pain still looks sane.",
+  "whatItDoes": [
+    "Creates Jupiter quote and intent shapes.",
+    "Hashes risk config into the trade intent.",
+    "Keeps live submit gated behind client signature and explicit live gate."
+  ],
+  "publicBetaMode": "jupiter_quote_and_user_confirmed_intent",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "mode": "USER_CONFIRMED_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "riskConfig": {
+    "maxTradeUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500,
+    "maxSlippageBps": 100
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Backend-submitted swaps",
+    "Backend signing",
+    "Unlimited slippage",
+    "Hidden route fees"
+  ],
+  "cursorPrompt": "Build a Jupiter Swap Intent Agent with DNA x402. Create quote and trade intent shapes, bind riskConfigHash, require user wallet signature for live submit, and reject backend signing.",
+  "suggestedPrompt": "Build a Jupiter Swap Intent Agent with DNA x402. Create quote and trade intent shapes, bind riskConfigHash, require user wallet signature for live submit, and reject backend signing.",
+  "exampleFlow": [
+    "User asks for route",
+    "Agent creates quote intent",
+    "Risk caps are checked",
+    "User reviews route",
+    "Client wallet signs if approved"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/degen/quote-intent",
+    "POST /v1/degen/intents",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds intent ID and route digest.",
+    "RiskConfigHash is preserved.",
+    "Backend never signs the swap."
+  ]
+}

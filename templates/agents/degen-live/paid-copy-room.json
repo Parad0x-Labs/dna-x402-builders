@@ -1,0 +1,81 @@
+{
+  "name": "Paid Copy Room",
+  "slug": "paid-copy-room",
+  "pack": "degen-live",
+  "category": "copy-room",
+  "description": "Receipt-gated copy room where followers configure copy rules, max pain, TP/SL, approval thresholds, and alpha fee consent.",
+  "degenPitch": "Paid copy access with bankroll rules instead of blind ape mode.",
+  "whatItDoes": [
+    "Gates copy room access with DNA x402 receipts.",
+    "Lets followers set copy buys, sells, exits, entry range, max trade, and daily loss.",
+    "Creates copied lots and alpha fee accruals only after follower wins."
+  ],
+  "publicBetaMode": "paid_copy_room_with_follow_controls",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "mode": "CAPPED_AUTO_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 25,
+    "maxDailySpendUsd": 150,
+    "maxDailyLossUsd": 50,
+    "maxOpenExposureUsd": 100
+  },
+  "riskConfig": {
+    "maxTradeUsd": 25,
+    "maxDailySpendUsd": 150,
+    "maxDailyLossUsd": 50,
+    "maxOpenExposureUsd": 100,
+    "maxSlippageBps": 100,
+    "requireUserConfirmAboveUsd": 10
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": 3500,
+    "maxEntryPriceBps": 6500
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": 500,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "alphaFeeTier": "DEGEN_ALPHA_ROOM",
+  "explicitFollowerConsentRequired": true,
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Loss rake",
+    "Uncapped copy",
+    "Backend signing",
+    "Hidden copy fees"
+  ],
+  "cursorPrompt": "Build a Paid Copy Room with DNA x402. Gate access with receipts, let followers set max pain and copy filters, create copied lots, and charge a 5% alpha fee only on positive finalized copied-lot PnL with explicit consent.",
+  "suggestedPrompt": "Build a Paid Copy Room with DNA x402. Gate access with receipts, let followers set max pain and copy filters, create copied lots, and charge a 5% alpha fee only on positive finalized copied-lot PnL with explicit consent.",
+  "exampleFlow": [
+    "Follower pays for room access",
+    "Follower sets copy filters",
+    "Copy decision engine evaluates source action",
+    "Copied lot opens after approval",
+    "Winning copied lot accrues alpha fee"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/copy/settings",
+    "POST /v1/copy/decide",
+    "POST /v1/copy/lots/:id/finalize"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates room access.",
+    "Copied-lot receipt binds alpha fee bps at entry.",
+    "No alpha fee is created on losses."
+  ]
+}

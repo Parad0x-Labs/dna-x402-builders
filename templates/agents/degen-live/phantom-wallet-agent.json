@@ -1,0 +1,77 @@
+{
+  "name": "Phantom Wallet Agent",
+  "slug": "phantom-wallet-agent",
+  "pack": "degen-live",
+  "category": "wallet",
+  "description": "Wallet-owned agent shell for Phantom-style client signing, local approvals, risk profile display, and receipt-bound paid unlocks.",
+  "degenPitch": "Phantom owns the signature. DNA x402 owns the receipt trail.",
+  "whatItDoes": [
+    "Registers only public wallet metadata.",
+    "Requires client-side signature for live intents.",
+    "Shows max pain, fee waterfall, and receipt history before paid or live actions."
+  ],
+  "publicBetaMode": "client_wallet_owned_agent_shell",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "mode": "USER_CONFIRMED_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "EXTERNAL_WALLET",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "riskConfig": {
+    "maxTradeUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500,
+    "maxSlippageBps": 150
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Server-side wallet secret storage",
+    "Backend signing",
+    "Unattended wallet approvals",
+    "Hidden wallet permissions"
+  ],
+  "cursorPrompt": "Build a Phantom Wallet Agent with DNA x402. Register public key only, require Phantom/client-side signature for live intents, show max pain and fee waterfall, and reject any server-side wallet secret field.",
+  "suggestedPrompt": "Build a Phantom Wallet Agent with DNA x402. Register public key only, require Phantom/client-side signature for live intents, show max pain and fee waterfall, and reject any server-side wallet secret field.",
+  "exampleFlow": [
+    "User connects wallet",
+    "Public key registers",
+    "Agent displays risk profile",
+    "Paid action creates receipt",
+    "Live intent waits for wallet signature"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/agents/:id/wallets/register",
+    "POST /v1/quotes",
+    "POST /v1/degen/intents",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds wallet public key metadata where needed.",
+    "Private key material is never sent.",
+    "Live proof remains client-signed."
+  ]
+}

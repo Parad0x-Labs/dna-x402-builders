@@ -1,0 +1,88 @@
+{
+  "name": "Fresh Pair Goblin Live",
+  "slug": "fresh-pair-goblin-live",
+  "pack": "degen-live",
+  "category": "fresh-pair",
+  "description": "Watches fresh Solana pairs with liquidity, age, volume, holder, creator-wallet, and token-risk filters before any user-confirmed live intent.",
+  "degenPitch": "Sniff new pairs early, then make the wallet ask before it apes.",
+  "whatItDoes": [
+    "Watches fresh pair feeds and custom token webhooks.",
+    "Filters by min liquidity, max pair age, min volume, holder concentration, and creator wallet risk.",
+    "Creates signal or user-confirmed trade intents without backend signing."
+  ],
+  "publicBetaMode": "signal_or_user_confirmed_live_intent",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "SIGNAL_ONLY",
+  "venue": "CUSTOM_WEBHOOK",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 100,
+    "maxDailySpendUsd": 750,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300
+  },
+  "riskConfig": {
+    "maxTradeUsd": 100,
+    "maxDailySpendUsd": 750,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300,
+    "maxSlippageBps": 200,
+    "maxTradesPerHour": 6
+  },
+  "freshPairFilters": {
+    "minLiquidityUsd": 10000,
+    "maxPairAgeMinutes": 60,
+    "minVolumeUsd": 25000,
+    "maxHolderConcentrationBps": 3000,
+    "creatorWalletRiskRequired": true,
+    "tokenRiskTierRequired": true
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Direct Pump.fun trading without adapter tests",
+    "Backend signing",
+    "Manipulation calls",
+    "Guaranteed outcomes"
+  ],
+  "cursorPrompt": "Build a Fresh Pair Goblin Live agent with DNA x402. Watch fresh Solana pairs, apply liquidity/age/volume/holder risk filters, default to signal mode, create user-confirmed intents only, and never backend sign.",
+  "suggestedPrompt": "Build a Fresh Pair Goblin Live agent with DNA x402. Watch fresh Solana pairs, apply liquidity/age/volume/holder risk filters, default to signal mode, create user-confirmed intents only, and never backend sign.",
+  "exampleFlow": [
+    "Fresh pair event arrives",
+    "Risk filters run",
+    "Agent emits signal",
+    "User requests paid detail",
+    "DNA x402 receipt unlocks detail",
+    "Optional user-confirmed intent is created"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/agent-builder/draft",
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/degen/intents"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds alert or paid detail unlock.",
+    "Trade intent binds riskConfigHash.",
+    "No live submit runs without user signature."
+  ]
+}

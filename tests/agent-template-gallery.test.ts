@@ -17,6 +17,8 @@ type AgentTemplate = {
     alphaFeeBps: number | null;
     appliesTo: string;
   };
+  alphaFeeTier?: "STANDARD" | "DEGEN_ALPHA_ROOM";
+  explicitFollowerConsentRequired?: boolean;
   receiptBehavior: {
     receiptRequired: boolean;
     bindsProof: boolean;
@@ -46,6 +48,7 @@ describe("expanded template gallery", () => {
     expect(packs.has("core")).toBe(true);
     expect(packs.has("meme-casino")).toBe(true);
     expect(packs.has("social-x")).toBe(true);
+    expect(packs.has("degen-live")).toBe(true);
   });
 
   it("keeps monetized templates receipt-aware and fee-safe", () => {
@@ -60,11 +63,17 @@ describe("expanded template gallery", () => {
           expect(template.monetization.builderFeeBps).toBeLessThanOrEqual(500);
         }
         if (template.monetization.alphaFeeBps !== null) {
-          expect([50, 100, 150, 200, 250, 300]).toContain(template.monetization.alphaFeeBps);
+          const standardFees = [50, 100, 150, 200, 250, 300];
+          const degenRoomFees = [500, 1000, 1500, 2000];
+          if (degenRoomFees.includes(template.monetization.alphaFeeBps)) {
+            expect(template.alphaFeeTier).toBe("DEGEN_ALPHA_ROOM");
+            expect(template.explicitFollowerConsentRequired).toBe(true);
+          } else {
+            expect(standardFees).toContain(template.monetization.alphaFeeBps);
+          }
           expect(template.monetization.appliesTo).toBe("POSITIVE_FINALIZED_COPIED_LOT_PNL");
         }
       }
     }
   });
 });
-

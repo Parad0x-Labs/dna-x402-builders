@@ -1,0 +1,82 @@
+{
+  "name": "Referral Fee Printer Safe",
+  "slug": "referral-rake-printer-safe",
+  "pack": "degen-live",
+  "category": "referrals",
+  "description": "Referral link system where promoters share builder, source, or platform fee revenue without defaulting to follower-loss rake.",
+  "degenPitch": "Referral links that print from fees, not from users getting nuked.",
+  "whatItDoes": [
+    "Creates referral links for copy agents, rooms, signals, APIs, and profiles.",
+    "Shares builder/source/platform fees when configured.",
+    "Rejects default loss-rake mechanics in Public Beta."
+  ],
+  "publicBetaMode": "fee_share_referrals",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "WATCH_ONLY",
+  "venue": "NONE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "riskConfig": {
+    "maxTradeUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0,
+    "maxSlippageBps": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "referral": {
+    "rewardMode": "BUILDER_FEE_SHARE",
+    "rewardBps": 1000,
+    "lossRakeDefault": false
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Referral rake on follower losses",
+    "Hidden referral fees",
+    "Fake traffic",
+    "Backend custody"
+  ],
+  "cursorPrompt": "Build a Referral Fee Printer Safe agent with DNA x402. Create referral links for rooms, signals, copy agents, APIs, and profiles; share builder/source/platform fees; never default to loss rake; and bind fee share to receipts.",
+  "suggestedPrompt": "Build a Referral Fee Printer Safe agent with DNA x402. Create referral links for rooms, signals, copy agents, APIs, and profiles; share builder/source/platform fees; never default to loss rake; and bind fee share to receipts.",
+  "exampleFlow": [
+    "Agent owner creates referral link",
+    "Follower joins through link",
+    "Paid action creates receipt",
+    "Referral earns fee share",
+    "Dashboard shows receipt-bound referral stats"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/agents/:id/referrals",
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "GET /v1/receipts/:receiptId"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds referralId.",
+    "Receipt binds visible builder/source/platform fee lines.",
+    "Referral does not collect from follower losses by default."
+  ]
+}

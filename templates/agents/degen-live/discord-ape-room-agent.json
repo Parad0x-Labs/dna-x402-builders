@@ -1,0 +1,79 @@
+{
+  "name": "Discord Ape Room Agent",
+  "slug": "discord-ape-room-agent",
+  "pack": "degen-live",
+  "category": "discord",
+  "description": "Discord room template with slash commands for paid signals, watchlists, copy links, PnL panels, receipts, and user-confirmed intents.",
+  "degenPitch": "Discord room becomes the casino floor, DNA x402 stays the cash register.",
+  "whatItDoes": [
+    "Adds /signal, /ape, /copy, /pnl, /pause, and /receipt flows.",
+    "Gates premium signals and room access with receipts.",
+    "Requires wallet/client signature for live movement."
+  ],
+  "publicBetaMode": "discord_paid_room_and_user_confirmed_intents",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "SIGNAL_ONLY",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 75,
+    "maxDailySpendUsd": 400,
+    "maxDailyLossUsd": 100,
+    "maxOpenExposureUsd": 200
+  },
+  "riskConfig": {
+    "maxTradeUsd": 75,
+    "maxDailySpendUsd": 400,
+    "maxDailyLossUsd": 100,
+    "maxOpenExposureUsd": 200,
+    "maxSlippageBps": 150
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": 500,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "alphaFeeTier": "DEGEN_ALPHA_ROOM",
+  "explicitFollowerConsentRequired": true,
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Discord bot-held private keys",
+    "Backend signing",
+    "Fake PnL",
+    "Guaranteed profit claims"
+  ],
+  "cursorPrompt": "Build a Discord Ape Room Agent with DNA x402. Add slash commands for paid signals, copy links, PnL panels, receipts, and user-confirmed intents. Keep wallet keys client-side and never backend sign.",
+  "suggestedPrompt": "Build a Discord Ape Room Agent with DNA x402. Add slash commands for paid signals, copy links, PnL panels, receipts, and user-confirmed intents. Keep wallet keys client-side and never backend sign.",
+  "exampleFlow": [
+    "User runs /signal",
+    "Discord app shows quote",
+    "Receipt unlocks signal",
+    "User opens copy settings",
+    "Optional intent waits for wallet signature"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/copy/settings",
+    "POST /v1/degen/intents"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates Discord signal unlock.",
+    "Receipt binds copy room fee waterfall.",
+    "Bot never signs on behalf of users."
+  ]
+}

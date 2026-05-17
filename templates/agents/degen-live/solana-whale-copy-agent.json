@@ -1,0 +1,85 @@
+{
+  "name": "Solana Whale Copy Agent",
+  "slug": "solana-whale-copy-agent",
+  "pack": "degen-live",
+  "category": "copy-follow",
+  "description": "Copy-follow template for selected Solana whale wallets with allowlists, max pain, slippage caps, copied lots, and user-owned wallet signing.",
+  "degenPitch": "Follow whale flow with brakes, not blind worship.",
+  "whatItDoes": [
+    "Tracks selected whale wallets and source actions.",
+    "Applies allowlists, blocked tokens, max trade, daily loss, and slippage rules.",
+    "Creates copied lots and alpha fee accruals only after positive finalized PnL."
+  ],
+  "publicBetaMode": "wallet_allowlisted_copy_with_caps",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "mode": "CAPPED_AUTO_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 100,
+    "maxDailySpendUsd": 600,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300
+  },
+  "riskConfig": {
+    "maxTradeUsd": 100,
+    "maxDailySpendUsd": 600,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300,
+    "maxSlippageBps": 150,
+    "allowedWalletsToCopy": [
+      "demo_whale_public_key"
+    ],
+    "blockedTokens": [
+      "demo_blocked_mint"
+    ]
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": null,
+    "alphaFeeBps": 1000,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "alphaFeeTier": "DEGEN_ALPHA_ROOM",
+  "explicitFollowerConsentRequired": true,
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Copying non-allowlisted wallets",
+    "Copying blocked tokens",
+    "Backend signing",
+    "Alpha fees on losses"
+  ],
+  "cursorPrompt": "Build a Solana Whale Copy Agent with DNA x402. Track allowlisted wallets, block unsafe mints, enforce max pain and slippage, create copied lots, and charge alpha fees only on positive finalized copied-lot PnL with consent.",
+  "suggestedPrompt": "Build a Solana Whale Copy Agent with DNA x402. Track allowlisted wallets, block unsafe mints, enforce max pain and slippage, create copied lots, and charge alpha fees only on positive finalized copied-lot PnL with consent.",
+  "exampleFlow": [
+    "Whale wallet action arrives",
+    "Allowlist and token blocklist run",
+    "Copy decision evaluates caps",
+    "Copied lot opens after signature or gate",
+    "PnL finalization creates fee only if positive"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/copy/settings",
+    "POST /v1/copy/decide",
+    "POST /v1/degen/intents",
+    "POST /v1/copy/lots/:id/finalize"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds source wallet and copied lot.",
+    "Fee bps locks at copied-lot entry.",
+    "No backend signs the whale-copy action."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "Telegram Ape Button Agent",
+  "slug": "telegram-ape-button-agent",
+  "pack": "degen-live",
+  "category": "telegram",
+  "description": "Telegram launcher template that turns a bot command into a capped trade intent preview with receipt-gated signals and client-side signing.",
+  "degenPitch": "Ape button in Telegram, brakes included.",
+  "whatItDoes": [
+    "Adds /ape, /pause, /pnl, and /receipt-style bot flows.",
+    "Shows max pain and fee waterfall before paid unlocks.",
+    "Creates client-signed trade intents instead of backend-signed trades."
+  ],
+  "publicBetaMode": "telegram_signal_and_user_confirmed_intents",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "mode": "USER_CONFIRMED_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 50,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 75,
+    "maxOpenExposureUsd": 150
+  },
+  "riskConfig": {
+    "maxTradeUsd": 50,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 75,
+    "maxOpenExposureUsd": 150,
+    "maxSlippageBps": 150,
+    "pauseOnDrawdownBps": 1500
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": false,
+    "copyExits": true,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Bot-held wallet keys",
+    "Backend signing",
+    "Unlimited Telegram auto-trading",
+    "Hidden fees"
+  ],
+  "cursorPrompt": "Build a Telegram Ape Button Agent with DNA x402. Add Telegram commands that show max pain, quote paid signals, verify receipts, create user-confirmed Jupiter intents, and keep bot tokens/wallet keys local.",
+  "suggestedPrompt": "Build a Telegram Ape Button Agent with DNA x402. Add Telegram commands that show max pain, quote paid signals, verify receipts, create user-confirmed Jupiter intents, and keep bot tokens/wallet keys local.",
+  "exampleFlow": [
+    "User runs /ape",
+    "Bot shows max pain and signal preview",
+    "DNA x402 receipt unlocks full signal",
+    "Trade intent is prepared",
+    "User signs client-side"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/degen/intents",
+    "GET /v1/receipts/:receiptId"
+  ],
+  "receiptProofBehavior": [
+    "Receipt unlocks signal details.",
+    "Risk profile hash is displayed before intent.",
+    "Telegram bot never signs trades."
+  ]
+}

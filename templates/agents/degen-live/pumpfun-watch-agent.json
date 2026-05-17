@@ -1,0 +1,76 @@
+{
+  "name": "Pump.fun Watch Agent",
+  "slug": "pumpfun-watch-agent",
+  "pack": "degen-live",
+  "category": "execution-adapter",
+  "description": "Pump.fun and PumpSwap-style watcher template for launch signals, risk labels, and mock/gated intent previews without live trading by default.",
+  "degenPitch": "Watch the launch chaos, keep the buy button gated.",
+  "whatItDoes": [
+    "Watches launch-style feeds and token risk signals.",
+    "Emits paid launch alerts and risk notes.",
+    "Keeps Pump.fun live trading out until adapter tests and gates exist."
+  ],
+  "publicBetaMode": "pumpfun_watch_signal_and_mock_intent",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "SIGNAL_ONLY",
+  "venue": "PUMPFUN",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 50,
+    "maxDailySpendUsd": 300,
+    "maxDailyLossUsd": 75,
+    "maxOpenExposureUsd": 150
+  },
+  "riskConfig": {
+    "maxTradeUsd": 50,
+    "maxDailySpendUsd": 300,
+    "maxDailyLossUsd": 75,
+    "maxOpenExposureUsd": 150,
+    "maxSlippageBps": 250
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Direct Pump.fun trading before adapter gate",
+    "Backend signing",
+    "Launch manipulation calls",
+    "Guaranteed profit claims"
+  ],
+  "cursorPrompt": "Build a Pump.fun Watch Agent with DNA x402. Watch launch-style feeds, sell receipt-gated alerts, create mock/gated intents only, and keep live trading disabled until adapter gate and client-side signing exist.",
+  "suggestedPrompt": "Build a Pump.fun Watch Agent with DNA x402. Watch launch-style feeds, sell receipt-gated alerts, create mock/gated intents only, and keep live trading disabled until adapter gate and client-side signing exist.",
+  "exampleFlow": [
+    "Launch feed event arrives",
+    "Risk labels are created",
+    "User pays for full alert",
+    "Receipt unlocks alert",
+    "Mock intent preview stays gated"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/degen/quote-intent"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds launch alert digest.",
+    "Intent preview binds riskConfigHash.",
+    "No live Pump.fun submit path runs by default."
+  ]
+}

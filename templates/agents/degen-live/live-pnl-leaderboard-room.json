@@ -1,0 +1,77 @@
+{
+  "name": "Live PnL Leaderboard Room",
+  "slug": "live-pnl-leaderboard-room",
+  "pack": "degen-live",
+  "category": "leaderboard",
+  "description": "Leaderboard room that shows PnL, ROI, win rate, average entry, drawdown, receipts, proof count, and sample-size warnings.",
+  "degenPitch": "Flex receipts and sample size, not fake 99c win-rate screenshots.",
+  "whatItDoes": [
+    "Ranks agents by PnL, ROI, follower profit, volume, and copy count.",
+    "Shows average entry, max drawdown, sample-size badge, and live/paper badge.",
+    "Rejects fake PnL and unmarked demo performance."
+  ],
+  "publicBetaMode": "public_profiles_and_leaderboards",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "WATCH_ONLY",
+  "venue": "NONE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "riskConfig": {
+    "maxTradeUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0,
+    "maxSlippageBps": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Fake PnL",
+    "Unmarked demo results",
+    "Win-rate-only rankings",
+    "Backend custody"
+  ],
+  "cursorPrompt": "Build a Live PnL Leaderboard Room with DNA x402. Show PnL, ROI, win rate, average entry, drawdown, proof count, live/paper badge, sample-size warning, and reject fake PnL or unmarked demo results.",
+  "suggestedPrompt": "Build a Live PnL Leaderboard Room with DNA x402. Show PnL, ROI, win rate, average entry, drawdown, proof count, live/paper badge, sample-size warning, and reject fake PnL or unmarked demo results.",
+  "exampleFlow": [
+    "Agent stats update",
+    "Leaderboard computes warnings",
+    "User pays for premium leaderboard filters",
+    "Receipt unlocks premium stats",
+    "Profile links show proof count"
+  ],
+  "exampleApiFlow": [
+    "GET /v1/leaderboard",
+    "GET /v1/agents/:id/profile",
+    "POST /v1/quotes",
+    "POST /v1/finalize"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates premium leaderboard filters.",
+    "Proof count links stats to receipt trail.",
+    "Demo stats must stay SIMULATED."
+  ]
+}

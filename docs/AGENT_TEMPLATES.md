@@ -76,6 +76,33 @@ For Telegram groups, Discord servers, paid rooms, role gates, research drops, wa
 | Paid Telegram Command Agent | Paid Telegram command outputs. | [JSON](../templates/agents/community/paid-telegram-command-agent.json) |
 | Agent Leaderboard Bot | Public profiles, PnL, ROI, average entry, badges, and receipts. | [JSON](../templates/agents/community/agent-leaderboard-bot.json) |
 
+### Degen Mode Pack
+
+For wallet-connected Solana agents, fresh pair scouts, copy rooms, max pain dashboards, PnL leaderboards, referral links, and user-confirmed live intents.
+
+| Template | Use It For | Recipe |
+| --- | --- | --- |
+| One-Click Degen Mode | Connect wallet, pick agent, set max pain, launch. | [JSON](../templates/agents/degen-live/one-click-degen-mode.json) |
+| Fresh Pair Goblin Live | Fresh pair signals with liquidity, age, volume, holder, and creator-risk filters. | [JSON](../templates/agents/degen-live/fresh-pair-goblin-live.json) |
+| Copy The Chad Live | Copy selected wallets or agents with entry filters, max pain, and positive-PnL alpha fees. | [JSON](../templates/agents/degen-live/copy-the-chad-live.json) |
+| Wallet Stalker Live | Wallet-flow alerts and optional capped user-confirmed copy intents. | [JSON](../templates/agents/degen-live/wallet-stalker-live.json) |
+| Rug Radar Live | Risk scanner for liquidity, creator, holder, authority, and LP warning signals. | [JSON](../templates/agents/degen-live/rug-radar-live.json) |
+| Pump Radar Live | Momentum and acceleration signals without coordination behavior. | [JSON](../templates/agents/degen-live/pump-radar-live.json) |
+| Degen Alpha Room | Paid room with copy links, live/paper badges, receipts, and explicit alpha-fee consent. | [JSON](../templates/agents/degen-live/degen-alpha-room.json) |
+| Live PnL Leaderboard Room | PnL, ROI, win rate, average entry, drawdown, proof count, and sample-size warnings. | [JSON](../templates/agents/degen-live/live-pnl-leaderboard-room.json) |
+| Paid Copy Room | Receipt-gated copy room with follower-controlled copy settings and alpha fees. | [JSON](../templates/agents/degen-live/paid-copy-room.json) |
+| Referral Fee Printer Safe | Fee-share referral links without follower-loss rake defaults. | [JSON](../templates/agents/degen-live/referral-rake-printer-safe.json) |
+| Telegram Ape Button Agent | Telegram paid signals and user-confirmed trade intents. | [JSON](../templates/agents/degen-live/telegram-ape-button-agent.json) |
+| Discord Ape Room Agent | Discord paid signals, copy links, PnL panels, and user-confirmed intents. | [JSON](../templates/agents/degen-live/discord-ape-room-agent.json) |
+| Mobile Degen Dashboard | Mobile active-agent dashboard with PnL, receipts, copy links, referrals, and pause. | [JSON](../templates/agents/degen-live/mobile-degen-dashboard.json) |
+| Phantom Wallet Agent | Client-wallet-owned live intent shell for Phantom-style signing. | [JSON](../templates/agents/degen-live/phantom-wallet-agent.json) |
+| Jupiter Swap Intent Agent | Jupiter quote and user-signed swap intent shape. | [JSON](../templates/agents/degen-live/jupiter-swap-intent-agent.json) |
+| Raydium Watch Agent | Raydium pool watcher and gated/mock route intent template. | [JSON](../templates/agents/degen-live/raydium-watch-agent.json) |
+| Pump.fun Watch Agent | Launch watcher and mock/gated intent template. | [JSON](../templates/agents/degen-live/pumpfun-watch-agent.json) |
+| Solana Whale Copy Agent | Allowlisted whale-wallet copy with copied lots and max pain rules. | [JSON](../templates/agents/degen-live/solana-whale-copy-agent.json) |
+| Meme Token Payment Agent | Allowlisted token payment configuration with USDC default. | [JSON](../templates/agents/degen-live/meme-token-payment-agent.json) |
+| Demo Proven Edge Agent | SIMULATED demo/backtest agent with sample trades and caveats. | [JSON](../templates/agents/degen-live/demo-proven-edge-agent.json) |
+
 ### Social / X Pack
 
 For campaign rooms, proof-of-engagement, human-reviewed bounties, reply drafts, Space notes, and ambassador tasks.
@@ -143,6 +170,8 @@ Each template includes:
 ## Public Beta Scope
 
 Public Beta supports paid APIs, agents, tools, data feeds, paper agents, public profiles, copy settings, alpha monetization accounting, visible fee waterfalls, receipt verification, and low-risk capped live payments.
+
+Degen Mode adds wallet-connected intent architecture, max pain rules, user-confirmed live intents, live/paper leaderboards, referral links, and positive-PnL alpha fees. It does not add backend custody or backend signing.
 
 Outside Public Beta scope:
 

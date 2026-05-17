@@ -61,6 +61,29 @@ Selected signal templates also include Parad0x signal licensing metadata for Spo
 - [Paid Telegram Command Agent](./community/paid-telegram-command-agent.json)
 - [Agent Leaderboard Bot](./community/agent-leaderboard-bot.json)
 
+## Degen Mode Pack
+
+- [One-Click Degen Mode](./degen-live/one-click-degen-mode.json)
+- [Fresh Pair Goblin Live](./degen-live/fresh-pair-goblin-live.json)
+- [Copy The Chad Live](./degen-live/copy-the-chad-live.json)
+- [Wallet Stalker Live](./degen-live/wallet-stalker-live.json)
+- [Rug Radar Live](./degen-live/rug-radar-live.json)
+- [Pump Radar Live](./degen-live/pump-radar-live.json)
+- [Degen Alpha Room](./degen-live/degen-alpha-room.json)
+- [Live PnL Leaderboard Room](./degen-live/live-pnl-leaderboard-room.json)
+- [Paid Copy Room](./degen-live/paid-copy-room.json)
+- [Referral Fee Printer Safe](./degen-live/referral-rake-printer-safe.json)
+- [Telegram Ape Button Agent](./degen-live/telegram-ape-button-agent.json)
+- [Discord Ape Room Agent](./degen-live/discord-ape-room-agent.json)
+- [Mobile Degen Dashboard](./degen-live/mobile-degen-dashboard.json)
+- [Phantom Wallet Agent](./degen-live/phantom-wallet-agent.json)
+- [Jupiter Swap Intent Agent](./degen-live/jupiter-swap-intent-agent.json)
+- [Raydium Watch Agent](./degen-live/raydium-watch-agent.json)
+- [Pump.fun Watch Agent](./degen-live/pumpfun-watch-agent.json)
+- [Solana Whale Copy Agent](./degen-live/solana-whale-copy-agent.json)
+- [Meme Token Payment Agent](./degen-live/meme-token-payment-agent.json)
+- [Demo Proven Edge Agent](./degen-live/demo-proven-edge-agent.json)
+
 ## Social / X Pack
 
 - [X Campaign Brief Agent](./social-x/x-campaign-brief-agent.json)
@@ -93,6 +116,8 @@ These templates are built around the hosted DNA x402 rail:
 - replay-safe paid retry
 - receipt-bound builder fees
 - receipt-bound Parad0x signal source fees where a Parad0x feed is used
+- max pain rules for Degen Mode live intents
+- client-side signing for live execution
 - client-side wallet ownership
 - no backend custody
 - no backend signing

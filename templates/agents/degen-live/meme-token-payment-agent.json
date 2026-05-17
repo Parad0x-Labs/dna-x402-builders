@@ -1,0 +1,84 @@
+{
+  "name": "Meme Token Payment Agent",
+  "slug": "meme-token-payment-agent",
+  "pack": "degen-live",
+  "category": "payments",
+  "description": "Prepares allowlisted SOL or token payment configuration for signals, room access, APIs, or copy fees while keeping USDC as the default.",
+  "degenPitch": "Let communities pay in their coin later, but keep the allowlist doing the adult work.",
+  "whatItDoes": [
+    "Models accepted payment assets for USDC, SOL, or allowlisted tokens.",
+    "Marks meme token payments as allowlist-gated.",
+    "Keeps hidden fees and high-risk token payments out of default Public Beta flows."
+  ],
+  "publicBetaMode": "usdc_default_with_allowlisted_token_payment_config",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "WATCH_ONLY",
+  "venue": "NONE",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "riskConfig": {
+    "maxTradeUsd": 0,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0,
+    "maxSlippageBps": 0
+  },
+  "tokenPaymentConfig": {
+    "acceptedPaymentAsset": "TOKEN_ALLOWLISTED",
+    "symbol": "MEME",
+    "riskTier": "MEME",
+    "acceptedFor": "SIGNALS",
+    "conversionMode": "MANUAL",
+    "allowlistRequired": true
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unallowlisted meme token payments",
+    "Hidden conversion spreads",
+    "Backend custody",
+    "High-risk token payments by default"
+  ],
+  "cursorPrompt": "Build a Meme Token Payment Agent with DNA x402. Keep USDC default, model SOL/token payments as allowlisted config only, show conversion mode and fee waterfall, and reject hidden fees or unallowlisted high-risk tokens.",
+  "suggestedPrompt": "Build a Meme Token Payment Agent with DNA x402. Keep USDC default, model SOL/token payments as allowlisted config only, show conversion mode and fee waterfall, and reject hidden fees or unallowlisted high-risk tokens.",
+  "exampleFlow": [
+    "Builder selects accepted asset",
+    "Allowlist check runs",
+    "Quote shows fee waterfall",
+    "Receipt binds payment asset config",
+    "Unallowlisted token is rejected"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds accepted payment asset.",
+    "Receipt binds visible fee waterfall.",
+    "Meme token payment path requires allowlist."
+  ]
+}

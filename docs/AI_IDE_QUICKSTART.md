@@ -231,3 +231,21 @@ Build a paid community agent that:
 - never stores private keys
 - never signs in the backend
 ```
+
+## Degen Mode Prompt
+
+```txt
+Use the DNA x402 Degen Mode templates.
+
+Build a Copy The Chad Live agent that:
+- connects a user-owned wallet
+- lets the user set max pain
+- copies selected wallets only when risk rules pass
+- creates trade intents, not backend-signed trades
+- requires client-side signature for live movement
+- shows live/paper PnL with average entry and sample size
+- applies alpha fees only on positive finalized copied-lot PnL
+- never uses backend custody
+- never uses backend signing
+- never shows fake PnL or guaranteed-profit claims
+```

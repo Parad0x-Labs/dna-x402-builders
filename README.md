@@ -12,6 +12,32 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## Degen Mode
+
+Connect wallet. Pick agent. Set max pain. Launch.
+
+Fresh pair goblins. Wallet stalkers. Copy-the-Chad agents. Rug radar. Pump radar. Alpha rooms. Live PnL leaderboards. Referral links. Profit-share fees.
+
+Your agent watches the chaos. You set the max pain. DNA x402 handles the receipt trail.
+
+Use Degen Mode to build agents around:
+
+- fresh Solana pair signals
+- wallet and whale tracking
+- copy/follow flows with bankroll rules
+- Telegram and Discord alpha rooms
+- live/paper PnL leaderboards
+- referral links
+- positive-PnL alpha fees
+- user-confirmed swap intents
+
+Trust rules stay hard: no backend custody, no backend signing, no hidden fees, no fake PnL, no guaranteed-profit claims. Live movement uses user-owned wallets, max pain rules, client-side signing, and pause/kill-switch controls.
+
+- [Degen Mode](./docs/DEGEN_MODE.md)
+- [Live Execution Adapters](./docs/LIVE_EXECUTION_ADAPTERS.md)
+- [Alpha Profit Share](./docs/ALPHA_PROFIT_SHARE.md)
+- [Degen templates](./templates/agents/degen-live)
+
 ## Build On Parad0x Signals
 
 Want to build a paid signal bot, dashboard, alpha room, copy alert feed, or research product?
@@ -113,6 +139,10 @@ Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this rep
 - Community paid rooms
 - Signal role gates
 - Receipt-gated watchlists
+- Degen Mode agents
+- Fresh pair and wallet stalker agents
+- Live PnL leaderboards
+- Referral links
 - Builder-monetized APIs
 - Receipt-gated content
 - Agent builder drafts
@@ -135,6 +165,11 @@ Pick a recipe, hand it to Cursor or another coding agent, and ship faster.
 - [Automation Agent](./templates/agents/automation/automation-agent.json)
 - [Research Agent](./templates/agents/research/research-agent.json)
 - [Custom Agent / Make Your Own](./templates/agents/custom/custom-agent.json)
+- [One-Click Degen Mode](./templates/agents/degen-live/one-click-degen-mode.json)
+- [Fresh Pair Goblin Live](./templates/agents/degen-live/fresh-pair-goblin-live.json)
+- [Copy The Chad Live](./templates/agents/degen-live/copy-the-chad-live.json)
+- [Degen Alpha Room](./templates/agents/degen-live/degen-alpha-room.json)
+- [Live PnL Leaderboard Room](./templates/agents/degen-live/live-pnl-leaderboard-room.json)
 
 Full gallery: [Agent Templates](./docs/AGENT_TEMPLATES.md)
 

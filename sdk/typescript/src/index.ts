@@ -135,6 +135,168 @@ export type AlphaFeeInput = {
   mode: "DISPLAY_ONLY" | "ACCRUAL";
 };
 
+export type DegenAgentMode =
+  | "WATCH_ONLY"
+  | "SIGNAL_ONLY"
+  | "USER_CONFIRMED_LIVE"
+  | "CAPPED_AUTO_LIVE"
+  | "PAPER_SIM";
+
+export type DegenRiskConfig = {
+  maxTradeUsd: number;
+  maxDailySpendUsd: number;
+  maxDailyLossUsd: number;
+  maxOpenExposureUsd: number;
+  maxSlippageBps: number;
+  takeProfitBps?: number;
+  stopLossBps?: number;
+  maxTradesPerHour?: number;
+  allowedTokens?: string[];
+  blockedTokens?: string[];
+  allowedWalletsToCopy?: string[];
+  blockedWalletsToCopy?: string[];
+  requireUserConfirmAboveUsd?: number;
+  pauseOnDrawdownBps?: number;
+};
+
+export type ExecutionVenue =
+  | "JUPITER"
+  | "RAYDIUM"
+  | "PUMPFUN"
+  | "CUSTOM_WEBHOOK"
+  | "POLYMARKET"
+  | "NONE";
+
+export type TradeIntent = {
+  intentId: string;
+  agentId: string;
+  ownerWallet: string;
+  venue: ExecutionVenue;
+  inputMint?: string;
+  outputMint?: string;
+  marketId?: string;
+  side: "BUY" | "SELL" | "YES" | "NO";
+  maxInputAmountAtomic: string;
+  minOutputAmountAtomic?: string;
+  slippageBps: number;
+  mode: DegenAgentMode;
+  riskConfigHash: string;
+  requiresClientSignature: boolean;
+  status:
+    | "PROPOSED"
+    | "APPROVED"
+    | "SIGNED_CLIENT_SIDE"
+    | "SUBMITTED"
+    | "CONFIRMED"
+    | "FAILED"
+    | "REJECTED"
+    | "CANCELLED";
+  createdAt: string;
+};
+
+export type DegenSpendState = {
+  spentTodayUsd: number;
+  lossTodayUsd: number;
+  openExposureUsd: number;
+  tradesThisHour?: number;
+};
+
+export type TradeIntentDraft = Omit<TradeIntent, "intentId" | "riskConfigHash" | "requiresClientSignature" | "status" | "createdAt"> & {
+  intentId?: string;
+  riskConfig: DegenRiskConfig;
+  createdAt?: string;
+};
+
+export type DegenExecutionQuote = {
+  venue: ExecutionVenue;
+  mode: DegenAgentMode;
+  intent: TradeIntent;
+  quoted: boolean;
+  liveSubmitAvailable: boolean;
+  riskConfigHash: string;
+  receiptMetadata: {
+    agentId: string;
+    intentId: string;
+    venue: ExecutionVenue;
+    riskConfigHash: string;
+  };
+};
+
+export type DegenExecutionSubmitResult =
+  | { status: "SUBMIT_SKIPPED"; reason: "MOCK_OR_SIGNAL_ONLY" | "LIVE_GATE_REQUIRED"; intent: TradeIntent }
+  | { status: "SUBMITTED"; intent: TradeIntent; proofRequired: true };
+
+export type DegenExecutionAdapter = {
+  venue: ExecutionVenue;
+  mode: "MOCK" | "QUOTE_ONLY" | "USER_CONFIRMED_LIVE_GATED";
+  quote: (draft: TradeIntentDraft) => DegenExecutionQuote;
+  submit: (intent: TradeIntent, options?: { liveGateRef?: string; clientSigned?: boolean }) => DegenExecutionSubmitResult;
+};
+
+export type AlphaFeeTier =
+  | "STANDARD"
+  | "DEGEN_ALPHA_ROOM";
+
+export type AlphaFeeConfig = {
+  tier: AlphaFeeTier;
+  feeBps: 50 | 100 | 150 | 200 | 250 | 300 | 500 | 1000 | 1500 | 2000;
+  appliesTo: "POSITIVE_FINALIZED_COPIED_LOT_PNL";
+  explicitFollowerConsent: true;
+};
+
+export type AgentReferralLink = {
+  referralId: string;
+  agentId: string;
+  ownerWallet: string;
+  referralCode: string;
+  target:
+    | "COPY_AGENT"
+    | "JOIN_ROOM"
+    | "BUY_SIGNAL"
+    | "USE_API"
+    | "FOLLOW_PROFILE";
+  rewardMode:
+    | "FEE_SHARE"
+    | "BUILDER_FEE_SHARE"
+    | "SOURCE_FEE_SHARE"
+    | "NONE";
+  rewardBps: number;
+  createdAt: string;
+};
+
+export type AgentPnlStats = {
+  agentId: string;
+  mode: "PAPER" | "LIVE" | "MIXED";
+  realizedPnlAtomic: string;
+  unrealizedPnlAtomic: string;
+  roiBps: number;
+  winRateBps: number;
+  avgEntryPriceBps?: number;
+  avgExitPriceBps?: number;
+  tradeCount: number;
+  copiedFollowerPnlAtomic: string;
+  maxDrawdownBps: number;
+  sampleSizeBadge: "LOW_SAMPLE" | "MEDIUM_SAMPLE" | "HIGH_SAMPLE";
+  proofCount: number;
+};
+
+export type AcceptedPaymentAsset =
+  | "USDC"
+  | "SOL"
+  | "TOKEN_ALLOWLISTED";
+
+export type TokenPaymentConfig = {
+  mint: string;
+  symbol: string;
+  riskTier: "BLUE_CHIP" | "NORMAL" | "MEME" | "HIGH_RISK";
+  acceptedFor:
+    | "SIGNALS"
+    | "ROOM_ACCESS"
+    | "API_ACCESS"
+    | "COPY_FEES";
+  conversionMode: "FIXED_PRICE" | "ORACLE" | "MANUAL";
+};
+
 export type SignalSource =
   | "PARADOX_SPORTS_BETS_FEED"
   | "PARADOX_POLYMARKET_FEED"
@@ -254,7 +416,21 @@ export class DnaX402PolicyError extends Error {
     | "PARADOX_SIGNAL_FEE_REQUIRED"
     | "HIDDEN_FEE_REJECTED"
     | "GUARANTEED_PROFIT_CLAIM_REJECTED"
-    | "SIGNAL_USAGE_CAP_EXCEEDED";
+    | "SIGNAL_USAGE_CAP_EXCEEDED"
+    | "DEGEN_WALLET_REQUIRED"
+    | "DEGEN_RISK_CONFIG_REQUIRED"
+    | "DEGEN_MAX_TRADE_EXCEEDED"
+    | "DEGEN_DAILY_SPEND_EXCEEDED"
+    | "DEGEN_DAILY_LOSS_EXCEEDED"
+    | "DEGEN_OPEN_EXPOSURE_EXCEEDED"
+    | "DEGEN_SLIPPAGE_EXCEEDED"
+    | "DEGEN_BACKEND_SIGNING_FORBIDDEN"
+    | "DEGEN_BACKEND_CUSTODY_FORBIDDEN"
+    | "ALPHA_FOLLOWER_CONSENT_REQUIRED"
+    | "ALPHA_FEE_TIER_INVALID"
+    | "REFERRAL_LOSS_RAKE_FORBIDDEN"
+    | "TOKEN_PAYMENT_ALLOWLIST_REQUIRED"
+    | "FAKE_PNL_REJECTED";
 
   constructor(code: DnaX402PolicyError["code"], message: string) {
     super(message);
@@ -420,6 +596,242 @@ export function buildSignalReceiptMetadata(input: SignalReceiptMetadata): Signal
     throw new Error("Signal receipts require signalDigest and feeWaterfallHash.");
   }
   return input;
+}
+
+export function isLiveDegenMode(mode: DegenAgentMode): boolean {
+  return mode === "USER_CONFIRMED_LIVE" || mode === "CAPPED_AUTO_LIVE";
+}
+
+export function assertDegenRiskConfig(mode: DegenAgentMode, riskConfig?: Partial<DegenRiskConfig>): DegenRiskConfig {
+  if (!isLiveDegenMode(mode)) {
+    return {
+      maxTradeUsd: riskConfig?.maxTradeUsd ?? 0,
+      maxDailySpendUsd: riskConfig?.maxDailySpendUsd ?? 0,
+      maxDailyLossUsd: riskConfig?.maxDailyLossUsd ?? 0,
+      maxOpenExposureUsd: riskConfig?.maxOpenExposureUsd ?? 0,
+      maxSlippageBps: riskConfig?.maxSlippageBps ?? 0,
+      ...riskConfig,
+    };
+  }
+
+  const missing = [
+    "maxTradeUsd",
+    "maxDailySpendUsd",
+    "maxDailyLossUsd",
+    "maxOpenExposureUsd",
+    "maxSlippageBps",
+  ].filter((key) => typeof riskConfig?.[key as keyof DegenRiskConfig] !== "number");
+
+  if (missing.length > 0) {
+    throw new DnaX402PolicyError(
+      "DEGEN_RISK_CONFIG_REQUIRED",
+      `Live Degen Mode needs bankroll rules before launch: ${missing.join(", ")}.`,
+    );
+  }
+
+  return riskConfig as DegenRiskConfig;
+}
+
+export function requireWalletForDegenLive(mode: DegenAgentMode, ownerWallet?: string | null): void {
+  if (isLiveDegenMode(mode) && !ownerWallet) {
+    throw new DnaX402PolicyError(
+      "DEGEN_WALLET_REQUIRED",
+      "Connect wallet before live Degen Mode. Watch-only, signal, and paper sim can run walletless.",
+    );
+  }
+}
+
+export function assertNoDegenBackendCustodyOrSigning(input: unknown): void {
+  assertNoBackendKeyFields(input);
+  const text = JSON.stringify(input).toLowerCase();
+  if (text.includes('"backendsigning":true')) {
+    throw new DnaX402PolicyError("DEGEN_BACKEND_SIGNING_FORBIDDEN", "Degen Mode never allows backend signing.");
+  }
+  if (text.includes('"backendcustody":true')) {
+    throw new DnaX402PolicyError("DEGEN_BACKEND_CUSTODY_FORBIDDEN", "Degen Mode never allows backend custody.");
+  }
+}
+
+export function hashDegenRiskConfig(config: DegenRiskConfig): string {
+  const stable = stableStringify(config);
+  let hash = 5381;
+  for (let i = 0; i < stable.length; i += 1) {
+    hash = ((hash << 5) + hash) ^ stable.charCodeAt(i);
+  }
+  return `risk_${(hash >>> 0).toString(16).padStart(8, "0")}`;
+}
+
+export function createTradeIntent(input: TradeIntentDraft): TradeIntent {
+  assertNoDegenBackendCustodyOrSigning(input);
+  requireWalletForDegenLive(input.mode, input.ownerWallet);
+  const riskConfig = assertDegenRiskConfig(input.mode, input.riskConfig);
+  return {
+    intentId: input.intentId ?? `intent_${input.agentId}_${input.venue}`.toLowerCase().replace(/[^a-z0-9_]+/g, "_"),
+    agentId: input.agentId,
+    ownerWallet: input.ownerWallet,
+    venue: input.venue,
+    inputMint: input.inputMint,
+    outputMint: input.outputMint,
+    marketId: input.marketId,
+    side: input.side,
+    maxInputAmountAtomic: input.maxInputAmountAtomic,
+    minOutputAmountAtomic: input.minOutputAmountAtomic,
+    slippageBps: input.slippageBps,
+    mode: input.mode,
+    riskConfigHash: hashDegenRiskConfig(riskConfig),
+    requiresClientSignature: isLiveDegenMode(input.mode),
+    status: "PROPOSED",
+    createdAt: input.createdAt ?? new Date(0).toISOString(),
+  };
+}
+
+export function validateTradeIntentAgainstRisk(
+  intent: TradeIntent,
+  riskConfig: DegenRiskConfig,
+  state: DegenSpendState = { spentTodayUsd: 0, lossTodayUsd: 0, openExposureUsd: 0 },
+): true {
+  const amountUsd = Number(BigInt(intent.maxInputAmountAtomic)) / 1_000_000;
+  if (amountUsd > riskConfig.maxTradeUsd) {
+    throw new DnaX402PolicyError("DEGEN_MAX_TRADE_EXCEEDED", "Trade exceeds ape budget per intent.");
+  }
+  if (state.spentTodayUsd + amountUsd > riskConfig.maxDailySpendUsd) {
+    throw new DnaX402PolicyError("DEGEN_DAILY_SPEND_EXCEEDED", "Trade exceeds daily bankroll rule.");
+  }
+  if (state.lossTodayUsd > riskConfig.maxDailyLossUsd) {
+    throw new DnaX402PolicyError("DEGEN_DAILY_LOSS_EXCEEDED", "Kill switch is active after daily max pain.");
+  }
+  if (state.openExposureUsd + amountUsd > riskConfig.maxOpenExposureUsd) {
+    throw new DnaX402PolicyError("DEGEN_OPEN_EXPOSURE_EXCEEDED", "Trade exceeds open exposure max pain.");
+  }
+  if (intent.slippageBps > riskConfig.maxSlippageBps) {
+    throw new DnaX402PolicyError("DEGEN_SLIPPAGE_EXCEEDED", "Trade exceeds slippage bankroll rule.");
+  }
+  if (riskConfig.maxTradesPerHour !== undefined && (state.tradesThisHour ?? 0) >= riskConfig.maxTradesPerHour) {
+    throw new DnaX402PolicyError("DEGEN_RISK_CONFIG_REQUIRED", "Trade count kill switch is active for this hour.");
+  }
+  return true;
+}
+
+export function createDegenExecutionAdapter(venue: ExecutionVenue, mode: DegenExecutionAdapter["mode"] = "MOCK"): DegenExecutionAdapter {
+  return {
+    venue,
+    mode,
+    quote: (draft) => {
+      const intent = createTradeIntent({ ...draft, venue });
+      return {
+        venue,
+        mode: intent.mode,
+        intent,
+        quoted: true,
+        liveSubmitAvailable: mode === "USER_CONFIRMED_LIVE_GATED",
+        riskConfigHash: intent.riskConfigHash,
+        receiptMetadata: {
+          agentId: intent.agentId,
+          intentId: intent.intentId,
+          venue,
+          riskConfigHash: intent.riskConfigHash,
+        },
+      };
+    },
+    submit: (intent, options) => {
+      if (mode !== "USER_CONFIRMED_LIVE_GATED" || !options?.liveGateRef || !options.clientSigned) {
+        return {
+          status: "SUBMIT_SKIPPED",
+          reason: mode === "MOCK" ? "MOCK_OR_SIGNAL_ONLY" : "LIVE_GATE_REQUIRED",
+          intent: { ...intent, status: "REJECTED" },
+        };
+      }
+      return {
+        status: "SUBMITTED",
+        intent: { ...intent, status: "SUBMITTED" },
+        proofRequired: true,
+      };
+    },
+  };
+}
+
+export function validateAlphaFeeConfig(config: AlphaFeeConfig): true {
+  if (config.appliesTo !== "POSITIVE_FINALIZED_COPIED_LOT_PNL") {
+    throw new DnaX402PolicyError("ALPHA_FEE_TIER_INVALID", "Alpha fees apply only to positive finalized copied-lot PnL.");
+  }
+  if (config.explicitFollowerConsent !== true) {
+    throw new DnaX402PolicyError("ALPHA_FOLLOWER_CONSENT_REQUIRED", "Degen alpha fees require explicit follower consent.");
+  }
+  const standard = [50, 100, 150, 200, 250, 300];
+  const degen = [500, 1000, 1500, 2000];
+  if (config.tier === "STANDARD" && !standard.includes(config.feeBps)) {
+    throw new DnaX402PolicyError("ALPHA_FEE_TIER_INVALID", "STANDARD alpha fee tier is 0.5% to 3%.");
+  }
+  if (config.tier === "DEGEN_ALPHA_ROOM" && !degen.includes(config.feeBps)) {
+    throw new DnaX402PolicyError("ALPHA_FEE_TIER_INVALID", "DEGEN_ALPHA_ROOM fee tier is 5% to 20% with consent.");
+  }
+  return true;
+}
+
+export function calculateAlphaFeeAtomic(config: AlphaFeeConfig, finalizedCopiedLotPnlAtomic: string): string {
+  validateAlphaFeeConfig(config);
+  const pnl = BigInt(finalizedCopiedLotPnlAtomic);
+  if (pnl <= 0n) return "0";
+  return (pnl * BigInt(config.feeBps) / 10000n).toString();
+}
+
+export function createAgentReferralLink(input: Omit<AgentReferralLink, "referralId" | "createdAt"> & {
+  referralId?: string;
+  createdAt?: string;
+  lossRakeDefault?: boolean;
+}): AgentReferralLink {
+  if (input.lossRakeDefault) {
+    throw new DnaX402PolicyError("REFERRAL_LOSS_RAKE_FORBIDDEN", "Referral rewards cannot default to rake on follower losses.");
+  }
+  return {
+    referralId: input.referralId ?? `ref_${input.agentId}_${input.referralCode}`.toLowerCase().replace(/[^a-z0-9_]+/g, "_"),
+    agentId: input.agentId,
+    ownerWallet: input.ownerWallet,
+    referralCode: input.referralCode,
+    target: input.target,
+    rewardMode: input.rewardMode,
+    rewardBps: input.rewardBps,
+    createdAt: input.createdAt ?? new Date(0).toISOString(),
+  };
+}
+
+export function classifySampleSize(tradeCount: number): AgentPnlStats["sampleSizeBadge"] {
+  if (tradeCount < 20) return "LOW_SAMPLE";
+  if (tradeCount < 100) return "MEDIUM_SAMPLE";
+  return "HIGH_SAMPLE";
+}
+
+export function leaderboardWarnings(stats: AgentPnlStats): string[] {
+  const warnings: string[] = [];
+  if (stats.mode === "PAPER") warnings.push("PAPER_ONLY");
+  if (stats.sampleSizeBadge === "LOW_SAMPLE") warnings.push("LOW_SAMPLE_SIZE");
+  if ((stats.avgEntryPriceBps ?? 0) >= 9000) warnings.push("HIGH_AVG_ENTRY");
+  if (stats.maxDrawdownBps >= 2500) warnings.push("HIGH_DRAWDOWN");
+  return warnings;
+}
+
+export function validateTokenPaymentConfig(config: TokenPaymentConfig, allowlistedMints: string[] = []): true {
+  if (config.riskTier === "HIGH_RISK" || config.riskTier === "MEME") {
+    if (!allowlistedMints.includes(config.mint)) {
+      throw new DnaX402PolicyError("TOKEN_PAYMENT_ALLOWLIST_REQUIRED", "Meme and high-risk token payments require an explicit allowlist.");
+    }
+  }
+  return true;
+}
+
+export function assertNoFakePnlOrProfitClaims(text: string): true {
+  if (hasGuaranteedProfitClaim(text) || /\bfake\s+pnl\b/i.test(text)) {
+    throw new DnaX402PolicyError("FAKE_PNL_REJECTED", "Degen Mode cannot publish guaranteed-profit or fake-PnL claims.");
+  }
+  return true;
+}
+
+function stableStringify(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(stableStringify).join(",")}]`;
+  if (value && typeof value === "object") {
+    return `{${Object.keys(value as Record<string, unknown>).sort().map((key) => `${JSON.stringify(key)}:${stableStringify((value as Record<string, unknown>)[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
 }
 
 export class DnaX402Client {

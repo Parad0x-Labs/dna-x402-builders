@@ -1,0 +1,78 @@
+{
+  "name": "Mobile Degen Dashboard",
+  "slug": "mobile-degen-dashboard",
+  "pack": "degen-live",
+  "category": "mobile-dashboard",
+  "description": "Mobile-first dashboard for active agents, open positions, PnL, receipts, copy links, referral stats, and pause controls.",
+  "degenPitch": "All active chaos in one pocket dashboard with a big pause button.",
+  "whatItDoes": [
+    "Shows active agents, PnL, open exposure, receipts, copy links, and referral stats.",
+    "Surfaces max pain, kill switch, and pause controls.",
+    "Keeps live actions wallet-owned and client-signed."
+  ],
+  "publicBetaMode": "mobile_dashboard_for_public_beta_agents",
+  "defaultMode": "WATCH_ONLY",
+  "mode": "WATCH_ONLY",
+  "venue": "NONE",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "riskConfig": {
+    "maxTradeUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500,
+    "maxSlippageBps": 150,
+    "pauseOnDrawdownBps": 2000
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Backend wallet custody",
+    "Backend trade signing",
+    "Fake PnL panels",
+    "Hidden fee panels"
+  ],
+  "cursorPrompt": "Build a Mobile Degen Dashboard with DNA x402. Show active agents, PnL, open positions, receipts, copy links, referral stats, max pain, and pause controls. Keep all live actions client-signed.",
+  "suggestedPrompt": "Build a Mobile Degen Dashboard with DNA x402. Show active agents, PnL, open positions, receipts, copy links, referral stats, max pain, and pause controls. Keep all live actions client-signed.",
+  "exampleFlow": [
+    "User opens dashboard",
+    "Dashboard loads agent stats",
+    "User reviews receipts and risk profile",
+    "User pauses agent",
+    "User shares referral link"
+  ],
+  "exampleApiFlow": [
+    "GET /v1/agents/:id/profile",
+    "GET /v1/leaderboard",
+    "GET /v1/receipts/:receiptId",
+    "POST /v1/copy/settings/:id/pause"
+  ],
+  "receiptProofBehavior": [
+    "Receipt links paid unlocks to dashboard history.",
+    "Leaderboard panels show proof count.",
+    "No fake PnL can be imported without labels."
+  ]
+}

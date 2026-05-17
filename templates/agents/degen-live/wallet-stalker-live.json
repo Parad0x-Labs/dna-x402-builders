@@ -1,0 +1,80 @@
+{
+  "name": "Wallet Stalker Live",
+  "slug": "wallet-stalker-live",
+  "pack": "degen-live",
+  "category": "wallet-tracking",
+  "description": "Tracks selected public wallets, emits wallet-flow alerts, and can create capped user-confirmed copy intents when conditions match.",
+  "degenPitch": "Watch the wallets that move first, then decide if you want the trade.",
+  "whatItDoes": [
+    "Tracks buys, sells, rotations, and new position alerts for selected wallets.",
+    "Applies wallet allow/block lists and risk caps before any copy intent.",
+    "Keeps wallet alerts receipt-gated when sold as a paid feed."
+  ],
+  "publicBetaMode": "watch_signal_or_user_confirmed_live_intent",
+  "defaultMode": "WATCH_ONLY",
+  "mode": "WATCH_ONLY",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 75,
+    "maxDailySpendUsd": 500,
+    "maxDailyLossUsd": 100,
+    "maxOpenExposureUsd": 250
+  },
+  "riskConfig": {
+    "maxTradeUsd": 75,
+    "maxDailySpendUsd": 500,
+    "maxDailyLossUsd": 100,
+    "maxOpenExposureUsd": 250,
+    "maxSlippageBps": 150,
+    "allowedWalletsToCopy": [
+      "demo_wallet_public_key"
+    ]
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": false,
+    "copyExits": true,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Copying every wallet without allowlist",
+    "Backend custody",
+    "Backend signing",
+    "Unlimited exposure"
+  ],
+  "cursorPrompt": "Build a Wallet Stalker Live agent with DNA x402. Track public wallets, sell receipt-gated alerts, create optional user-confirmed copy intents, respect wallet allowlists and risk caps, and never backend sign.",
+  "suggestedPrompt": "Build a Wallet Stalker Live agent with DNA x402. Track public wallets, sell receipt-gated alerts, create optional user-confirmed copy intents, respect wallet allowlists and risk caps, and never backend sign.",
+  "exampleFlow": [
+    "Wallet activity detected",
+    "Agent applies allow/block wallet list",
+    "Paid alert quote is shown",
+    "Receipt unlocks alert detail",
+    "Optional trade intent waits for client signature"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/degen/intents"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds wallet alert ID.",
+    "Optional trade intent binds wallet source and riskConfigHash.",
+    "No backend-held key is involved."
+  ]
+}

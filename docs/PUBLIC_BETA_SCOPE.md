@@ -13,6 +13,9 @@ Open:
 - paid tools
 - Parad0x signal-source integrations with active license
 - metered signal resale with visible source attribution
+- Degen Mode watch, signal, paper sim, user-confirmed intent, and capped-live architecture
+- live/paper PnL leaderboards with average entry and sample-size warnings
+- referral links that share visible fees instead of defaulting to loss rake
 - low-risk capped live payments
 
 Live payment requirements:
@@ -26,6 +29,8 @@ Live payment requirements:
 - provider proof
 - DNA 0.1% treasury proof
 - receipt verification
+- user-owned wallet and client-side signing for Degen live intents
+- max pain rules for live Degen flows
 
 Historical dust-drill limits such as `0.10 USDC` per transaction or `5 USDC` per day are proof-drill limits only. They are not the normal hosted Public Beta payment ceiling.
 
@@ -38,6 +43,9 @@ Outside Public Beta scope:
 - Parad0x source fee removal
 - auto-sweep
 - unrestricted autonomous live trading
+- fake PnL
+- unmarked demo/backtest PnL
+- default referral rake on follower losses
 
 Coming after separate safety gates:
 

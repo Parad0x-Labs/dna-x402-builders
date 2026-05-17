@@ -1,0 +1,83 @@
+{
+  "name": "Demo Proven Edge Agent",
+  "slug": "demo-proven-edge-agent",
+  "pack": "degen-live",
+  "category": "demo-backtest",
+  "description": "SIMULATED demo agent with backtest-style sample trades, sample PnL, caveats, and receipt-aware paid report flows.",
+  "degenPitch": "Show the edge demo without pretending the demo is a live money printer.",
+  "whatItDoes": [
+    "Shows clearly marked SIMULATED sample trades and backtest-style performance.",
+    "Publishes strategy notes, caveats, sample size, and proof-count fields.",
+    "Sells receipt-gated demo reports without fake live PnL claims."
+  ],
+  "publicBetaMode": "simulated_demo_and_backtest_report",
+  "defaultMode": "PAPER_SIM",
+  "mode": "PAPER_SIM",
+  "venue": "NONE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "riskConfig": {
+    "maxTradeUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0,
+    "maxSlippageBps": 0
+  },
+  "demoData": {
+    "label": "SIMULATED / DEMO",
+    "sampleTrades": 42,
+    "samplePnlAtomic": "125000000",
+    "caveat": "Demo data is not live performance and does not guarantee future results."
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unmarked demo PnL",
+    "Guaranteed profit claims",
+    "Fake live receipts",
+    "Backend signing"
+  ],
+  "cursorPrompt": "Build a Demo Proven Edge Agent with DNA x402. Mark every result as SIMULATED / DEMO, show sample size and caveats, sell receipt-gated strategy reports, and reject fake live PnL or guaranteed-profit language.",
+  "suggestedPrompt": "Build a Demo Proven Edge Agent with DNA x402. Mark every result as SIMULATED / DEMO, show sample size and caveats, sell receipt-gated strategy reports, and reject fake live PnL or guaranteed-profit language.",
+  "exampleFlow": [
+    "User opens demo strategy",
+    "Dashboard shows SIMULATED label",
+    "User pays for report",
+    "Receipt unlocks backtest sample",
+    "Caveat remains visible"
+  ],
+  "exampleApiFlow": [
+    "GET /v1/agents/:id/profile",
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates demo report unlock.",
+    "Receipt does not convert demo data into live proof.",
+    "SIMULATED label must stay visible."
+  ]
+}

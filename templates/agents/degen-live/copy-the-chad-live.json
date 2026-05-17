@@ -1,0 +1,82 @@
+{
+  "name": "Copy The Chad Live",
+  "slug": "copy-the-chad-live",
+  "pack": "degen-live",
+  "category": "copy-follow",
+  "description": "Copies selected wallets or agents through follower-owned risk caps, entry filters, TP/SL, copied lots, and explicit client-side approval.",
+  "degenPitch": "Copy conviction, not bankruptcy.",
+  "whatItDoes": [
+    "Tracks selected source wallets or agents.",
+    "Creates copied lots with entry filters and follower-specific risk rules.",
+    "Applies alpha fees only when copied lots close with positive finalized PnL."
+  ],
+  "publicBetaMode": "copy_settings_with_user_confirmed_or_capped_auto_live_gate",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "mode": "CAPPED_AUTO_LIVE",
+  "venue": "JUPITER",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 50,
+    "maxDailySpendUsd": 300,
+    "maxDailyLossUsd": 75,
+    "maxOpenExposureUsd": 150
+  },
+  "riskConfig": {
+    "maxTradeUsd": 50,
+    "maxDailySpendUsd": 300,
+    "maxDailyLossUsd": 75,
+    "maxOpenExposureUsd": 150,
+    "maxSlippageBps": 120,
+    "requireUserConfirmAboveUsd": 25
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": null,
+    "alphaFeeBps": 1000,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "alphaFeeTier": "DEGEN_ALPHA_ROOM",
+  "explicitFollowerConsentRequired": true,
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unlimited copy trading",
+    "Fees on losing copied lots",
+    "Backend signing",
+    "Copying without follower caps"
+  ],
+  "cursorPrompt": "Build a Copy The Chad Live agent with DNA x402. Use 40c-60c entry filters, copied lots, client-side signing, explicit follower consent for a 10% alpha fee on positive finalized copied-lot PnL only, and no backend custody.",
+  "suggestedPrompt": "Build a Copy The Chad Live agent with DNA x402. Use 40c-60c entry filters, copied lots, client-side signing, explicit follower consent for a 10% alpha fee on positive finalized copied-lot PnL only, and no backend custody.",
+  "exampleFlow": [
+    "Follower picks source wallet",
+    "Follower sets max pain",
+    "Source action arrives",
+    "Copy filter evaluates",
+    "Copied lot opens after user approval or beta gate",
+    "Winning finalized lot accrues alpha fee"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/copy/settings",
+    "POST /v1/copy/decide",
+    "POST /v1/degen/intents",
+    "POST /v1/copy/lots/:id/finalize",
+    "GET /v1/receipts/:receiptId"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds copiedLotId, source action, and fee bps at entry.",
+    "Receipt binds alpha fee only after positive finalized copied-lot PnL.",
+    "No receipt is issued for hidden or retroactive fee changes."
+  ]
+}

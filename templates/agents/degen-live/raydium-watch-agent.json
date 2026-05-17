@@ -1,0 +1,76 @@
+{
+  "name": "Raydium Watch Agent",
+  "slug": "raydium-watch-agent",
+  "pack": "degen-live",
+  "category": "execution-adapter",
+  "description": "Raydium pool watcher and quote/mock adapter template for liquidity, volume, and pair flow alerts before gated execution work.",
+  "degenPitch": "Watch pools first. Touch live execution only after the adapter earns it.",
+  "whatItDoes": [
+    "Watches Raydium-style pool activity and liquidity changes.",
+    "Emits paid alerts and route-intent previews.",
+    "Keeps live Raydium execution mocked or gated until adapter tests exist."
+  ],
+  "publicBetaMode": "raydium_watch_quote_mock_or_gate",
+  "defaultMode": "SIGNAL_ONLY",
+  "mode": "SIGNAL_ONLY",
+  "venue": "RAYDIUM",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 100,
+    "maxDailySpendUsd": 750,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300
+  },
+  "riskConfig": {
+    "maxTradeUsd": 100,
+    "maxDailySpendUsd": 750,
+    "maxDailyLossUsd": 150,
+    "maxOpenExposureUsd": 300,
+    "maxSlippageBps": 200
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 75,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Ungated Raydium live execution",
+    "Backend signing",
+    "Unlimited slippage",
+    "Hidden route fees"
+  ],
+  "cursorPrompt": "Build a Raydium Watch Agent with DNA x402. Watch pool activity, sell receipt-gated alerts, create mock/gated route intents, and do not submit live Raydium trades without adapter gate and client signature.",
+  "suggestedPrompt": "Build a Raydium Watch Agent with DNA x402. Watch pool activity, sell receipt-gated alerts, create mock/gated route intents, and do not submit live Raydium trades without adapter gate and client signature.",
+  "exampleFlow": [
+    "Pool signal arrives",
+    "Agent checks liquidity and volume",
+    "Paid alert quote is shown",
+    "Receipt unlocks alert",
+    "Mock intent preview is generated"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/degen/quote-intent"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds pool alert digest.",
+    "Mock intent binds risk config.",
+    "No ungated live submit path is exposed."
+  ]
+}
