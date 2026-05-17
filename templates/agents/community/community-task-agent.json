@@ -1,0 +1,72 @@
+{
+  "name": "Community Task Agent",
+  "slug": "community-task-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Coordinates useful community tasks such as feedback, bug reports, tutorials, memes, notes, and research with proof review.",
+  "degenPitch": "Turn community chaos into reviewed tasks with receipts.",
+  "whatItDoes": [
+    "Publishes community tasks with clear acceptance rules.",
+    "Accepts proof submissions and review decisions.",
+    "Creates receipt trails for accepted work."
+  ],
+  "publicBetaMode": "proof_review_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 500,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Task rewards and paid submissions require proof review before receipt-bound unlock or reward flow.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Fake engagement",
+    "Mass spam",
+    "Auto-payout without review",
+    "Platform rule evasion"
+  ],
+  "cursorPrompt": "Build a Community Task Agent using DNA x402. Create tasks, collect proof URL/hash/timestamp, require human review, issue receipt after acceptance, and do not create spam automation.",
+  "suggestedPrompt": "Build a Community Task Agent using DNA x402. Create tasks, collect proof URL/hash/timestamp, require human review, issue receipt after acceptance, and do not create spam automation.",
+  "exampleFlow": [
+    "Admin posts task",
+    "Member submits proof",
+    "Reviewer checks proof",
+    "Receipt issues on acceptance",
+    "Reward or access references receipt"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/agent-builder/draft",
+    "POST /v1/proofs/review",
+    "POST /v1/quotes",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt binds accepted task proof.",
+    "Duplicate proof is rejected.",
+    "Human review is required before reward."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

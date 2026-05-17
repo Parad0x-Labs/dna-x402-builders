@@ -20,6 +20,18 @@ Add a Solana wallet later when you want paid unlocks, payouts, or live trading.
 
 - [Walletless Start](./docs/WALLETLESS_START.md)
 
+## Community Agent Pack
+
+Turn Telegram groups and Discord servers into paid agent rooms.
+
+Paid alpha rooms. Signal role gates. Research drops. Watchlists. Copy alerts. Bounty boards. Receipt-gated unlocks.
+
+Your community brings the chaos. DNA x402 brings the rail.
+
+- [Community Agents](./docs/COMMUNITY_AGENTS.md)
+- [Community templates](./templates/agents/community)
+- [Community mock/devnet example](./examples/community-agents)
+
 ## Meme Casino + Social Agent Packs
 
 Solana builders asked for the fun stuff.
@@ -59,6 +71,9 @@ Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this rep
 - Memecoin scanner feeds
 - AI inference and compute jobs
 - Telegram and Discord bot services
+- Community paid rooms
+- Signal role gates
+- Receipt-gated watchlists
 - Builder-monetized APIs
 - Receipt-gated content
 - Agent builder drafts
@@ -235,6 +250,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Webhooks](./docs/WEBHOOKS.md)
 - [Agent Builder](./docs/AGENT_BUILDER.md)
 - [Agent Templates](./docs/AGENT_TEMPLATES.md)
+- [Community Agents](./docs/COMMUNITY_AGENTS.md)
 - [Meme Casino Agents](./docs/MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
 - [Telegram Agent Launcher](./docs/TELEGRAM_AGENT_LAUNCHER.md)
@@ -257,6 +273,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Alpha Monetization](./examples/alpha-monetization-ts)
 - [Direct Split Demo](./examples/direct-split-demo-ts)
 - [Agent Templates](./examples/agent-templates)
+- [Community Agents](./examples/community-agents)
 - [Meme Casino Agents](./examples/meme-casino-agents)
 - [Social / X Agents](./examples/social-x-agents)
 - [Telegram Agent Launcher](./launchers/telegram)

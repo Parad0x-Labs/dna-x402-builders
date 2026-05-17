@@ -131,6 +131,12 @@ export const discordCommands = [
   { name: "pnl", description: "Show profile and PnL fields." },
   { name: "research", description: "Show research unlock flow." },
   { name: "bounty", description: "Show proof-reviewed bounty flow." },
+  { name: "room", description: "Show paid alpha room unlock flow." },
+  { name: "role", description: "Show signal role gate flow." },
+  { name: "watchlist", description: "Show paid watchlist unlock flow." },
+  { name: "brief", description: "Show daily market brief unlock flow." },
+  { name: "verify", description: "Show receipt or proof verification flow." },
+  { name: "unlock", description: "Show generic receipt-gated unlock flow." },
   { name: "pause", description: "Pause this local bot session." },
 ];
 
@@ -171,6 +177,18 @@ export async function handleCommand(command: string, config: DiscordLauncherConf
       return { content: "Research flow: quote the report, verify receipt, unlock full report and source trail." };
     case "bounty":
       return { content: "Bounty flow: submit proof URL/hash/timestamp, require human review, issue receipt only after acceptance." };
+    case "room":
+      return { content: "Room flow: quote access, verify receipt, unlock paid alpha room or signal lane. Walletless mock mode is available." };
+    case "role":
+      return { content: "Role flow: quote signal role access, verify receipt, grant Discord role or Telegram signal lane." };
+    case "watchlist":
+      return { content: "Watchlist flow: show free preview, quote full watchlist, verify receipt, unlock premium watchlist." };
+    case "brief":
+      return { content: "Brief flow: show daily headlines, quote full market brief, verify receipt, unlock full brief and source trail." };
+    case "verify":
+      return { content: "Verify flow: submit receipt_demo in mock mode or a real receipt ID in live payment mode before unlock." };
+    case "unlock":
+      return { content: "Unlock flow: verify receipt first, then unlock room, role, command, watchlist, research drop, or paid alert." };
     case "pause":
       return { content: "Local Discord launcher paused for this mock session. Use DNA x402 controls for production emergency pause." };
     default:
@@ -207,6 +225,12 @@ function helpText(): string {
     "/pnl",
     "/research",
     "/bounty",
+    "/room",
+    "/role",
+    "/watchlist",
+    "/brief",
+    "/verify",
+    "/unlock",
     "/pause",
   ].join("\n");
 }

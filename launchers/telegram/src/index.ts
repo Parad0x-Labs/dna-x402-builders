@@ -138,6 +138,18 @@ export async function handleCommand(input: string, config: LauncherConfig): Prom
       return { text: "Copy settings: copy buys/exits, 40c-60c entry filter, max bet, daily cap, max loss, TP/SL. Edit in your DNA x402 agent settings." };
     case "/pnl":
       return { text: "PnL profile: PAPER badge, PnL, ROI, win rate, average entry, sample size, drawdown, copied follower profit." };
+    case "/room":
+      return { text: "Room flow: quote access, verify receipt, unlock paid alpha room or signal lane. Walletless mock mode is available." };
+    case "/watchlist":
+      return { text: "Watchlist flow: show free preview, quote full watchlist, verify receipt, unlock premium watchlist." };
+    case "/brief":
+      return { text: "Brief flow: show daily headlines, quote full market brief, verify receipt, unlock full brief and source trail." };
+    case "/bounty":
+      return { text: "Bounty flow: submit proof URL/hash/timestamp, require human review, issue receipt only after acceptance." };
+    case "/verify":
+      return { text: "Verify flow: submit receipt_demo in mock mode or a real receipt ID in live payment mode before unlock." };
+    case "/unlock":
+      return { text: "Unlock flow: verify receipt first, then unlock room, command, watchlist, research drop, or paid alert." };
     case "/pause":
       return { text: "Local bot paused for this mock session. Use your DNA x402 admin controls for production emergency pause." };
     default:
@@ -173,6 +185,12 @@ function helpText(): string {
     "/alerts - alert categories",
     "/copy - copy settings",
     "/pnl - profile stats",
+    "/room - paid room access",
+    "/watchlist - paid watchlist preview/unlock",
+    "/brief - daily market brief",
+    "/bounty - proof-reviewed bounty flow",
+    "/verify - verify receipt or proof",
+    "/unlock - receipt-gated unlock",
     "/pause - pause local bot session",
   ].join("\n");
 }

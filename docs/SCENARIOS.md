@@ -24,6 +24,10 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Telegram Agent Launcher | Run an agent bot on a phone, PC, Mac, Linux, Docker, or VPS | Self-hosted token, hosted DNA x402 rail. |
 | Discord Agent Launcher | Run paid agent slash commands inside a Discord server | Self-hosted app token, local interactions endpoint, hosted DNA x402 rail. |
 | Discord alpha room | Receipt-gated signals, research drops, bounties, and copy alerts | Community-native monetization without backend custody or backend signing. |
+| Community paid room | Telegram or Discord room access after receipt verification | Walletless mock start, wallet only for real settlement. |
+| Signal role gate | Discord role or Telegram signal lane after payment | Receipt-bound access and no hidden fees. |
+| Bounty board | Proof-reviewed tasks, notes, memes, research, and bug reports | Human review before receipt/reward flow. |
+| Paid watchlist room | Daily or intraday watchlists behind receipts | Preview first, paid full list after receipt. |
 | Agent builder | Prompt/guided/template to safe agent draft | Backend rejects private keys and unsafe live autonomy. |
 | Paper trading agent | Open beta | No real money movement. |
 | Polymarket signal/copy research | Paper/signal/user-confirmed design | Unattended public live betting is not in beta scope. |
@@ -53,6 +57,7 @@ DNA x402 can sit behind:
 ## Agent Template Packs
 
 - [Agent Templates](./AGENT_TEMPLATES.md)
+- [Community Agents](./COMMUNITY_AGENTS.md)
 - [Meme Casino Agents](./MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./SOCIAL_X_AGENTS.md)
 - [Telegram Agent Launcher](./TELEGRAM_AGENT_LAUNCHER.md)

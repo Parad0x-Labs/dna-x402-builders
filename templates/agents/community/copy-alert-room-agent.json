@@ -1,0 +1,72 @@
+{
+  "name": "Copy Alert Room Agent",
+  "slug": "copy-alert-room-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Sends copy alerts into a Telegram or Discord room with entry filters, risk caps, and receipt-gated premium access.",
+  "degenPitch": "Copy alerts without pretending every ape should be automatic.",
+  "whatItDoes": [
+    "Publishes copy alerts with entry price and risk metadata.",
+    "Supports follower-controlled copy settings and caps.",
+    "Receipt-gates premium copy alert rooms."
+  ],
+  "publicBetaMode": "paper_signal_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 25,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 50,
+    "maxOpenExposureUsd": 100
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": false,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": 200,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "feeBehavior": "Alpha fee applies only to positive finalized copied-lot PnL; room access fees are visible and receipt-bound.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unrestricted auto-copy",
+    "Backend signing",
+    "Success fee on losses",
+    "Unrealized PnL fees"
+  ],
+  "cursorPrompt": "Build a Copy Alert Room Agent using DNA x402. Post copy alerts with 40c-60c entry filters, max bet and daily caps, receipt-gate the room, and apply alpha fees only on positive finalized copied-lot profit.",
+  "suggestedPrompt": "Build a Copy Alert Room Agent using DNA x402. Post copy alerts with 40c-60c entry filters, max bet and daily caps, receipt-gate the room, and apply alpha fees only on positive finalized copied-lot profit.",
+  "exampleFlow": [
+    "User joins copy alert room",
+    "Bot verifies receipt",
+    "Source alert arrives",
+    "Copy filter evaluates entry",
+    "Follower receives alert or skip reason"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/copy/settings",
+    "POST /v1/copy/decide",
+    "POST /v1/quotes",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates premium alert room.",
+    "Copied lot stores entry filters and alpha fee bps at entry.",
+    "No fee is created on losing copied lots."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

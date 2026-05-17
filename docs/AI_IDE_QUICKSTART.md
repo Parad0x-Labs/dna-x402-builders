@@ -215,3 +215,19 @@ Build a self-hosted Discord app for my agent that:
 - never signs trades in the backend
 - unlocks paid signals and research only after receipt verification
 ```
+
+## Community Agent Prompt
+
+```txt
+Use the DNA x402 Community Agent templates.
+
+Build a paid community agent that:
+- runs in Telegram and Discord
+- starts walletless in mock mode
+- supports paid rooms, watchlists, briefs, bounty review, and receipt-gated unlocks
+- shows quote and fee waterfall before paid access
+- verifies receipt before room, role, command, watchlist, research, or alert unlock
+- keeps bot tokens local
+- never stores private keys
+- never signs in the backend
+```

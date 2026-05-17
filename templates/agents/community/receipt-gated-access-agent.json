@@ -1,0 +1,72 @@
+{
+  "name": "Receipt-Gated Access Agent",
+  "slug": "receipt-gated-access-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Generic access gate for rooms, files, commands, feeds, and drops using DNA x402 receipt verification.",
+  "degenPitch": "Receipt in, access out.",
+  "whatItDoes": [
+    "Requests a receipt before access is granted.",
+    "Verifies the receipt and fee waterfall.",
+    "Unlocks the target room, command, feed, report, or file."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Every access fee is visible before payment and bound to receipt.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Hidden fees",
+    "Backend custody",
+    "Private key storage",
+    "Unrestricted live trading"
+  ],
+  "cursorPrompt": "Build a Receipt-Gated Access Agent using DNA x402. Quote access, verify receipt, unlock the room/file/command/feed, log receipt ID, and never implement backend custody or backend signing.",
+  "suggestedPrompt": "Build a Receipt-Gated Access Agent using DNA x402. Quote access, verify receipt, unlock the room/file/command/feed, log receipt ID, and never implement backend custody or backend signing.",
+  "exampleFlow": [
+    "User runs /unlock",
+    "Bot checks receipt",
+    "Receipt missing triggers quote",
+    "Receipt verified",
+    "Access unlocks"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates access.",
+    "Fee waterfall is verified before unlock.",
+    "Paid retry prevents duplicate charge."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

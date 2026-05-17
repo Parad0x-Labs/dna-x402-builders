@@ -1,0 +1,73 @@
+{
+  "name": "Research Drop Agent",
+  "slug": "research-drop-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Unlocks paid research drops, source trails, watch notes, and reports inside Telegram or Discord after receipt verification.",
+  "degenPitch": "Drop the report behind a receipt, not behind trust-me-bro screenshots.",
+  "whatItDoes": [
+    "Publishes a free preview for a research drop.",
+    "Quotes the full report unlock.",
+    "Verifies receipt before sending the full report or source trail."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Research unlock price, builder fee, and DNA 0.1% fee are visible before payment.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed outcomes",
+    "Private personal data resale",
+    "Hidden fees",
+    "Backend signing"
+  ],
+  "cursorPrompt": "Build a Research Drop Agent using DNA x402. Show a free preview, quote the full report, verify receipt, unlock the full report, and include the receipt ID in the delivery log.",
+  "suggestedPrompt": "Build a Research Drop Agent using DNA x402. Show a free preview, quote the full report, verify receipt, unlock the full report, and include the receipt ID in the delivery log.",
+  "exampleFlow": [
+    "User runs /research or /brief",
+    "Bot shows report preview",
+    "Bot returns quote for full drop",
+    "Receipt is verified",
+    "Full report unlocks"
+  ],
+  "exampleApiFlow": [
+    "GET /v1/listings?category=research",
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates full research output.",
+    "Preview can remain free.",
+    "Receipt ID is logged with delivery timestamp."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

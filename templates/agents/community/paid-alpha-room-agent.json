@@ -1,0 +1,73 @@
+{
+  "name": "Paid Alpha Room Agent",
+  "slug": "paid-alpha-room-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Creates a receipt-gated Telegram or Discord alpha room where users pay, verify a receipt, and unlock premium room access or signals.",
+  "degenPitch": "Turn the alpha room into a receipt-gated tollbooth instead of a vibes-only group chat.",
+  "whatItDoes": [
+    "Quotes paid access to a community alpha room.",
+    "Verifies receipts before granting access or posting premium signals.",
+    "Tracks unlocks with visible fee waterfalls and no backend custody."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Visible builder fee and DNA 0.1% fee are shown before room unlock and bound to the receipt.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed profit",
+    "Hidden room fees",
+    "Bot-held private keys",
+    "Unrestricted live trading"
+  ],
+  "cursorPrompt": "Build a Paid Alpha Room Agent using DNA x402. User requests access, the bot shows a quote, verifies receipt, unlocks room access or premium signal content, and never stores private keys or signs in the backend.",
+  "suggestedPrompt": "Build a Paid Alpha Room Agent using DNA x402. User requests access, the bot shows a quote, verifies receipt, unlocks room access or premium signal content, and never stores private keys or signs in the backend.",
+  "exampleFlow": [
+    "User runs /room",
+    "Bot returns DNA x402 quote",
+    "User pays through hosted rail",
+    "Bot verifies receipt",
+    "Bot unlocks room or premium signal"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/paid-retry"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates room access.",
+    "Fee waterfall is bound to the access receipt.",
+    "Paid retry avoids double charging for the same access grant."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

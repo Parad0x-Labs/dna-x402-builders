@@ -73,3 +73,17 @@ Do not store wallet private keys.
 Do not implement backend signing.
 Unlock paid signals and research only after receipt verification.
 ```
+
+## Community Agent Pack
+
+```txt
+Use templates/agents/community as the starting point.
+Build a paid community agent for Telegram and Discord.
+It should support paid alpha rooms, signal role gates, research drops, watchlists, copy alerts, bounty boards, and receipt-gated unlocks.
+Start walletless in mock mode.
+Show the fee waterfall before payment.
+Verify receipts before unlock.
+Keep bot tokens local.
+Do not store wallet private keys.
+Do not implement backend signing.
+```

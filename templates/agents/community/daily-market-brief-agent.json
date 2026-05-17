@@ -1,0 +1,72 @@
+{
+  "name": "Daily Market Brief Agent",
+  "slug": "daily-market-brief-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Publishes daily market briefs, watch notes, wallet-flow summaries, and risk highlights into Telegram or Discord.",
+  "degenPitch": "Wake up, read the paid brief, know where the chaos is.",
+  "whatItDoes": [
+    "Builds a daily market or trench brief.",
+    "Shows free headlines and receipt-gates the full brief.",
+    "Logs delivery with receipt ID and timestamp."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Brief unlock fees are visible and receipt-bound.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed prediction accuracy",
+    "Hidden sponsor fees",
+    "High-risk regulated advice",
+    "Backend custody"
+  ],
+  "cursorPrompt": "Build a Daily Market Brief Agent using DNA x402. Post free headlines, quote the full brief, verify receipt, unlock full research, and bind delivery to receipt ID.",
+  "suggestedPrompt": "Build a Daily Market Brief Agent using DNA x402. Post free headlines, quote the full brief, verify receipt, unlock full research, and bind delivery to receipt ID.",
+  "exampleFlow": [
+    "User runs /brief",
+    "Bot shows free headlines",
+    "Bot quotes full brief",
+    "Receipt verifies",
+    "Full brief unlocks"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/paid-retry"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates full brief.",
+    "Preview remains free.",
+    "Receipt ID is logged with brief delivery."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

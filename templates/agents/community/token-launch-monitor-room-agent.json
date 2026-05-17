@@ -1,0 +1,72 @@
+{
+  "name": "Token Launch Monitor Room Agent",
+  "slug": "token-launch-monitor-room-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Monitors token launches, fresh pairs, liquidity changes, creator wallets, and risk labels for a community room.",
+  "degenPitch": "Fresh-launch room with risk labels before the mob gets there.",
+  "whatItDoes": [
+    "Tracks fresh launch events and pair metadata.",
+    "Labels liquidity, holder concentration, and creator warnings.",
+    "Receipt-gates premium launch alerts."
+  ],
+  "publicBetaMode": "paper_signal_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Premium launch alerts can carry visible builder fees and receipt-bound access.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Auto-buy launch sniping",
+    "Pump coordination",
+    "Guaranteed early profit",
+    "Backend private keys"
+  ],
+  "cursorPrompt": "Build a Token Launch Monitor Room Agent using DNA x402. Watch fresh token launches, label liquidity and holder risk, send receipt-gated premium alerts, and never auto-buy or sign in the backend.",
+  "suggestedPrompt": "Build a Token Launch Monitor Room Agent using DNA x402. Watch fresh token launches, label liquidity and holder risk, send receipt-gated premium alerts, and never auto-buy or sign in the backend.",
+  "exampleFlow": [
+    "Launch event appears",
+    "Risk filters run",
+    "Free summary posts",
+    "Premium details require receipt",
+    "Paid alert unlocks"
+  ],
+  "exampleApiFlow": [
+    "GET /v1/listings?category=alerts",
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/paid-retry"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates premium alert detail.",
+    "Risk labels are shown before paid unlock.",
+    "No execution instruction is signed by backend."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

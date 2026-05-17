@@ -1,0 +1,72 @@
+{
+  "name": "Whale Alert Room Agent",
+  "slug": "whale-alert-room-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Posts receipt-gated whale wallet alerts, rotations, accumulation signals, and exit warnings into Telegram or Discord rooms.",
+  "degenPitch": "Whale flow room without pretending wallet tracking is magic.",
+  "whatItDoes": [
+    "Tracks selected public wallets and labels movements.",
+    "Groups whale events by token, wallet, and time window.",
+    "Gates premium wallet-flow alerts with receipts."
+  ],
+  "publicBetaMode": "paper_signal_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Premium wallet-flow alerts are visible and receipt-bound.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Identity doxxing",
+    "Guaranteed signal quality",
+    "Backend signing",
+    "Auto-copy without user controls"
+  ],
+  "cursorPrompt": "Build a Whale Alert Room Agent using DNA x402. Track public whale wallet movement, publish risk-labeled alerts, receipt-gate premium flow, and avoid identity claims or backend signing.",
+  "suggestedPrompt": "Build a Whale Alert Room Agent using DNA x402. Track public whale wallet movement, publish risk-labeled alerts, receipt-gate premium flow, and avoid identity claims or backend signing.",
+  "exampleFlow": [
+    "Wallet event arrives",
+    "Bot labels event",
+    "Basic alert posts",
+    "Premium detail requires receipt",
+    "Receipt unlocks wallet-flow context"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/webhooks/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates premium wallet-flow detail.",
+    "Alert event hash can be bound to receipt.",
+    "Receipt ID is logged with the room post."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

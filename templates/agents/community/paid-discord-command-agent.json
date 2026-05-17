@@ -1,0 +1,71 @@
+{
+  "name": "Paid Discord Command Agent",
+  "slug": "paid-discord-command-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Turns Discord slash commands into paid, receipt-gated agent actions using the self-hosted Discord launcher.",
+  "degenPitch": "Slash command in, receipt checked, paid answer out.",
+  "whatItDoes": [
+    "Quotes a paid Discord slash command.",
+    "Verifies receipt before returning premium command output.",
+    "Runs self-hosted with local Discord token only."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": false,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Each paid command shows the fee waterfall and verifies receipt before unlock.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Bot-held wallet private keys",
+    "Hidden command fees",
+    "Backend signing",
+    "Auto-spam commands"
+  ],
+  "cursorPrompt": "Build a Paid Discord Command Agent using DNA x402. Use launchers/discord, quote slash command output, verify receipt, unlock the result, and keep the Discord token local.",
+  "suggestedPrompt": "Build a Paid Discord Command Agent using DNA x402. Use launchers/discord, quote slash command output, verify receipt, unlock the result, and keep the Discord token local.",
+  "exampleFlow": [
+    "User runs /unlock",
+    "App creates quote",
+    "User pays",
+    "App verifies receipt",
+    "Command output unlocks"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates command output.",
+    "Receipt ID is returned with the response.",
+    "Paid retry avoids duplicate command charge."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

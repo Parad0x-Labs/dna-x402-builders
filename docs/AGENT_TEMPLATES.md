@@ -52,6 +52,28 @@ For Solana trenches, signal sellers, copy traders, meme researchers, and paid-ag
 | Dead Coin Revival Watcher | Quiet token revival activity. | [JSON](../templates/agents/meme-casino/dead-coin-revival-watcher.json) |
 | Meme Casino Dealer | Hybrid alerts, wallet tracking, paid signals, copy rules, profile, and fees. | [JSON](../templates/agents/meme-casino/meme-casino-dealer.json) |
 
+### Community Agent Pack
+
+For Telegram groups, Discord servers, paid rooms, role gates, research drops, watchlists, copy alerts, bounty boards, and receipt-gated unlocks.
+
+| Template | Use It For | Recipe |
+| --- | --- | --- |
+| Paid Alpha Room Agent | Receipt-gated alpha rooms and premium signal lanes. | [JSON](../templates/agents/community/paid-alpha-room-agent.json) |
+| Signal Role Gate Agent | Discord roles or Telegram lanes after receipt verification. | [JSON](../templates/agents/community/signal-role-gate-agent.json) |
+| Research Drop Agent | Paid research reports, source trails, and watch notes. | [JSON](../templates/agents/community/research-drop-agent.json) |
+| Copy Alert Room Agent | Copy alerts with risk caps, entry filters, and alpha fee accounting. | [JSON](../templates/agents/community/copy-alert-room-agent.json) |
+| Bounty Board Agent | Proof-reviewed tasks and community rewards. | [JSON](../templates/agents/community/bounty-board-agent.json) |
+| Paid Watchlist Room Agent | Daily or intraday watchlists behind receipts. | [JSON](../templates/agents/community/paid-watchlist-room-agent.json) |
+| Token Launch Monitor Room Agent | Fresh launch alerts with risk labels. | [JSON](../templates/agents/community/token-launch-monitor-room-agent.json) |
+| Whale Alert Room Agent | Wallet-flow rooms and premium whale alerts. | [JSON](../templates/agents/community/whale-alert-room-agent.json) |
+| Community Task Agent | Feedback, bug reports, tutorials, memes, notes, and proof review. | [JSON](../templates/agents/community/community-task-agent.json) |
+| Receipt-Gated Access Agent | Generic room, file, feed, command, and drop unlocks. | [JSON](../templates/agents/community/receipt-gated-access-agent.json) |
+| Daily Market Brief Agent | Daily market briefs with free preview and paid full output. | [JSON](../templates/agents/community/daily-market-brief-agent.json) |
+| Holder-Only Alpha Room Agent | Mock holder-gated room design before wallet proof goes live. | [JSON](../templates/agents/community/holder-only-alpha-room-agent.json) |
+| Paid Discord Command Agent | Paid slash-command outputs. | [JSON](../templates/agents/community/paid-discord-command-agent.json) |
+| Paid Telegram Command Agent | Paid Telegram command outputs. | [JSON](../templates/agents/community/paid-telegram-command-agent.json) |
+| Agent Leaderboard Bot | Public profiles, PnL, ROI, average entry, badges, and receipts. | [JSON](../templates/agents/community/agent-leaderboard-bot.json) |
+
 ### Social / X Pack
 
 For campaign rooms, proof-of-engagement, human-reviewed bounties, reply drafts, Space notes, and ambassador tasks.

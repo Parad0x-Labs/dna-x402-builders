@@ -1,0 +1,72 @@
+{
+  "name": "Signal Role Gate Agent",
+  "slug": "signal-role-gate-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Grants a Discord signal role or Telegram signal lane only after DNA x402 receipt verification.",
+  "degenPitch": "Pay, verify, get the role. No manual spreadsheet gatekeeping.",
+  "whatItDoes": [
+    "Quotes paid signal-role access.",
+    "Verifies a signed receipt before role or lane unlock.",
+    "Keeps bot tokens local and wallet keys out of the launcher."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Builder fee and DNA 0.1% fee are visible before role unlock.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Role resale guarantees",
+    "Hidden fees",
+    "Backend custody",
+    "Auto-trading from role access"
+  ],
+  "cursorPrompt": "Build a Signal Role Gate Agent using DNA x402. Quote role access, verify the receipt, grant the role or signal lane, log the receipt ID, and never store private keys or sign in the backend.",
+  "suggestedPrompt": "Build a Signal Role Gate Agent using DNA x402. Quote role access, verify the receipt, grant the role or signal lane, log the receipt ID, and never store private keys or sign in the backend.",
+  "exampleFlow": [
+    "User runs /role",
+    "Bot shows quote and fee waterfall",
+    "User pays",
+    "Bot verifies receipt",
+    "Bot grants role or signal lane"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates role access.",
+    "Receipt ID is attached to the role grant.",
+    "Paid retry prevents duplicate charges."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Paid Telegram Command Agent",
+  "slug": "paid-telegram-command-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Turns Telegram bot commands into paid, receipt-gated agent actions using the self-hosted Telegram launcher.",
+  "degenPitch": "Telegram command becomes a paid machine.",
+  "whatItDoes": [
+    "Quotes a paid Telegram command.",
+    "Verifies receipt before returning premium output.",
+    "Runs self-hosted with local BotFather token only."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": false,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Each paid command shows visible fees and verifies receipt before unlock.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Bot-held wallet private keys",
+    "Hidden command fees",
+    "Backend signing",
+    "Spam broadcasts"
+  ],
+  "cursorPrompt": "Build a Paid Telegram Command Agent using DNA x402. Use launchers/telegram, quote command output, verify receipt, unlock the result, and keep the BotFather token local.",
+  "suggestedPrompt": "Build a Paid Telegram Command Agent using DNA x402. Use launchers/telegram, quote command output, verify receipt, unlock the result, and keep the BotFather token local.",
+  "exampleFlow": [
+    "User runs /unlock",
+    "Bot creates quote",
+    "User pays",
+    "Bot verifies receipt",
+    "Command output unlocks"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates command output.",
+    "Receipt ID is returned with response.",
+    "Paid retry avoids duplicate command charge."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Agent Leaderboard Bot",
+  "slug": "agent-leaderboard-bot",
+  "pack": "community",
+  "category": "community",
+  "description": "Publishes public agent leaderboard stats, paper/live badges, sample size warnings, and receipt-linked profile updates into community rooms.",
+  "degenPitch": "PnL flex with sample-size shame and receipts.",
+  "whatItDoes": [
+    "Posts agent leaderboard snapshots.",
+    "Shows paper/live badges, PnL, ROI, average entry, drawdown, and sample size.",
+    "Links paid or verified actions back to receipts."
+  ],
+  "publicBetaMode": "walletless_start_or_public_profiles",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": false,
+    "builderFeeBps": null,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "feeBehavior": "Leaderboard display is walletless by default; paid profile boosts or premium analytics must be separate receipt-bound flows.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Fake PnL",
+    "Fake win rate",
+    "Hidden sponsored rankings",
+    "Backend custody"
+  ],
+  "cursorPrompt": "Build an Agent Leaderboard Bot using DNA x402. Post agent stats with paper/live badges, PnL, ROI, average entry, drawdown, sample size warnings, and receipt links for paid or verified actions.",
+  "suggestedPrompt": "Build an Agent Leaderboard Bot using DNA x402. Post agent stats with paper/live badges, PnL, ROI, average entry, drawdown, sample size warnings, and receipt links for paid or verified actions.",
+  "exampleFlow": [
+    "User runs /pnl",
+    "Bot fetches profile stats",
+    "Bot labels paper/live mode",
+    "Bot shows sample size warnings",
+    "Bot links verified receipts"
+  ],
+  "exampleApiFlow": [
+    "GET /v1/leaderboard",
+    "GET /v1/agents/:agentId/profile",
+    "GET /v1/receipts/:receiptId"
+  ],
+  "receiptProofBehavior": [
+    "Receipt links paid or verified actions.",
+    "Stats must show average entry and sample size.",
+    "Fake ranking boosts are outside beta scope."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

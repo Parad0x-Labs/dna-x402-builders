@@ -86,3 +86,17 @@ No backend custody.
 No backend signing.
 Paid signals, research drops, bounties, and copy alerts should require receipts or proof review before unlock.
 ```
+
+## Community Agent Prompt
+
+```txt
+Use the DNA x402 Community Agent Pack.
+Create a Telegram/Discord community monetization agent.
+It should support paid rooms, signal role gates, research drops, watchlists, copy alerts, bounty boards, daily briefs, and receipt-gated unlocks.
+Start walletless in mock mode.
+Require receipts before paid unlocks.
+Require human review for proof or bounty workflows.
+No backend custody.
+No backend signing.
+No hidden fees.
+```

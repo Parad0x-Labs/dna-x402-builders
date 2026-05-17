@@ -70,6 +70,12 @@ Walletless mock mode should boot before any wallet is connected. Real paid unloc
 - `/pnl`
 - `/research`
 - `/bounty`
+- `/room`
+- `/role`
+- `/watchlist`
+- `/brief`
+- `/verify`
+- `/unlock`
 - `/pause`
 
 ## Good Use Cases

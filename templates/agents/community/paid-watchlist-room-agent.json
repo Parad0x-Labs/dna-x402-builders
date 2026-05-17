@@ -1,0 +1,72 @@
+{
+  "name": "Paid Watchlist Room Agent",
+  "slug": "paid-watchlist-room-agent",
+  "pack": "community",
+  "category": "community",
+  "description": "Publishes receipt-gated daily or intraday watchlists for tokens, wallets, markets, or community research rooms.",
+  "degenPitch": "Sell the watchlist, not the whole server.",
+  "whatItDoes": [
+    "Builds a premium watchlist from public inputs.",
+    "Shows preview rows before paid unlock.",
+    "Verifies receipts before sending the full watchlist."
+  ],
+  "publicBetaMode": "walletless_start_or_low_risk_capped_live_payments",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "telegramSupport": true,
+  "discordSupport": true,
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "feeBehavior": "Watchlist unlock fees are visible, receipt-bound, and never hidden.",
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed winning list",
+    "Hidden shills",
+    "Backend signing",
+    "Auto-buy watchlist execution"
+  ],
+  "cursorPrompt": "Build a Paid Watchlist Room Agent using DNA x402. Show a preview, quote the full watchlist, verify receipt, unlock the full list in Telegram or Discord, and never add auto-buy behavior.",
+  "suggestedPrompt": "Build a Paid Watchlist Room Agent using DNA x402. Show a preview, quote the full watchlist, verify receipt, unlock the full list in Telegram or Discord, and never add auto-buy behavior.",
+  "exampleFlow": [
+    "User runs /watchlist",
+    "Bot shows preview",
+    "Bot quotes full watchlist",
+    "Receipt verifies",
+    "Full watchlist unlocks"
+  ],
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "receiptProofBehavior": [
+    "Receipt gates full watchlist.",
+    "Preview can remain free.",
+    "Receipt ID attaches to watchlist delivery."
+  ],
+  "mockDevnetTestPath": "npm run acceptance:community-agents"
+}

@@ -41,6 +41,24 @@ Use these JSON files as starting points for paid APIs, agents, data feeds, tools
 - [Dead Coin Revival Watcher](./meme-casino/dead-coin-revival-watcher.json)
 - [Meme Casino Dealer](./meme-casino/meme-casino-dealer.json)
 
+## Community Agent Pack
+
+- [Paid Alpha Room Agent](./community/paid-alpha-room-agent.json)
+- [Signal Role Gate Agent](./community/signal-role-gate-agent.json)
+- [Research Drop Agent](./community/research-drop-agent.json)
+- [Copy Alert Room Agent](./community/copy-alert-room-agent.json)
+- [Bounty Board Agent](./community/bounty-board-agent.json)
+- [Paid Watchlist Room Agent](./community/paid-watchlist-room-agent.json)
+- [Token Launch Monitor Room Agent](./community/token-launch-monitor-room-agent.json)
+- [Whale Alert Room Agent](./community/whale-alert-room-agent.json)
+- [Community Task Agent](./community/community-task-agent.json)
+- [Receipt-Gated Access Agent](./community/receipt-gated-access-agent.json)
+- [Daily Market Brief Agent](./community/daily-market-brief-agent.json)
+- [Holder-Only Alpha Room Agent](./community/holder-only-alpha-room-agent.json)
+- [Paid Discord Command Agent](./community/paid-discord-command-agent.json)
+- [Paid Telegram Command Agent](./community/paid-telegram-command-agent.json)
+- [Agent Leaderboard Bot](./community/agent-leaderboard-bot.json)
+
 ## Social / X Pack
 
 - [X Campaign Brief Agent](./social-x/x-campaign-brief-agent.json)
