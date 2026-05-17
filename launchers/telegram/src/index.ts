@@ -94,6 +94,7 @@ export function renderStartupSummary(config: LauncherConfig): string {
     `Agent: ${config.agentName} (${config.agentId})`,
     `Mode: ${config.mode}`,
     `DNA API: ${config.dnaApiUrl}`,
+    "Wallet: not required for mock, paper, signal, alert, or research launch",
     "Telegram token: local-only",
     "Backend custody: never",
     "Backend signing: never",
@@ -147,6 +148,9 @@ export async function handleCommand(input: string, config: LauncherConfig): Prom
 function startText(config: LauncherConfig): string {
   return [
     `Welcome to ${config.agentName}.`,
+    "",
+    "No wallet is required to start in mock, paper, signal, alert, or research mode.",
+    "Add a Solana wallet later when you want paid unlocks, payouts, or live trading.",
     "",
     "This bot is self-hosted.",
     "DNA x402 handles quote, payment proof, receipt, direct split, builder fees, and paid unlock flows through the hosted rail.",

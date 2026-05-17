@@ -4,6 +4,10 @@ Launch your agent as a Telegram bot in minutes.
 
 Turn any spare phone, laptop, desktop, VPS, or Docker host into an agent server. Telegram is the UI. DNA x402 is the money rail.
 
+No wallet is required to start.
+
+Use walletless mode for paper agents, signal bots, alert bots, research bots, mock receipts, and local/dev examples. Add a Solana wallet later when you want paid unlocks, payouts, or live trading.
+
 ## Flow
 
 1. Create or select a DNA x402 agent.
@@ -53,6 +57,8 @@ BOT_MODE=public_beta
 
 If the token is still the placeholder, the launcher starts in mock mode.
 
+Walletless mock mode should boot before any wallet is connected. Real paid unlocks should fail clearly with `WALLET_REQUIRED_FOR_PAYMENT` until a wallet is added.
+
 ## Bot Commands
 
 - `/start`
@@ -77,6 +83,8 @@ If the token is still the placeholder, the launcher starts in mock mode.
 5. Bot verifies receipt.
 6. Bot sends the paid signal/result.
 
+For real USDC settlement, the user needs a wallet. For real trading or copy/live execution, the agent needs a client-side user-owned wallet or external wallet. Backend private keys are never accepted.
+
 ## Runtime Guides
 
 - [BotFather Guide](./BOTFATHER_GUIDE.md)
@@ -85,4 +93,3 @@ If the token is still the placeholder, the launcher starts in mock mode.
 - [Run Agent On Mac](./RUN_AGENT_ON_MAC.md)
 - [Run Agent On Linux](./RUN_AGENT_ON_LINUX.md)
 - [Run Agent With Docker](./RUN_AGENT_WITH_DOCKER.md)
-

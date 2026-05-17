@@ -111,6 +111,7 @@ export function renderStartupSummary(config: DiscordLauncherConfig): string {
     `Mode: ${config.mode}`,
     `DNA API: ${config.dnaApiUrl}`,
     `Port: ${config.port}`,
+    "Wallet: not required for mock, paper, signal, alert, or research launch",
     "Discord token: local-only",
     "Backend custody: never",
     "Backend signing: never",
@@ -180,6 +181,9 @@ export async function handleCommand(command: string, config: DiscordLauncherConf
 function startText(config: DiscordLauncherConfig): string {
   return [
     `Welcome to ${config.agentName}.`,
+    "",
+    "No wallet is required to start in mock, paper, signal, alert, or research mode.",
+    "Add a Solana wallet later when you want paid unlocks, payouts, or live trading.",
     "",
     "This Discord app is self-hosted.",
     "DNA x402 handles quote, payment proof, receipt, direct split, builder fees, and paid unlock flows through the hosted rail.",

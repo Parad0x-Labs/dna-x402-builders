@@ -126,6 +126,72 @@ export type AlphaFeeInput = {
   mode: "DISPLAY_ONLY" | "ACCRUAL";
 };
 
+export type WalletlessStartFeature =
+  | "paper_agent"
+  | "signal_agent"
+  | "alert_agent"
+  | "research_agent"
+  | "data_preview_agent"
+  | "telegram_launcher"
+  | "discord_launcher"
+  | "mock_receipt"
+  | "local_dev_example";
+
+export type PaymentWalletContext = {
+  walletAddress?: string | null;
+  recipientWallet?: string | null;
+};
+
+export type AgentTradingWalletContext = {
+  agentWalletPublicKey?: string | null;
+};
+
+export class DnaX402PolicyError extends Error {
+  readonly code: "WALLET_REQUIRED_FOR_PAYMENT" | "AGENT_WALLET_REQUIRED" | "FEATURE_REQUIRES_REVIEW";
+
+  constructor(code: DnaX402PolicyError["code"], message: string) {
+    super(message);
+    this.name = "DnaX402PolicyError";
+    this.code = code;
+  }
+}
+
+export function assertWalletlessStartAllowed(feature: WalletlessStartFeature): true {
+  const allowed: WalletlessStartFeature[] = [
+    "paper_agent",
+    "signal_agent",
+    "alert_agent",
+    "research_agent",
+    "data_preview_agent",
+    "telegram_launcher",
+    "discord_launcher",
+    "mock_receipt",
+    "local_dev_example",
+  ];
+  if (!allowed.includes(feature)) {
+    throw new DnaX402PolicyError("FEATURE_REQUIRES_REVIEW", `${feature} is not available in walletless start.`);
+  }
+  return true;
+}
+
+export function requireWalletForPayment(context: PaymentWalletContext): void {
+  if (!context.walletAddress && !context.recipientWallet) {
+    throw new DnaX402PolicyError(
+      "WALLET_REQUIRED_FOR_PAYMENT",
+      "Add a Solana wallet before receiving payments, payouts, direct split funds, or real paid unlocks.",
+    );
+  }
+}
+
+export function requireAgentWalletForLiveTrading(context: AgentTradingWalletContext): void {
+  if (!context.agentWalletPublicKey) {
+    throw new DnaX402PolicyError(
+      "AGENT_WALLET_REQUIRED",
+      "Create a client-side user-owned agent wallet or connect an external wallet before real trading or live copy execution.",
+    );
+  }
+}
+
 export class DnaX402Client {
   private readonly baseUrl: string;
   private readonly fetchImpl: FetchLike;

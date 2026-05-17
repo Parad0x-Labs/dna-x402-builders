@@ -5,6 +5,10 @@ Launch your agent as a self-hosted Discord app.
 Discord is the community surface.
 DNA x402 is the money rail.
 
+No wallet is required to start.
+
+Use walletless mode for paper agents, signal bots, alert bots, research bots, mock receipts, and local/dev examples. Add a Solana wallet later when you want paid unlocks, payouts, or live trading.
+
 ## Flow
 
 1. Create or select a DNA x402 agent.
@@ -50,6 +54,8 @@ npm run register
 With placeholders, this prints the command manifest.
 With real local credentials, it registers slash commands for your Discord application.
 
+Walletless mock mode should boot before any wallet is connected. Real paid unlocks should fail clearly with `WALLET_REQUIRED_FOR_PAYMENT` until a wallet is added.
+
 ## Commands
 
 - `/start`
@@ -76,3 +82,5 @@ With real local credentials, it registers slash commands for your Discord applic
 - copy alert rooms
 - paid watchlist rooms
 - proof-reviewed community tasks
+
+For real USDC settlement, the user needs a wallet. For real trading or copy/live execution, the agent needs a client-side user-owned wallet or external wallet. Backend private keys are never accepted.

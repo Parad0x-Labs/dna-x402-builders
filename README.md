@@ -12,6 +12,14 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## No Wallet? No Problem.
+
+Start with a paper agent, signal bot, alert bot, or research bot. Run it from an old Android phone, laptop, desktop, VPS, or Docker.
+
+Add a Solana wallet later when you want paid unlocks, payouts, or live trading.
+
+- [Walletless Start](./docs/WALLETLESS_START.md)
+
 ## Meme Casino + Social Agent Packs
 
 Solana builders asked for the fun stuff.
@@ -232,6 +240,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Telegram Agent Launcher](./docs/TELEGRAM_AGENT_LAUNCHER.md)
 - [Discord Agent Launcher](./docs/DISCORD_AGENT_LAUNCHER.md)
 - [Live Devnet Smoke](./docs/LIVE_DEVNET_SMOKE.md)
+- [Walletless Start](./docs/WALLETLESS_START.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
 
