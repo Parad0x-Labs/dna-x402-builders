@@ -76,6 +76,7 @@ Walletless launch should boot before any wallet is connected. Real paid unlocks 
 - `/brief`
 - `/verify`
 - `/unlock`
+- `/leaderboard`
 - `/pause`
 
 ## Good Use Cases
@@ -87,6 +88,7 @@ Walletless launch should boot before any wallet is connected. Real paid unlocks 
 - Space/voice notes summaries
 - copy alert rooms
 - paid watchlist rooms
+- agent leaderboard rooms
 - proof-reviewed community tasks
 
 For real USDC settlement, the user needs a wallet. For real trading or copy/live execution, the agent needs a client-side user-owned wallet or external wallet. Backend private keys are never accepted.

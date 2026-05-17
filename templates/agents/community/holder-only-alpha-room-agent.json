@@ -1,10 +1,10 @@
 {
-  "name": "Holder-Only Alpha Room Agent",
+  "name": "Holder-Gated Room Agent",
   "slug": "holder-only-alpha-room-agent",
   "pack": "community",
   "category": "community",
-  "description": "Mocks holder-gated alpha room access now, with future wallet ownership proof support before live holder gating.",
-  "degenPitch": "Holder room now in mock, ownership proof later when you are ready.",
+  "description": "Designs a holder-gated alpha room with receipt-gated access now and future wallet ownership proof support before live holder gating.",
+  "degenPitch": "Holder-gated room design without asking anyone for private keys.",
   "whatItDoes": [
     "Runs holder-only access design in mock mode first.",
     "Can combine receipt verification with future wallet ownership proof.",
@@ -48,8 +48,8 @@
     "Fake holder proof",
     "Unreviewed token-gated claims"
   ],
-  "cursorPrompt": "Build a Holder-Only Alpha Room Agent using DNA x402 in mock mode first. Verify receipts for access, design future wallet ownership proof, and never request private keys.",
-  "suggestedPrompt": "Build a Holder-Only Alpha Room Agent using DNA x402 in mock mode first. Verify receipts for access, design future wallet ownership proof, and never request private keys.",
+  "cursorPrompt": "Build a Holder-Gated Room Agent using DNA x402. Verify receipts for access, design future wallet ownership proof, and never request private keys.",
+  "suggestedPrompt": "Build a Holder-Gated Room Agent using DNA x402. Verify receipts for access, design future wallet ownership proof, and never request private keys.",
   "exampleFlow": [
     "User runs /room",
     "Bot explains holder proof is mock mode",

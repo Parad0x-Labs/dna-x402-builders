@@ -19,7 +19,7 @@ Community agents are walletless to start. Builders can launch mock/paper/signal 
 | Community Task Agent | Feedback, bug reports, tutorials, memes, notes, and proof review. |
 | Receipt-Gated Access Agent | Generic room, file, feed, command, and drop unlocks. |
 | Daily Market Brief Agent | Daily market briefs with free preview and paid full output. |
-| Holder-Only Alpha Room Agent | Mock holder-gated room design before wallet proof goes live. |
+| Holder-Gated Room Agent | Receipt-gated room design with future client-side wallet ownership proof. |
 | Paid Discord Command Agent | Paid slash-command outputs. |
 | Paid Telegram Command Agent | Paid Telegram command outputs. |
 | Agent Leaderboard Bot | Public profiles, PnL, ROI, average entry, badges, and receipts. |

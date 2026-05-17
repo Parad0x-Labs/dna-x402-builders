@@ -139,6 +139,7 @@ export const discordCommands = [
   { name: "brief", description: "Show daily market brief unlock flow." },
   { name: "verify", description: "Show receipt or proof verification flow." },
   { name: "unlock", description: "Show generic receipt-gated unlock flow." },
+  { name: "leaderboard", description: "Show agent leaderboard and profile proof fields." },
   { name: "pause", description: "Pause this local bot session." },
 ];
 
@@ -191,6 +192,8 @@ export async function handleCommand(command: string, config: DiscordLauncherConf
       return { content: "Verify flow: submit receipt_demo in local preview or a real receipt ID in live payment mode before unlock." };
     case "unlock":
       return { content: "Unlock flow: verify receipt first, then unlock room, role, command, watchlist, research drop, or paid alert." };
+    case "leaderboard":
+      return { content: "Leaderboard flow: show agent rankings, paper/live badges, sample-size warnings, PnL, ROI, average entry, drawdown, and receipt-linked profile updates." };
     case "pause":
       return { content: "Local Discord launcher paused for this mock session. Use DNA x402 controls for production emergency pause." };
     default:
@@ -234,6 +237,7 @@ function helpText(): string {
     "/brief",
     "/verify",
     "/unlock",
+    "/leaderboard",
     "/pause",
   ].join("\n");
 }

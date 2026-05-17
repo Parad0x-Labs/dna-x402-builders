@@ -78,6 +78,7 @@ Walletless launch should boot before any wallet is connected. Real paid unlocks 
 - `/bounty`
 - `/verify`
 - `/unlock`
+- `/leaderboard`
 - `/pause`
 
 ## Paid Signal Flow

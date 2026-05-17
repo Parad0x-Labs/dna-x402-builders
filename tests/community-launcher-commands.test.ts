@@ -14,7 +14,7 @@ describe("community launcher commands", () => {
       [telegramTokenEnv]: "put-your-botfather-token-here",
     });
 
-    for (const command of ["/room", "/watchlist", "/brief", "/bounty", "/verify", "/unlock"]) {
+    for (const command of ["/room", "/watchlist", "/brief", "/bounty", "/verify", "/unlock", "/leaderboard"]) {
       const reply = await handleTelegramCommand(command, config);
       expect(reply.text.length).toBeGreaterThan(20);
       expect(reply.text.toLowerCase()).not.toContain("unknown command");
@@ -22,6 +22,7 @@ describe("community launcher commands", () => {
 
     expect((await handleTelegramCommand("/room", config)).text).toContain("receipt");
     expect((await handleTelegramCommand("/unlock", config)).text).toContain("unlock");
+    expect((await handleTelegramCommand("/leaderboard", config)).text).toContain("Leaderboard");
   });
 
   it("adds walletless community commands to Discord launcher", async () => {
@@ -32,7 +33,7 @@ describe("community launcher commands", () => {
       [discordTokenEnv]: "put-your-discord-bot-token-here",
     });
 
-    for (const command of ["room", "role", "watchlist", "brief", "bounty", "verify", "unlock"]) {
+    for (const command of ["room", "role", "watchlist", "brief", "bounty", "verify", "unlock", "leaderboard"]) {
       const reply = await handleDiscordCommand(command, config);
       expect(reply.content.length).toBeGreaterThan(20);
       expect(reply.content.toLowerCase()).not.toContain("unknown command");
@@ -40,5 +41,6 @@ describe("community launcher commands", () => {
 
     expect((await handleDiscordCommand("role", config)).content).toContain("role");
     expect((await handleDiscordCommand("unlock", config)).content).toContain("unlock");
+    expect((await handleDiscordCommand("leaderboard", config)).content).toContain("Leaderboard");
   });
 });

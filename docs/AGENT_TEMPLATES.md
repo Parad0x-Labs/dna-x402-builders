@@ -69,7 +69,7 @@ For Telegram groups, Discord servers, paid rooms, role gates, research drops, wa
 | Community Task Agent | Feedback, bug reports, tutorials, memes, notes, and proof review. | [JSON](../templates/agents/community/community-task-agent.json) |
 | Receipt-Gated Access Agent | Generic room, file, feed, command, and drop unlocks. | [JSON](../templates/agents/community/receipt-gated-access-agent.json) |
 | Daily Market Brief Agent | Daily market briefs with free preview and paid full output. | [JSON](../templates/agents/community/daily-market-brief-agent.json) |
-| Holder-Only Alpha Room Agent | Mock holder-gated room design before wallet proof goes live. | [JSON](../templates/agents/community/holder-only-alpha-room-agent.json) |
+| Holder-Gated Room Agent | Receipt-gated room design with future client-side wallet ownership proof. | [JSON](../templates/agents/community/holder-only-alpha-room-agent.json) |
 | Paid Discord Command Agent | Paid slash-command outputs. | [JSON](../templates/agents/community/paid-discord-command-agent.json) |
 | Paid Telegram Command Agent | Paid Telegram command outputs. | [JSON](../templates/agents/community/paid-telegram-command-agent.json) |
 | Agent Leaderboard Bot | Public profiles, PnL, ROI, average entry, badges, and receipts. | [JSON](../templates/agents/community/agent-leaderboard-bot.json) |

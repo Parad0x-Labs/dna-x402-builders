@@ -152,6 +152,8 @@ export async function handleCommand(input: string, config: LauncherConfig): Prom
       return { text: "Verify flow: submit receipt_demo in local preview or a real receipt ID in live payment mode before unlock." };
     case "/unlock":
       return { text: "Unlock flow: verify receipt first, then unlock room, command, watchlist, research drop, or paid alert." };
+    case "/leaderboard":
+      return { text: "Leaderboard flow: show agent rankings, paper/live badges, sample-size warnings, PnL, ROI, average entry, drawdown, and receipt-linked profile updates." };
     case "/pause":
       return { text: "Local bot paused for this mock session. Use your DNA x402 admin controls for production emergency pause." };
     default:
@@ -194,6 +196,7 @@ function helpText(): string {
     "/bounty - proof-reviewed bounty flow",
     "/verify - verify receipt or proof",
     "/unlock - receipt-gated unlock",
+    "/leaderboard - agent leaderboard",
     "/pause - pause local bot session",
   ].join("\n");
 }

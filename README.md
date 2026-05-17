@@ -38,7 +38,7 @@ Build first. Plug in payments later.
 
 Turn Telegram groups and Discord servers into paid agent rooms.
 
-Paid alpha rooms. Signal role gates. Research drops. Watchlists. Copy alerts. Bounty boards. Receipt-gated unlocks.
+Paid alpha rooms. Signal role gates. Research drops. Watchlists. Copy alerts. Bounty boards. Agent leaderboards. Receipt-gated unlocks.
 
 Your community brings the chaos. DNA x402 brings the rail.
 
