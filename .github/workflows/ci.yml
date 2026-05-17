@@ -1,0 +1,27 @@
+name: builder-kit-readiness
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm audit --audit-level=high
+      - run: npm run examples:buyer
+      - run: npm run examples:seller
+      - run: npm run examples:builder-fee
+      - run: npm run examples:webhook
+      - run: npm run examples:receipt
+      - run: npm run examples:agent-builder
+
