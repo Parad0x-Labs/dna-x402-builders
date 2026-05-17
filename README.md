@@ -12,18 +12,24 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
-## Parad0x Signal Feeds
+## Build On Parad0x Signals
 
-Builders can plug Parad0x live signals into their own bots, dashboards, feeds, and agents.
+Want to build a paid signal bot, dashboard, alpha room, copy alert feed, or research product?
 
-Customize the UX, sell alerts, gate dashboards, or deliver signals through Telegram/Discord. Every signal use is metered, visible, receipt-bound, and attribution-preserving.
+Use Parad0x signal feeds as the source layer.
+
+You bring the audience and UX.
+Parad0x brings the source alpha.
+DNA x402 handles quote, payment proof, receipt, fees, and unlock.
 
 ```txt
-user pays
-├─ builder / agent owner fee
-├─ Parad0x signal source fee
-└─ DNA x402 0.1% rail fee
+Source fee + builder fee + rail fee.
+Visible. Receipt-bound. Programmable.
 ```
+
+Builders can customize the experience and add their own builder fee. Parad0x signal source fees and the DNA 0.1% rail fee stay protected in the same visible fee waterfall. Receipts bind `signalId`, `signalSource`, `usageType`, the fee waterfall, and result digest when present.
+
+No free resale of Parad0x source alpha. No hidden fees. No guaranteed-profit claims.
 
 - [Parad0x Signal Feeds](./docs/PARADOX_SIGNAL_FEEDS.md)
 - [Signal Resale And Licensing](./docs/SIGNAL_RESALE_AND_LICENSING.md)

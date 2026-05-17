@@ -6,9 +6,9 @@ Builders own the audience and UX. Parad0x owns the source signal. DNA x402 owns 
 
 ```txt
 end user pays
-├─ builder / agent owner fee
-├─ Parad0x signal source fee
-└─ DNA x402 0.1% rail fee
++-- builder / agent owner fee
++-- Parad0x signal source fee
++-- DNA x402 0.1% rail fee
 ```
 
 ## Signal Sources
@@ -22,6 +22,8 @@ Supported source labels:
 - `MANUAL_USER_SIGNAL`
 
 Parad0x sources require a builder signal license before resale or paid delivery.
+
+No active license means no resale of Parad0x source alpha.
 
 ## Metered Usage Types
 
@@ -71,6 +73,8 @@ Parad0x signal receipts should bind:
 - optional `resultDigest`
 - `feeWaterfallHash`
 
+The receipt should also bind `resultDigest` when a result or settlement update is present.
+
 ## Builder UX
 
 For a prediction market or sports agent setup, show:
@@ -89,7 +93,7 @@ If a Parad0x source is selected:
 Parad0x signal source fees apply.
 Every signal use is receipt-bound.
 You can customize presentation, alerts, bot UX, and pricing.
-You cannot remove source attribution or hide fees.
+You cannot remove source attribution, remove source fees, or hide fees.
 ```
 
 ## Rules
@@ -101,6 +105,7 @@ They cannot:
 - remove Parad0x source attribution
 - remove the Parad0x source fee
 - remove the DNA 0.1% rail fee
+- free-resell Parad0x source alpha
 - hide fee lines
 - claim guaranteed profit
 - fake results or PnL

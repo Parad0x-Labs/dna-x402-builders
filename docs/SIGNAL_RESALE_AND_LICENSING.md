@@ -11,6 +11,8 @@ DNA x402 owns rail / receipt / fee flow
 Everyone gets paid
 ```
 
+This is not free resale of Parad0x source alpha. Builders can customize and monetize UX, routing, bots, rooms, and dashboards, but the Parad0x source fee and attribution stay intact.
+
 ## Builder Signal License
 
 Builder agents that use Parad0x sources should model license state like this:
@@ -47,13 +49,13 @@ When a builder sells a Parad0x-powered signal:
 
 ```txt
 buyer total
-├─ builder fee
-├─ Parad0x signal source fee
-├─ DNA platform fee
-└─ optional alpha/success fee
++-- builder fee
++-- Parad0x signal source fee
++-- DNA platform fee
++-- optional alpha/success fee
 ```
 
-Every fee line should be visible before payment and bound into the receipt.
+Every fee line should be visible before payment and bound into the receipt. Signal receipts should bind `signalId`, `signalSource`, `usageType`, `feeWaterfallHash`, and `resultDigest` when a result exists.
 
 ## Good Builder Products
 
