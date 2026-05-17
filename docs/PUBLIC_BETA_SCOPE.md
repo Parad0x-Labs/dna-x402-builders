@@ -1,6 +1,6 @@
 # Public Beta Scope
 
-Public Beta is open for builders and users to ship agent/API commerce with hard safety rails.
+Public Beta is open for builders and users to ship agent/API commerce on the hosted DNA x402 rail.
 
 Open:
 
