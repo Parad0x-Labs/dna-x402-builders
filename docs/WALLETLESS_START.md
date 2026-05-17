@@ -1,46 +1,52 @@
-# Walletless Start
+# Launch Agents Without A Wallet
 
-No wallet? No problem.
+Start walletless. Add money when money moves.
 
-You can start with a paper agent, signal bot, alert bot, research bot, data preview agent, Telegram launcher, Discord launcher, mock receipts, and local/dev examples.
+You can create and run useful agents before connecting a wallet.
 
-Wallets enter later, only when money or live execution starts.
+No wallet is needed for:
 
-## Walletless Start
+- signal bots
+- alert bots
+- research bots
+- data preview bots
+- Telegram and Discord launchers
+- community agents
+- agent prototypes
+- local examples
 
-Allowed without a wallet:
+Paper mode still exists for strategy testing, but it is not the whole story. The main flow is launch first, then add a wallet when the agent needs payments or live execution.
 
-- paper agents
-- signal agents
-- alert agents
-- research agents
-- data preview agents
-- Telegram bot launcher
-- Discord bot launcher
-- mock receipts
-- local/dev examples
+## Launch First
 
 Good first flow:
 
 1. pick an agent template
-2. run it locally in mock mode
+2. run it locally
 3. launch it as a Telegram bot or Discord app
-4. test paper/signals/alerts/research
+4. test signals, alerts, research, previews, rooms, or commands
 5. add a wallet later when you want real payments or execution
 
-## Add Wallet To Earn
+## Add Wallet When Money Moves
 
 Add a Solana wallet when you want:
 
-- receiving builder or seller payments
+- the agent to charge users
+- the agent to receive builder or seller payouts
 - direct split fee recipient setup
-- paid API/data/signal unlocks
+- paid API, data, command, room, or signal unlocks
 - real USDC settlement
 
 If a payment flow is started without a wallet, integrations should fail clearly with:
 
 ```txt
 WALLET_REQUIRED_FOR_PAYMENT
+```
+
+Message:
+
+```txt
+This agent is ready, but payments need a wallet. Connect a wallet to charge users or unlock paid flows.
 ```
 
 ## Agent Trading Wallet
@@ -61,9 +67,15 @@ If live trading starts without an agent wallet, integrations should fail clearly
 AGENT_WALLET_REQUIRED
 ```
 
+Message:
+
+```txt
+This agent can run signals and alerts without a wallet. Live trading needs a user-owned agent wallet.
+```
+
 ## Launcher Rule
 
-Telegram and Discord launchers can start walletless in mock mode.
+Telegram and Discord launchers can start walletless.
 
 Your bot token stays local.
 Your wallet can be added later.

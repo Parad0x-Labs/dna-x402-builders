@@ -107,11 +107,13 @@ export function assertNoPrivateKeyEnv(env: NodeJS.ProcessEnv): void {
 export function renderStartupSummary(config: DiscordLauncherConfig): string {
   return [
     "DNA x402 Discord Agent Launcher",
+    "Walletless mode is ready.",
     `Agent: ${config.agentName} (${config.agentId})`,
     `Mode: ${config.mode}`,
     `DNA API: ${config.dnaApiUrl}`,
     `Port: ${config.port}`,
-    "Wallet: not required for mock, paper, signal, alert, or research launch",
+    "Your bot can run signals, alerts, research, previews, and commands now.",
+    "Add a wallet when you want paid unlocks, payouts, or live trading.",
     "Discord token: local-only",
     "Backend custody: never",
     "Backend signing: never",
@@ -178,7 +180,7 @@ export async function handleCommand(command: string, config: DiscordLauncherConf
     case "bounty":
       return { content: "Bounty flow: submit proof URL/hash/timestamp, require human review, issue receipt only after acceptance." };
     case "room":
-      return { content: "Room flow: quote access, verify receipt, unlock paid alpha room or signal lane. Walletless mock mode is available." };
+      return { content: "Room flow: quote access, verify receipt, unlock paid alpha room or signal lane. Start walletless, add wallet for real paid access." };
     case "role":
       return { content: "Role flow: quote signal role access, verify receipt, grant Discord role or Telegram signal lane." };
     case "watchlist":
@@ -186,7 +188,7 @@ export async function handleCommand(command: string, config: DiscordLauncherConf
     case "brief":
       return { content: "Brief flow: show daily headlines, quote full market brief, verify receipt, unlock full brief and source trail." };
     case "verify":
-      return { content: "Verify flow: submit receipt_demo in mock mode or a real receipt ID in live payment mode before unlock." };
+      return { content: "Verify flow: submit receipt_demo in local preview or a real receipt ID in live payment mode before unlock." };
     case "unlock":
       return { content: "Unlock flow: verify receipt first, then unlock room, role, command, watchlist, research drop, or paid alert." };
     case "pause":
@@ -200,8 +202,9 @@ function startText(config: DiscordLauncherConfig): string {
   return [
     `Welcome to ${config.agentName}.`,
     "",
-    "No wallet is required to start in mock, paper, signal, alert, or research mode.",
-    "Add a Solana wallet later when you want paid unlocks, payouts, or live trading.",
+    "Walletless mode is ready.",
+    "Your app can run signals, alerts, research, previews, and commands now.",
+    "Add a wallet when you want paid unlocks, payouts, or live trading.",
     "",
     "This Discord app is self-hosted.",
     "DNA x402 handles quote, payment proof, receipt, direct split, builder fees, and paid unlock flows through the hosted rail.",
@@ -262,7 +265,7 @@ function renderQuote(quote: Awaited<ReturnType<typeof createMockQuote>>): string
 
 function verifyReceipt(receiptId?: string): string {
   if (!receiptId) return "Usage: `/receipt id:receipt_demo`";
-  if (receiptId !== "receipt_demo") return `Receipt ${receiptId} was not verified in mock mode.`;
+  if (receiptId !== "receipt_demo") return `Receipt ${receiptId} was not verified in local preview mode.`;
   return "Receipt verified: paid unlock is available.";
 }
 
@@ -316,7 +319,7 @@ export async function handleInteraction(interaction: DiscordInteraction, config:
 export async function runDiscordInteractionServer(config: DiscordLauncherConfig): Promise<void> {
   if (config.mode === "mock") {
     console.log(renderStartupSummary(config));
-    console.log(`Mock mode: set ${discordPublicKeyEnv}, ${discordApplicationIdEnv}, and ${discordTokenEnv} in .env to run a real Discord app.`);
+    console.log(`Local preview mode: set ${discordPublicKeyEnv}, ${discordApplicationIdEnv}, and ${discordTokenEnv} in .env to run a real Discord app.`);
     console.log((await handleCommand("start", config)).content);
     return;
   }

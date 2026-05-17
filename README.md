@@ -6,17 +6,31 @@ Build paid APIs, agents, tools, and data feeds on the DNA x402 hosted rail.
 
 **Status: Public Beta**
 
-DNA x402 gives builders hosted payment proof, signed receipts, direct split fees, webhooks, builder fees, paper agents, copy settings, and alpha monetization primitives through simple API calls.
+DNA x402 gives builders hosted payment proof, signed receipts, direct split fees, webhooks, builder fees, agent launch primitives, copy settings, and alpha monetization through simple API calls.
 
 Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to APIs, agents, tools, and data feeds.
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
-## No Wallet? No Problem.
+## No Wallet? Launch Anyway.
 
-Start with a paper agent, signal bot, alert bot, or research bot. Run it from an old Android phone, laptop, desktop, VPS, or Docker.
+You do not need a wallet to start building.
 
-Add a Solana wallet later when you want paid unlocks, payouts, or live trading.
+Launch a signal bot, alert bot, research bot, data bot, community bot, or agent prototype first.
+
+Run it from:
+
+- old Android phone
+- laptop
+- desktop
+- VPS
+- Docker
+- Telegram
+- Discord
+
+When the agent needs to charge users, receive payouts, or trade with real funds, add a wallet.
+
+Build first. Plug in payments later.
 
 - [Walletless Start](./docs/WALLETLESS_START.md)
 

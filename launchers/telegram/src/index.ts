@@ -91,10 +91,12 @@ export function assertNoPrivateKeyEnv(env: NodeJS.ProcessEnv): void {
 export function renderStartupSummary(config: LauncherConfig): string {
   return [
     "DNA x402 Agent Launcher",
+    "Walletless mode is ready.",
     `Agent: ${config.agentName} (${config.agentId})`,
     `Mode: ${config.mode}`,
     `DNA API: ${config.dnaApiUrl}`,
-    "Wallet: not required for mock, paper, signal, alert, or research launch",
+    "Your bot can run signals, alerts, research, previews, and commands now.",
+    "Add a wallet when you want paid unlocks, payouts, or live trading.",
     "Telegram token: local-only",
     "Backend custody: never",
     "Backend signing: never",
@@ -139,7 +141,7 @@ export async function handleCommand(input: string, config: LauncherConfig): Prom
     case "/pnl":
       return { text: "PnL profile: PAPER badge, PnL, ROI, win rate, average entry, sample size, drawdown, copied follower profit." };
     case "/room":
-      return { text: "Room flow: quote access, verify receipt, unlock paid alpha room or signal lane. Walletless mock mode is available." };
+      return { text: "Room flow: quote access, verify receipt, unlock paid alpha room or signal lane. Start walletless, add wallet for real paid access." };
     case "/watchlist":
       return { text: "Watchlist flow: show free preview, quote full watchlist, verify receipt, unlock premium watchlist." };
     case "/brief":
@@ -147,7 +149,7 @@ export async function handleCommand(input: string, config: LauncherConfig): Prom
     case "/bounty":
       return { text: "Bounty flow: submit proof URL/hash/timestamp, require human review, issue receipt only after acceptance." };
     case "/verify":
-      return { text: "Verify flow: submit receipt_demo in mock mode or a real receipt ID in live payment mode before unlock." };
+      return { text: "Verify flow: submit receipt_demo in local preview or a real receipt ID in live payment mode before unlock." };
     case "/unlock":
       return { text: "Unlock flow: verify receipt first, then unlock room, command, watchlist, research drop, or paid alert." };
     case "/pause":
@@ -161,8 +163,9 @@ function startText(config: LauncherConfig): string {
   return [
     `Welcome to ${config.agentName}.`,
     "",
-    "No wallet is required to start in mock, paper, signal, alert, or research mode.",
-    "Add a Solana wallet later when you want paid unlocks, payouts, or live trading.",
+    "Walletless mode is ready.",
+    "Your bot can run signals, alerts, research, previews, and commands now.",
+    "Add a wallet when you want paid unlocks, payouts, or live trading.",
     "",
     "This bot is self-hosted.",
     "DNA x402 handles quote, payment proof, receipt, direct split, builder fees, and paid unlock flows through the hosted rail.",
@@ -222,7 +225,7 @@ function renderQuote(quote: Awaited<ReturnType<typeof createMockQuote>>): string
 
 function verifyReceipt(receiptId?: string): string {
   if (!receiptId) return "Usage: /receipt receipt_demo";
-  if (receiptId !== "receipt_demo") return `Receipt ${receiptId} was not verified in mock mode.`;
+  if (receiptId !== "receipt_demo") return `Receipt ${receiptId} was not verified in local preview mode.`;
   return "Receipt verified: paid unlock is available.";
 }
 
@@ -258,7 +261,7 @@ async function getTelegramUpdates(token: string, offset?: number): Promise<Teleg
 export async function runTelegramPolling(config: LauncherConfig): Promise<void> {
   if (config.mode === "mock") {
     console.log(renderStartupSummary(config));
-    console.log(`Mock mode: set ${telegramTokenEnv} in .env to run a real Telegram bot.`);
+    console.log(`Local preview mode: set ${telegramTokenEnv} in .env to run a real Telegram bot.`);
     console.log(await handleCommand("/start", config).then((reply) => reply.text));
     return;
   }

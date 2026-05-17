@@ -178,7 +178,7 @@ export function requireWalletForPayment(context: PaymentWalletContext): void {
   if (!context.walletAddress && !context.recipientWallet) {
     throw new DnaX402PolicyError(
       "WALLET_REQUIRED_FOR_PAYMENT",
-      "Add a Solana wallet before receiving payments, payouts, direct split funds, or real paid unlocks.",
+      "This agent is ready, but payments need a wallet. Connect a wallet to charge users or unlock paid flows.",
     );
   }
 }
@@ -187,7 +187,7 @@ export function requireAgentWalletForLiveTrading(context: AgentTradingWalletCont
   if (!context.agentWalletPublicKey) {
     throw new DnaX402PolicyError(
       "AGENT_WALLET_REQUIRED",
-      "Create a client-side user-owned agent wallet or connect an external wallet before real trading or live copy execution.",
+      "This agent can run signals and alerts without a wallet. Live trading needs a user-owned agent wallet.",
     );
   }
 }
