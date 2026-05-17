@@ -21,6 +21,7 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | AI inference | Pay per call, token range, or job | Good for hosted tools and model APIs. |
 | Compute/render jobs | Quote by job size or metered units | Use receipt plus webhook completion. |
 | Telegram/Discord bot service | Bot calls DNA x402 quote/finalize behind commands | Bot never holds private keys. |
+| Telegram Agent Launcher | Run an agent bot on a phone, PC, Mac, Linux, Docker, or VPS | Self-hosted token, hosted DNA x402 rail. |
 | Agent builder | Prompt/guided/template to safe agent draft | Backend rejects private keys and unsafe live autonomy. |
 | Paper trading agent | Open beta | No real money movement. |
 | Polymarket signal/copy research | Paper/signal/user-confirmed design | Unattended public live betting is not in beta scope. |

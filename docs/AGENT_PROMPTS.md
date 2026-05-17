@@ -63,3 +63,14 @@ Use the DNA x402 Social/X Agent templates.
 Create a proof-reviewed campaign workflow.
 It should collect proof URLs or hashes, require timestamps, require human review, issue receipts only after proof acceptance, and reject fake engagement or auto-spam behavior.
 ```
+
+## Telegram Launcher Prompt
+
+```txt
+Use the DNA x402 Telegram Agent Launcher.
+Launch my agent as a self-hosted Telegram bot.
+The bot should use the hosted DNA x402 API for quote, payment proof, receipt verification, direct split, builder fees, and paid unlocks.
+The bot token stays local.
+No backend custody.
+No backend signing.
+```

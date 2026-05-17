@@ -184,3 +184,18 @@ It should:
 - never spam
 - never use fake accounts
 ```
+
+## Telegram Agent Launcher Prompt
+
+```txt
+Use the DNA x402 Telegram Agent Launcher.
+
+Build a self-hosted Telegram bot for my agent that:
+- runs on my device or VPS
+- uses DNA_X402_API_URL
+- supports /start, /quote, /receipt, /signal, /alerts, /copy, /pnl
+- keeps TELEGRAM_BOT_TOKEN local in .env
+- never stores wallet private keys
+- never signs trades in the backend
+- unlocks paid signals only after receipt verification
+```

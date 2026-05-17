@@ -22,6 +22,7 @@
     "examples:meme-casino": "tsx examples/meme-casino-agents/src/index.ts",
     "examples:social-x": "tsx examples/social-x-agents/src/index.ts",
     "acceptance:templates:devnet": "vitest run tests/template-devnet-acceptance.test.ts",
+    "acceptance:telegram-launcher": "vitest run tests/telegram-launcher.test.ts",
     "examples:all": "npm run examples:buyer && npm run examples:seller && npm run examples:builder-fee && npm run examples:webhook && npm run examples:receipt && npm run examples:agent-builder && npm run examples:paper-agent && npm run examples:copy-settings && npm run examples:alpha && npm run examples:direct-split && npm run examples:templates && npm run examples:meme-casino && npm run examples:social-x"
   },
   "keywords": [

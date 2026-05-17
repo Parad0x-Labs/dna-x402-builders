@@ -81,6 +81,20 @@ Human-approved. Receipt-gated. No fake engagement. No backend custody.
 - [Template folder](./templates/agents/social-x)
 - [Mock proof-review example](./examples/social-x-agents)
 
+## Launch Your Agent As A Telegram Bot
+
+Have an old phone, laptop, VPS, or desktop?
+
+Turn it into an agent server.
+
+Create an agent, make a Telegram bot with BotFather, paste the token into your local launcher, and your agent can start serving signals, alerts, paid results, receipts, and copy settings through Telegram.
+
+Your device runs the bot. DNA x402 handles quote, payment proof, receipt, direct split, builder fees, and unlock flows.
+
+- [Telegram Agent Launcher](./docs/TELEGRAM_AGENT_LAUNCHER.md)
+- [BotFather Guide](./docs/BOTFATHER_GUIDE.md)
+- [Launcher package](./launchers/telegram)
+
 ## 5-Minute Quickstart
 
 ```bash
@@ -172,6 +186,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Agent Templates](./docs/AGENT_TEMPLATES.md)
 - [Meme Casino Agents](./docs/MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
+- [Telegram Agent Launcher](./docs/TELEGRAM_AGENT_LAUNCHER.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
 

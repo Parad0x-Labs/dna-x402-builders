@@ -49,3 +49,14 @@ Build a Fresh Pair Goblin agent that watches new Solana token pairs, filters by 
 Use the DNA x402 Social/X templates.
 Build an X Campaign Room agent that creates campaign briefs, accepts proof URLs or hashes, requires human review, issues receipts only after proof acceptance, and never auto-posts or spams.
 ```
+
+## Telegram Agent Launcher
+
+```txt
+Use launchers/telegram as the starting point.
+Create a self-hosted Telegram bot for my DNA x402 agent.
+The bot should support /start, /quote, /receipt, /signal, /alerts, /copy, and /pnl.
+Keep TELEGRAM_BOT_TOKEN in local .env only.
+Do not store wallet private keys.
+Do not implement backend signing.
+```
