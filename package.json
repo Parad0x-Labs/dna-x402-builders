@@ -18,7 +18,8 @@
     "examples:copy-settings": "tsx examples/copy-settings-ts/src/index.ts",
     "examples:alpha": "tsx examples/alpha-monetization-ts/src/index.ts",
     "examples:direct-split": "tsx examples/direct-split-demo-ts/src/index.ts",
-    "examples:all": "npm run examples:buyer && npm run examples:seller && npm run examples:builder-fee && npm run examples:webhook && npm run examples:receipt && npm run examples:agent-builder && npm run examples:paper-agent && npm run examples:copy-settings && npm run examples:alpha && npm run examples:direct-split"
+    "examples:templates": "tsx examples/agent-templates/src/index.ts",
+    "examples:all": "npm run examples:buyer && npm run examples:seller && npm run examples:builder-fee && npm run examples:webhook && npm run examples:receipt && npm run examples:agent-builder && npm run examples:paper-agent && npm run examples:copy-settings && npm run examples:alpha && npm run examples:direct-split && npm run examples:templates"
   },
   "keywords": [
     "x402",

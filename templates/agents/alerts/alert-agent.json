@@ -1,0 +1,41 @@
+{
+  "name": "Alert Agent",
+  "slug": "alert-agent",
+  "category": "alerts",
+  "description": "Create a paid alert bot for Telegram, Discord, webhooks, email, or dashboards.",
+  "whatItDoes": [
+    "Monitors prices, wallets, markets, launches, websites, or data conditions.",
+    "Sends receipt-gated alerts to subscribers.",
+    "Uses webhooks and receipts to prove access."
+  ],
+  "publicBetaMode": "low_risk_capped_live_payments",
+  "riskLimits": {
+    "maxTxUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "monetization": {
+    "builderFeeBps": 50,
+    "mode": "display_or_accrual",
+    "appliesTo": "paid_alert_access"
+  },
+  "receiptProofBehavior": [
+    "Receipt verifies subscription or per-alert payment.",
+    "Webhook signature verifies alert events.",
+    "Paid retry avoids duplicate charge for the same alert payload."
+  ],
+  "suggestedPrompt": "Create a paid Telegram or Discord alert agent using DNA x402. Gate premium alerts behind signed receipts, verify webhooks, show the fee waterfall, and keep bot tokens in local env only.",
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/webhooks/verify"
+  ],
+  "notInBetaScope": [
+    "Publishing private credentials",
+    "Spam automation",
+    "Backend custody",
+    "Hidden fees"
+  ]
+}

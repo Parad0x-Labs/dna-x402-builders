@@ -41,6 +41,24 @@ Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this rep
 - Copy settings
 - Alpha monetization accounting
 
+## Start From An Agent Template
+
+Pick a recipe, hand it to Cursor or another coding agent, and ship faster.
+
+- [Prediction Market Agent](./templates/agents/prediction-market/prediction-market-agent.json)
+- [Solana Trading Agent](./templates/agents/solana-trading/solana-trading-agent.json)
+- [Copy / Follow Agent](./templates/agents/copy-follow/copy-follow-agent.json)
+- [Paid API Agent](./templates/agents/paid-api/paid-api-agent.json)
+- [Data Feed Agent](./templates/agents/data-feed/data-feed-agent.json)
+- [Tool Agent](./templates/agents/tool/tool-agent.json)
+- [Compute Agent](./templates/agents/compute/compute-agent.json)
+- [Alert Agent](./templates/agents/alerts/alert-agent.json)
+- [Automation Agent](./templates/agents/automation/automation-agent.json)
+- [Research Agent](./templates/agents/research/research-agent.json)
+- [Custom Agent / Make Your Own](./templates/agents/custom/custom-agent.json)
+
+Full gallery: [Agent Templates](./docs/AGENT_TEMPLATES.md)
+
 ## 5-Minute Quickstart
 
 ```bash
@@ -129,6 +147,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Receipts](./docs/RECEIPTS.md)
 - [Webhooks](./docs/WEBHOOKS.md)
 - [Agent Builder](./docs/AGENT_BUILDER.md)
+- [Agent Templates](./docs/AGENT_TEMPLATES.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
 
@@ -144,6 +163,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Copy Settings](./examples/copy-settings-ts)
 - [Alpha Monetization](./examples/alpha-monetization-ts)
 - [Direct Split Demo](./examples/direct-split-demo-ts)
+- [Agent Templates](./examples/agent-templates)
 
 ## Public Beta Scope
 

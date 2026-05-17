@@ -1,0 +1,41 @@
+{
+  "name": "Tool Agent",
+  "slug": "tool-agent",
+  "category": "tool",
+  "description": "Wrap a paid tool, MCP server action, or bot command with DNA x402 receipt verification.",
+  "whatItDoes": [
+    "Quotes a paid tool call before execution.",
+    "Verifies receipt before running the expensive or premium action.",
+    "Returns a receipt ID with the tool result."
+  ],
+  "publicBetaMode": "low_risk_capped_live_payments",
+  "riskLimits": {
+    "maxTxUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "monetization": {
+    "builderFeeBps": 50,
+    "mode": "display_or_accrual",
+    "appliesTo": "paid_tool_execution"
+  },
+  "receiptProofBehavior": [
+    "Tool execution starts only after receipt verification.",
+    "Paid retry is idempotent.",
+    "Webhook delivery can update external systems after unlock."
+  ],
+  "suggestedPrompt": "Create a paid MCP tool using DNA x402. Before executing the tool, request a quote, commit, finalize payment, verify the signed receipt, and return the tool result with the receipt ID. Do not add backend custody or backend signing.",
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
+  "notInBetaScope": [
+    "Tools that move user funds without client-side signing",
+    "High-risk categories",
+    "Backend private keys",
+    "Hidden fees"
+  ]
+}

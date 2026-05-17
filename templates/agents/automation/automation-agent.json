@@ -1,0 +1,41 @@
+{
+  "name": "Automation Agent",
+  "slug": "automation-agent",
+  "category": "automation",
+  "description": "Build paid automation jobs for monitoring, reports, workflow triggers, and agent-to-agent tasks.",
+  "whatItDoes": [
+    "Accepts paid automation requests.",
+    "Verifies receipts before executing tasks.",
+    "Returns task state, audit data, and receipt IDs."
+  ],
+  "publicBetaMode": "low_risk_capped_live_payments",
+  "riskLimits": {
+    "maxTxUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "monetization": {
+    "builderFeeBps": 50,
+    "mode": "display_or_accrual",
+    "appliesTo": "paid_automation_run"
+  },
+  "receiptProofBehavior": [
+    "Receipt gates automation execution.",
+    "Task retry uses the paid retry path.",
+    "Webhook events can notify the requester after completion."
+  ],
+  "suggestedPrompt": "Build a paid automation agent using DNA x402. Quote each automation run, verify receipt before execution, return a receipt ID, and keep the example mock-only by default.",
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/paid-retry"
+  ],
+  "notInBetaScope": [
+    "Unattended fund movement",
+    "Backend signing",
+    "Auto-sweep",
+    "High-risk categories"
+  ]
+}

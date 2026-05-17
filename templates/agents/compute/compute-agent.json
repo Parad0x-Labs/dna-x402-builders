@@ -1,0 +1,41 @@
+{
+  "name": "Compute Agent",
+  "slug": "compute-agent",
+  "category": "compute",
+  "description": "Sell inference, analysis, scraping, simulation, or compute jobs through receipt-gated execution.",
+  "whatItDoes": [
+    "Quotes a compute job before queueing.",
+    "Runs the job after receipt verification.",
+    "Returns job status, output URL, and receipt ID."
+  ],
+  "publicBetaMode": "low_risk_capped_live_payments",
+  "riskLimits": {
+    "maxTxUsd": 200,
+    "maxDailySpendUsd": 1500,
+    "maxDailyLossUsd": 300,
+    "maxOpenExposureUsd": 500
+  },
+  "monetization": {
+    "builderFeeBps": 100,
+    "mode": "display_or_accrual",
+    "appliesTo": "paid_compute_job"
+  },
+  "receiptProofBehavior": [
+    "Receipt gates queue admission.",
+    "Receipt ID follows the job through status and result endpoints.",
+    "Paid retry returns the existing job instead of double-charging."
+  ],
+  "suggestedPrompt": "Build a paid compute job endpoint using DNA x402. Quote the job, commit, finalize payment, verify the receipt, enqueue the job, and return job status plus receipt ID. Keep secrets out of the repo and default to mock execution.",
+  "exampleApiFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/paid-retry"
+  ],
+  "notInBetaScope": [
+    "Unsafe scraping targets",
+    "Private credential handling",
+    "Backend signing",
+    "Hidden fees"
+  ]
+}

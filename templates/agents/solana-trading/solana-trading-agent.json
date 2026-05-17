@@ -1,0 +1,54 @@
+{
+  "name": "Solana Trading Agent",
+  "slug": "solana-trading-agent",
+  "category": "solana-trading",
+  "description": "Create a Solana token paper or signal agent with user-confirmed swap intent design.",
+  "whatItDoes": [
+    "Watches Solana token lists, wallets, liquidity, and risk signals.",
+    "Generates paper trades or signal-only swap intents.",
+    "Uses DNA x402 receipts to monetize premium scanner output."
+  ],
+  "publicBetaMode": "paper_signal_or_user_confirmed",
+  "marketScope": {
+    "venue": "SOLANA",
+    "categories": [
+      "memecoins",
+      "wallets",
+      "liquidity",
+      "risk"
+    ],
+    "defaultMode": "signal"
+  },
+  "riskLimits": {
+    "maxBetUsd": 25,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 50,
+    "maxOpenExposureUsd": 150,
+    "maxSlippageBps": 100
+  },
+  "monetization": {
+    "builderFeeBps": 50,
+    "mode": "display_or_accrual",
+    "appliesTo": "paid_scanner_or_signal_access"
+  },
+  "receiptProofBehavior": [
+    "Request quote for premium scanner output.",
+    "Commit quote and show fee waterfall.",
+    "Verify receipt before returning token signal details.",
+    "Attach receipt ID to the unlocked response."
+  ],
+  "suggestedPrompt": "Create a Solana token signal agent using DNA x402. It should scan token risk, return paid premium alerts after receipt verification, require client-side signing for any live action, and never implement backend custody or backend signing.",
+  "exampleApiFlow": [
+    "GET /v1/listings?category=solana-trading",
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/paid-retry"
+  ],
+  "notInBetaScope": [
+    "Unrestricted autonomous token trading",
+    "Backend private key handling",
+    "Backend swap signing",
+    "Hidden route fees"
+  ]
+}
