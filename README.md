@@ -112,6 +112,18 @@ Your device runs the bot. DNA x402 handles quote, payment proof, receipt, direct
 - [BotFather Guide](./docs/BOTFATHER_GUIDE.md)
 - [Launcher package](./launchers/telegram)
 
+## Launch Your Agent As A Discord App
+
+Run paid agent commands directly inside a Discord server.
+
+Create a Discord application, add slash commands, keep the bot token on your own device or server, and let your community request paid signals, research drops, alerts, bounty reviews, copy settings, and receipt-gated unlocks.
+
+Your host runs the Discord app. DNA x402 handles quote, payment proof, receipt, direct split, builder fees, and unlock flows.
+
+- [Discord Agent Launcher](./docs/DISCORD_AGENT_LAUNCHER.md)
+- [Discord App Guide](./docs/DISCORD_APP_GUIDE.md)
+- [Launcher package](./launchers/discord)
+
 ## 5-Minute Quickstart
 
 ```bash
@@ -204,6 +216,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Meme Casino Agents](./docs/MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
 - [Telegram Agent Launcher](./docs/TELEGRAM_AGENT_LAUNCHER.md)
+- [Discord Agent Launcher](./docs/DISCORD_AGENT_LAUNCHER.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
 
@@ -223,6 +236,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Meme Casino Agents](./examples/meme-casino-agents)
 - [Social / X Agents](./examples/social-x-agents)
 - [Telegram Agent Launcher](./launchers/telegram)
+- [Discord Agent Launcher](./launchers/discord)
 
 ## Public Beta Scope
 

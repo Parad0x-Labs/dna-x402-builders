@@ -22,6 +22,8 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Compute/render jobs | Quote by job size or metered units | Use receipt plus webhook completion. |
 | Telegram/Discord bot service | Bot calls DNA x402 quote/finalize behind commands | Bot never holds private keys. |
 | Telegram Agent Launcher | Run an agent bot on a phone, PC, Mac, Linux, Docker, or VPS | Self-hosted token, hosted DNA x402 rail. |
+| Discord Agent Launcher | Run paid agent slash commands inside a Discord server | Self-hosted app token, local interactions endpoint, hosted DNA x402 rail. |
+| Discord alpha room | Receipt-gated signals, research drops, bounties, and copy alerts | Community-native monetization without backend custody or backend signing. |
 | Agent builder | Prompt/guided/template to safe agent draft | Backend rejects private keys and unsafe live autonomy. |
 | Paper trading agent | Open beta | No real money movement. |
 | Polymarket signal/copy research | Paper/signal/user-confirmed design | Unattended public live betting is not in beta scope. |
@@ -52,6 +54,8 @@ DNA x402 can sit behind:
 - [Agent Templates](./AGENT_TEMPLATES.md)
 - [Meme Casino Agents](./MEME_CASINO_AGENTS.md)
 - [Social / X Agents](./SOCIAL_X_AGENTS.md)
+- [Telegram Agent Launcher](./TELEGRAM_AGENT_LAUNCHER.md)
+- [Discord Agent Launcher](./DISCORD_AGENT_LAUNCHER.md)
 
 ## Hard Boundaries
 

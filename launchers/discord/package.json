@@ -1,0 +1,19 @@
+{
+  "name": "dna-x402-discord-launcher",
+  "version": "0.1.0-public-beta",
+  "description": "Self-hosted Discord app launcher for DNA x402 agents.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "mock": "tsx src/index.ts",
+    "register": "tsx src/register-commands.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "license": "MIT"
+}

@@ -74,3 +74,15 @@ The bot token stays local.
 No backend custody.
 No backend signing.
 ```
+
+## Discord Launcher Prompt
+
+```txt
+Use the DNA x402 Discord Agent Launcher.
+Launch my agent as a self-hosted Discord app with slash commands.
+The app should use the hosted DNA x402 API for quote, payment proof, receipt verification, direct split, builder fees, and paid unlocks.
+The Discord token stays local.
+No backend custody.
+No backend signing.
+Paid signals, research drops, bounties, and copy alerts should require receipts or proof review before unlock.
+```

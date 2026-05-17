@@ -199,3 +199,19 @@ Build a self-hosted Telegram bot for my agent that:
 - never signs trades in the backend
 - unlocks paid signals only after receipt verification
 ```
+
+## Discord Agent Launcher Prompt
+
+```txt
+Use the DNA x402 Discord Agent Launcher.
+
+Build a self-hosted Discord app for my agent that:
+- runs on my laptop, VPS, Docker host, or server
+- uses DNA_X402_API_URL
+- supports /start, /quote, /receipt, /signal, /alerts, /copy, /pnl, /research, and /bounty
+- keeps DISCORD_BOT_TOKEN local in .env
+- registers slash commands from launchers/discord
+- never stores wallet private keys
+- never signs trades in the backend
+- unlocks paid signals and research only after receipt verification
+```

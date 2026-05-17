@@ -60,3 +60,16 @@ Keep TELEGRAM_BOT_TOKEN in local .env only.
 Do not store wallet private keys.
 Do not implement backend signing.
 ```
+
+## Discord Agent Launcher
+
+```txt
+Use launchers/discord as the starting point.
+Create a self-hosted Discord app for my DNA x402 agent.
+The app should support /start, /quote, /receipt, /signal, /alerts, /copy, /pnl, /research, and /bounty.
+Keep DISCORD_BOT_TOKEN in local .env only.
+Register slash commands from launchers/discord/src/register-commands.ts.
+Do not store wallet private keys.
+Do not implement backend signing.
+Unlock paid signals and research only after receipt verification.
+```
