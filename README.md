@@ -59,6 +59,28 @@ Pick a recipe, hand it to Cursor or another coding agent, and ship faster.
 
 Full gallery: [Agent Templates](./docs/AGENT_TEMPLATES.md)
 
+## Meme Casino Agent Pack
+
+Solana builders asked for the fun stuff.
+
+Use the Meme Casino Agent Pack to build wallet stalkers, fresh pair scouts, rug radar, copy agents, paper ape labs, paid signal bots, alpha fee agents, and custom degen machines.
+
+Pick it. Fork it. Prompt it. Ship it. Get paid.
+
+- [Meme Casino Agents](./docs/MEME_CASINO_AGENTS.md)
+- [Template folder](./templates/agents/meme-casino)
+- [Mock/devnet example](./examples/meme-casino-agents)
+
+## Social / X Agent Pack
+
+Build campaign rooms, proof-of-engagement flows, reply draft agents, bounty tollbooths, Space notes agents, and ambassador task workflows.
+
+Human-approved. Receipt-gated. No fake engagement. No backend custody.
+
+- [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
+- [Template folder](./templates/agents/social-x)
+- [Mock proof-review example](./examples/social-x-agents)
+
 ## 5-Minute Quickstart
 
 ```bash
@@ -148,6 +170,8 @@ Finalize requires the required proofs before a receipt is issued:
 - [Webhooks](./docs/WEBHOOKS.md)
 - [Agent Builder](./docs/AGENT_BUILDER.md)
 - [Agent Templates](./docs/AGENT_TEMPLATES.md)
+- [Meme Casino Agents](./docs/MEME_CASINO_AGENTS.md)
+- [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
 
@@ -164,6 +188,8 @@ Finalize requires the required proofs before a receipt is issued:
 - [Alpha Monetization](./examples/alpha-monetization-ts)
 - [Direct Split Demo](./examples/direct-split-demo-ts)
 - [Agent Templates](./examples/agent-templates)
+- [Meme Casino Agents](./examples/meme-casino-agents)
+- [Social / X Agents](./examples/social-x-agents)
 
 ## Public Beta Scope
 

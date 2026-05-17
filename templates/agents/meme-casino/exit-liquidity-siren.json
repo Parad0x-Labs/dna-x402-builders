@@ -1,0 +1,74 @@
+{
+  "name": "Exit Liquidity Siren",
+  "slug": "exit-liquidity-siren",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Alerts when a watched position starts showing liquidity drops, sell pressure, whale exits, volume collapse, or drawdown triggers.",
+  "degenPitch": "The siren for when the party starts smelling like exit liquidity.",
+  "whatItDoes": [
+    "Monitors liquidity drops, sell pressure spikes, whale exits, and drawdowns.",
+    "Emits user-confirmed exit intents or paid alerts.",
+    "Never executes exits from the backend."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 25,
+    "maxDailySpendUsd": 250,
+    "maxDailyLossUsd": 50,
+    "maxOpenExposureUsd": 150
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Backend sell execution",
+    "Guaranteed loss prevention",
+    "Auto-sweep",
+    "Hidden fees"
+  ],
+  "cursorPrompt": "Build an Exit Liquidity Siren using DNA x402. Watch liquidity drops, sell pressure, whale exits, volume collapse, and drawdown thresholds. Return signal-only or user-confirmed exit intents and require receipt verification for premium alerts.",
+  "suggestedPrompt": "Build an Exit Liquidity Siren using DNA x402. Watch liquidity drops, sell pressure, whale exits, volume collapse, and drawdown thresholds. Return signal-only or user-confirmed exit intents and require receipt verification for premium alerts.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

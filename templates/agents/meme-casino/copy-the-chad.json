@@ -1,0 +1,74 @@
+{
+  "name": "Copy The Chad",
+  "slug": "copy-the-chad",
+  "pack": "meme-casino",
+  "category": "copy-follow",
+  "description": "Copy/follow template with buys, sells, exits, entry filters, bet caps, daily caps, max loss, TP/SL, and approval thresholds.",
+  "degenPitch": "Copy the setup with guardrails, not the whole personality disorder.",
+  "whatItDoes": [
+    "Creates follower-controlled copy settings.",
+    "Stores copied lots and risk controls.",
+    "Applies alpha fees only on winning finalized copied lots."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 5,
+    "maxDailySpendUsd": 50,
+    "maxDailyLossUsd": 25,
+    "maxOpenExposureUsd": 50
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": null,
+    "alphaFeeBps": 200,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unlimited auto-copy",
+    "Fees on losses",
+    "Backend signing",
+    "Copying without caps"
+  ],
+  "cursorPrompt": "Build a Copy The Chad agent from the DNA x402 template. Copy buys, sells, and exits only within follower risk caps, default to paper mode, create copied lots, and apply alpha fees only on positive finalized copied-lot profit.",
+  "suggestedPrompt": "Build a Copy The Chad agent from the DNA x402 template. Copy buys, sells, and exits only within follower risk caps, default to paper mode, create copied lots, and apply alpha fees only on positive finalized copied-lot profit.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

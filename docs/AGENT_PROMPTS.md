@@ -47,3 +47,19 @@ Find requiredForFinalize lines.
 Submit splitPaymentProofs for provider and DNA platform fee.
 Reject unlock if any required proof is missing or receipt verification fails.
 ```
+
+## Meme Casino Pack Prompt
+
+```txt
+Use the DNA x402 Meme Casino Agent templates.
+Create a paid signal agent for Solana trenches.
+It should run in signal or paper mode by default, use receipt-gated alerts, show the fee waterfall, and never store private keys or sign in the backend.
+```
+
+## Social Proof Pack Prompt
+
+```txt
+Use the DNA x402 Social/X Agent templates.
+Create a proof-reviewed campaign workflow.
+It should collect proof URLs or hashes, require timestamps, require human review, issue receipts only after proof acceptance, and reject fake engagement or auto-spam behavior.
+```

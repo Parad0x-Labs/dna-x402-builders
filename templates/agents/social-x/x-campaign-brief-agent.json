@@ -1,0 +1,82 @@
+{
+  "name": "X Campaign Brief Agent",
+  "slug": "x-campaign-brief-agent",
+  "pack": "social-x",
+  "category": "social-x",
+  "description": "Creates campaign goals, target URLs, allowed actions, reward budgets, proof requirements, and prohibited behavior.",
+  "degenPitch": "Turn a messy creator idea into a clean campaign brief with rules.",
+  "whatItDoes": [
+    "Creates compliant campaign or proof-review workflow.",
+    "Requires human approval and platform-rule compliance.",
+    "Uses receipt-gated rewards after proof review."
+  ],
+  "publicBetaMode": "proof_review",
+  "defaultMode": "PROOF_REVIEW",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "safety": {
+    "noFakeEngagement": true,
+    "noBotSwarms": true,
+    "noAutoSpam": true,
+    "humanApprovalRequired": true,
+    "platformRulesRequired": true,
+    "proofReviewRequired": true
+  },
+  "notInBetaScope": [
+    "Auto-posting without user approval",
+    "Mass comment spam",
+    "Fake accounts",
+    "Engagement manipulation",
+    "Harassment",
+    "Impersonation",
+    "Evading platform limits"
+  ],
+  "cursorPrompt": "Build a X Campaign Brief Agent using DNA x402. Create a human-reviewed proof workflow, require proof URL or hash and timestamp, issue a receipt only after proof acceptance, never auto-post, never spam, and never use fake accounts.",
+  "suggestedPrompt": "Build a X Campaign Brief Agent using DNA x402. Create a human-reviewed proof workflow, require proof URL or hash and timestamp, issue a receipt only after proof acceptance, never auto-post, never spam, and never use fake accounts.",
+  "exampleFlow": [
+    "Create campaign brief",
+    "Submit proof URL/hash/timestamp",
+    "Human review approves proof",
+    "Quote reward or access",
+    "Verify receipt after proof acceptance"
+  ],
+  "exampleApiFlow": [
+    "Create campaign brief",
+    "Submit proof URL/hash/timestamp",
+    "Human review approves proof",
+    "Quote reward or access",
+    "Verify receipt after proof acceptance"
+  ],
+  "receiptProofBehavior": [
+    "Create campaign brief",
+    "Submit proof URL/hash/timestamp",
+    "Human review approves proof",
+    "Quote reward or access",
+    "Verify receipt after proof acceptance"
+  ]
+}

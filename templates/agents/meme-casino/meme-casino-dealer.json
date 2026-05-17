@@ -1,0 +1,74 @@
+{
+  "name": "Meme Casino Dealer",
+  "slug": "meme-casino-dealer",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Custom hybrid template combining alerts, wallet tracking, paid signals, copy rules, public profiles, and alpha fee config.",
+  "degenPitch": "The full table: alerts, wallets, signals, copy rules, profiles, and tollbooths.",
+  "whatItDoes": [
+    "Combines wallet tracking, alerting, paid signals, and copy settings.",
+    "Shows public profile and fee config.",
+    "Keeps live movement user-confirmed or paper by default."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 5,
+    "maxDailySpendUsd": 50,
+    "maxDailyLossUsd": 25,
+    "maxOpenExposureUsd": 50
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": false,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": 200,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unlimited live movement",
+    "Backend custody",
+    "Backend signing",
+    "Hidden fees"
+  ],
+  "cursorPrompt": "Build a Meme Casino Dealer using DNA x402. Combine paid alerts, wallet tracking, copy rules, a public profile, and alpha fee config. Default to paper or signal mode, and require receipts before paid unlocks.",
+  "suggestedPrompt": "Build a Meme Casino Dealer using DNA x402. Combine paid alerts, wallet tracking, copy rules, a public profile, and alpha fee config. Default to paper or signal mode, and require receipts before paid unlocks.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

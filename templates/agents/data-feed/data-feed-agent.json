@@ -1,31 +1,59 @@
 {
   "name": "Data Feed Agent",
   "slug": "data-feed-agent",
+  "pack": "core",
   "category": "data-feed",
   "description": "Package premium data as a receipt-gated feed for agents, apps, and bots.",
+  "degenPitch": "Sell the feed, not the whole backend.",
   "whatItDoes": [
     "Serves paid crypto, market, sports, weather, social, or on-chain data feeds.",
     "Uses receipts and webhooks to control feed access.",
     "Supports visible builder fees for feed operators."
   ],
   "publicBetaMode": "low_risk_capped_live_payments",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
   "riskLimits": {
-    "maxTxUsd": 200,
+    "maxBetUsd": 200,
     "maxDailySpendUsd": 1500,
     "maxDailyLossUsd": 300,
     "maxOpenExposureUsd": 500
   },
-  "monetization": {
-    "builderFeeBps": 100,
-    "mode": "display_or_accrual",
-    "appliesTo": "paid_feed_access"
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
   },
-  "receiptProofBehavior": [
-    "Receipt gates premium feed data.",
-    "Webhook events can notify the feed backend after payment finalization.",
-    "Receipt ID is included in the feed response audit trail."
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Private personal data resale",
+    "High-risk regulated data feeds",
+    "Hidden fees",
+    "Backend signing"
   ],
+  "cursorPrompt": "Create a paid data feed using DNA x402. Require a receipt before returning premium feed rows, show the builder fee and DNA fee in the fee waterfall, verify webhooks, and keep the example in mock mode by default.",
   "suggestedPrompt": "Create a paid data feed using DNA x402. Require a receipt before returning premium feed rows, show the builder fee and DNA fee in the fee waterfall, verify webhooks, and keep the example in mock mode by default.",
+  "exampleFlow": [
+    "GET /v1/listings?category=data-feed",
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/webhooks/verify"
+  ],
   "exampleApiFlow": [
     "GET /v1/listings?category=data-feed",
     "POST /v1/quotes",
@@ -33,10 +61,9 @@
     "POST /v1/finalize",
     "POST /v1/webhooks/verify"
   ],
-  "notInBetaScope": [
-    "Private personal data resale",
-    "High-risk regulated data feeds",
-    "Hidden fees",
-    "Backend signing"
+  "receiptProofBehavior": [
+    "Receipt gates premium feed data.",
+    "Webhook events can notify the feed backend after payment finalization.",
+    "Receipt ID is included in the feed response audit trail."
   ]
 }

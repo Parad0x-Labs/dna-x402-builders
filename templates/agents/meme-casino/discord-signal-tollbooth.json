@@ -1,0 +1,74 @@
+{
+  "name": "Discord Signal Tollbooth",
+  "slug": "discord-signal-tollbooth",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Paid Discord signal command using receipt-gated access and visible fee waterfalls.",
+  "degenPitch": "Discord alpha with receipts, not random paywall chaos.",
+  "whatItDoes": [
+    "Quotes paid access from a Discord command.",
+    "Verifies receipt before returning signal content.",
+    "Supports builder fees in the visible fee waterfall."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 200,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Bot-held private keys",
+    "Auto-trading from Discord",
+    "Spam pings",
+    "Guaranteed profit"
+  ],
+  "cursorPrompt": "Build a Discord Signal Tollbooth using DNA x402. Gate signal commands behind quote, commit, finalize, receipt verification, and paid retry. Do not hold private keys in the bot.",
+  "suggestedPrompt": "Build a Discord Signal Tollbooth using DNA x402. Gate signal commands behind quote, commit, finalize, receipt verification, and paid retry. Do not hold private keys in the bot.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

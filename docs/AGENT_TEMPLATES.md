@@ -8,6 +8,8 @@ These templates are public JSON recipes for builders using the hosted DNA x402 r
 
 ## Template Gallery
 
+### Agent Hub
+
 | Template | Use It For | Recipe |
 | --- | --- | --- |
 | Prediction Market Agent | Paper or signal market agents with receipt-gated premium output | [JSON](../templates/agents/prediction-market/prediction-market-agent.json) |
@@ -21,6 +23,46 @@ These templates are public JSON recipes for builders using the hosted DNA x402 r
 | Automation Agent | Paid workflow runs, monitor jobs, reports, and agent tasks | [JSON](../templates/agents/automation/automation-agent.json) |
 | Research Agent | Receipt-gated reports, watchlists, digests, and research feeds | [JSON](../templates/agents/research/research-agent.json) |
 | Custom Agent / Make Your Own | Safe blank skeleton for hybrid paid flows | [JSON](../templates/agents/custom/custom-agent.json) |
+
+### Meme Casino Pack
+
+For Solana trenches, signal sellers, copy traders, meme researchers, and paid-agent experiments.
+
+- [Trench Goblin Agent](../templates/agents/meme-casino/trench-goblin-agent.json)
+- [Smart Wallet Stalker](../templates/agents/meme-casino/smart-wallet-stalker.json)
+- [Fresh Pair Goblin](../templates/agents/meme-casino/fresh-pair-goblin.json)
+- [Rug Smell Agent](../templates/agents/meme-casino/rug-smell-agent.json)
+- [Exit Liquidity Siren](../templates/agents/meme-casino/exit-liquidity-siren.json)
+- [Pump Radar](../templates/agents/meme-casino/pump-radar.json)
+- [Volume Goblin](../templates/agents/meme-casino/volume-goblin.json)
+- [Whale Tail Agent](../templates/agents/meme-casino/whale-tail-agent.json)
+- [Copy The Chad](../templates/agents/meme-casino/copy-the-chad.json)
+- [40c-60c Edge Copy Agent](../templates/agents/meme-casino/forty-sixty-edge-copy-agent.json)
+- [Paper Ape Lab](../templates/agents/meme-casino/paper-ape-lab.json)
+- [PnL Flex Machine](../templates/agents/meme-casino/pnl-flex-machine.json)
+- [Alpha Tollbooth](../templates/agents/meme-casino/alpha-tollbooth.json)
+- [Telegram Signal Tollbooth](../templates/agents/meme-casino/telegram-signal-tollbooth.json)
+- [Discord Signal Tollbooth](../templates/agents/meme-casino/discord-signal-tollbooth.json)
+- [Degen Research Goblin](../templates/agents/meme-casino/degen-research-goblin.json)
+- [Creator Wallet Tracker](../templates/agents/meme-casino/creator-wallet-tracker.json)
+- [Liquidity Pull Warning Agent](../templates/agents/meme-casino/liquidity-pull-warning-agent.json)
+- [Dead Coin Revival Watcher](../templates/agents/meme-casino/dead-coin-revival-watcher.json)
+- [Meme Casino Dealer](../templates/agents/meme-casino/meme-casino-dealer.json)
+
+### Social / X Pack
+
+For campaign rooms, proof-of-engagement, human-reviewed bounties, reply drafts, Space notes, and ambassador tasks.
+
+- [X Campaign Brief Agent](../templates/agents/social-x/x-campaign-brief-agent.json)
+- [X Reply Draft Agent](../templates/agents/social-x/x-reply-draft-agent.json)
+- [X Proof Of Engagement Agent](../templates/agents/social-x/x-proof-of-engagement-agent.json)
+- [X Bounty Tollbooth](../templates/agents/social-x/x-bounty-tollbooth.json)
+- [X Comment Quality Reviewer](../templates/agents/social-x/x-comment-quality-reviewer.json)
+- [X Campaign Room](../templates/agents/social-x/x-campaign-room.json)
+- [X Thread Builder Agent](../templates/agents/social-x/x-thread-builder-agent.json)
+- [X Spaces Notes Agent](../templates/agents/social-x/x-spaces-notes-agent.json)
+- [X Ambassador Task Agent](../templates/agents/social-x/x-ambassador-task-agent.json)
+- [X Engagement Receipt Agent](../templates/agents/social-x/x-engagement-receipt-agent.json)
 
 ## How To Use A Template
 
@@ -54,13 +96,17 @@ Each template includes:
 - `slug`
 - `category`
 - `description`
+- `degenPitch`
 - `whatItDoes`
+- `defaultMode`
+- `walletModel`
 - `publicBetaMode`
 - `riskLimits`
+- `copyRules`
 - `monetization`
-- `receiptProofBehavior`
-- `suggestedPrompt`
-- `exampleApiFlow`
+- `receiptBehavior`
+- `cursorPrompt`
+- `exampleFlow`
 - `notInBetaScope`
 
 ## Public Beta Scope
@@ -81,4 +127,3 @@ Outside Public Beta scope:
 ## Good Defaults
 
 Use small risk caps first. Show the fee waterfall before payment. Verify receipts before unlock. Keep private keys in the user's wallet or client. Bind paid output to a receipt ID.
-

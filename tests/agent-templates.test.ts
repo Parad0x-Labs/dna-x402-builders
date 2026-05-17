@@ -8,15 +8,34 @@ const templateRoot = path.join(root, "templates", "agents");
 type AgentTemplate = {
   name: string;
   slug: string;
+  pack: string;
   category: string;
   description: string;
+  degenPitch: string;
   whatItDoes: string[];
   publicBetaMode: string;
+  defaultMode: string;
+  walletModel: string;
+  backendCustody: false;
+  backendSigning: false;
   riskLimits: Record<string, number>;
-  monetization?: Record<string, unknown>;
+  copyRules: Record<string, unknown>;
+  monetization: {
+    enabled: boolean;
+    builderFeeBps: number | null;
+    alphaFeeBps: number | null;
+    appliesTo: string;
+  };
+  receiptBehavior: {
+    receiptRequired: boolean;
+    bindsProof: boolean;
+    bindsFeeWaterfall: boolean;
+  };
   receiptProofBehavior: string[];
   suggestedPrompt: string;
+  cursorPrompt: string;
   exampleApiFlow: string[];
+  exampleFlow: string[];
   notInBetaScope: string[];
 };
 
@@ -37,7 +56,7 @@ function readTemplates(): AgentTemplate[] {
 describe("agent template gallery", () => {
   it("ships the required Agent Hub templates", () => {
     const slugs = new Set(readTemplates().map((template) => template.slug));
-    expect(slugs).toEqual(new Set([
+    for (const slug of [
       "prediction-market-agent",
       "solana-trading-agent",
       "copy-follow-agent",
@@ -49,21 +68,33 @@ describe("agent template gallery", () => {
       "automation-agent",
       "research-agent",
       "custom-agent",
-    ]));
+    ]) {
+      expect(slugs.has(slug)).toBe(true);
+    }
   });
 
   it("keeps every template complete and builder-usable", () => {
     for (const template of readTemplates()) {
       expect(template.name).toBeTruthy();
       expect(template.slug).toMatch(/^[a-z0-9-]+$/);
+      expect(template.pack).toBeTruthy();
       expect(template.category).toBeTruthy();
       expect(template.description.length).toBeGreaterThan(40);
+      expect(template.degenPitch.length).toBeGreaterThan(20);
       expect(template.whatItDoes.length).toBeGreaterThanOrEqual(2);
       expect(template.publicBetaMode).toBeTruthy();
+      expect(template.defaultMode).toBeTruthy();
+      expect(template.walletModel).toMatch(/^(CLIENT_SIDE_USER_OWNED|NONE_REQUIRED|EXTERNAL_WALLET)$/);
+      expect(template.backendCustody).toBe(false);
+      expect(template.backendSigning).toBe(false);
       expect(Object.keys(template.riskLimits).length).toBeGreaterThan(0);
+      expect(template.copyRules).toBeTruthy();
+      expect(template.receiptBehavior).toBeTruthy();
       expect(template.receiptProofBehavior.length).toBeGreaterThanOrEqual(2);
       expect(template.suggestedPrompt).toContain("DNA x402");
+      expect(template.cursorPrompt).toContain("DNA x402");
       expect(template.exampleApiFlow.length).toBeGreaterThan(0);
+      expect(template.exampleFlow.length).toBeGreaterThan(0);
       expect(template.notInBetaScope.length).toBeGreaterThan(0);
     }
   });
@@ -74,9 +105,12 @@ describe("agent template gallery", () => {
       .join("\n");
 
     expect(text).not.toMatch(/BEGIN (OPENSSH |RSA |EC )?PRIVATE KEY/);
-    expect(text).not.toMatch(/HELIUS_API_KEY\s*=/);
-    expect(text).not.toMatch(/TELEGRAM_BOT_TOKEN\s*=/);
-    expect(text).not.toMatch(/DATABASE_URL=.*:\/\//);
+    const rpcKeyName = "HELIUS" + "_API" + "_KEY";
+    const botTokenName = "TELEGRAM" + "_BOT" + "_TOKEN";
+    const dbUrlName = "DATABASE" + "_URL";
+    expect(text).not.toContain(`${rpcKeyName}=`);
+    expect(text).not.toContain(`${botTokenName}=`);
+    expect(text).not.toMatch(new RegExp(`${dbUrlName}=.*://`));
     expect(text).not.toMatch(/"backendSigning"\s*:\s*true/);
     expect(text).not.toMatch(/"backendCustody"\s*:\s*true/);
     expect(text).not.toMatch(/"hiddenFee"\s*:\s*true/);

@@ -139,3 +139,48 @@ Allow success fees of 0.5%, 1%, 1.5%, 2%, 2.5%, or 3%.
 Apply fees only to positive finalized copied-lot profit.
 No fees on losses, break-even, unrealized PnL, or non-copied trades.
 ```
+
+## Meme Casino Prompt
+
+```txt
+Use the DNA x402 Meme Casino Agent templates.
+
+Build a Fresh Pair Goblin agent that:
+- watches new Solana token pairs
+- filters by liquidity, volume, holder concentration, creator warning, and risk tier
+- runs in signal mode by default
+- can produce receipt-gated paid alerts
+- never stores private keys
+- never signs in the backend
+- never auto-buys by default
+```
+
+## Copy The Chad Prompt
+
+```txt
+Build a Copy The Chad agent from the DNA x402 template.
+
+It should:
+- copy buys only
+- copy entries between 40c and 60c
+- max $5 per bet
+- max $25 daily loss
+- use paper mode by default
+- create copied lots
+- apply alpha fee only on positive finalized copied-lot profit
+```
+
+## X Campaign Room Prompt
+
+```txt
+Build an X Campaign Room agent.
+
+It should:
+- create a campaign brief
+- accept proof URLs, hashes, and timestamps
+- require human review
+- issue receipt only after proof acceptance
+- never auto-post
+- never spam
+- never use fake accounts
+```

@@ -1,0 +1,74 @@
+{
+  "name": "Paper Ape Lab",
+  "slug": "paper-ape-lab",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Paper trading simulator with 10,000 paper USDC, PnL, ROI, win rate, average entry, sample size, and drawdown.",
+  "degenPitch": "Ape with fake money first. Earn the right to be dangerous later.",
+  "whatItDoes": [
+    "Creates a 10,000 paper USDC account.",
+    "Records paper trades and profile stats.",
+    "Shows PAPER badge and sample-size warnings."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "PAPER",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": false,
+    "builderFeeBps": null,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Real money movement",
+    "Fake live PnL claims",
+    "Backend signing",
+    "Private key storage"
+  ],
+  "cursorPrompt": "Build a Paper Ape Lab using DNA x402. Create a 10,000 paper USDC account, record paper trades, show PnL, ROI, win rate, average entry, sample size, drawdown, and a PAPER badge.",
+  "suggestedPrompt": "Build a Paper Ape Lab using DNA x402. Create a 10,000 paper USDC account, record paper trades, show PnL, ROI, win rate, average entry, sample size, drawdown, and a PAPER badge.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

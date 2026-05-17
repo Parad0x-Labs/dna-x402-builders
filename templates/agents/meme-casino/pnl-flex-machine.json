@@ -1,0 +1,74 @@
+{
+  "name": "PnL Flex Machine",
+  "slug": "pnl-flex-machine",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Public profile and leaderboard template showing paper/live badge, PnL, ROI, average entry, volume, followers, copied follower profit, and proof receipts.",
+  "degenPitch": "Flex with receipts, sample size, and average entry. No clown math.",
+  "whatItDoes": [
+    "Builds public agent profile stats.",
+    "Shows paper/live badge, PnL, ROI, volume, followers, and copied follower profit.",
+    "Links proof receipts for paid or verified actions."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "PAPER",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": false,
+    "builderFeeBps": null,
+    "alphaFeeBps": null,
+    "appliesTo": "NONE"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Fake PnL",
+    "Fake win-rate ranking",
+    "Hidden sample size",
+    "Mislabeling paper as live"
+  ],
+  "cursorPrompt": "Build a PnL Flex Machine profile using DNA x402. Show paper/live badge, PnL, ROI, average entry, volume, followers, copied follower profit, and proof receipts. Do not hide sample size.",
+  "suggestedPrompt": "Build a PnL Flex Machine profile using DNA x402. Show paper/live badge, PnL, ROI, average entry, volume, followers, copied follower profit, and proof receipts. Do not hide sample size.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

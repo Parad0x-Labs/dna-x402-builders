@@ -1,14 +1,26 @@
 {
   "name": "Copy / Follow Agent",
   "slug": "copy-follow-agent",
+  "pack": "core",
   "category": "copy-follow",
   "description": "Copies selected entries with strict follower-controlled filters, caps, and alpha-fee accounting.",
+  "degenPitch": "Copy the edge, not the entire blast radius.",
   "whatItDoes": [
     "Follows an approved source agent or alpha profile.",
     "Copies only actions that pass buy/sell/exit, entry price, exposure, and loss filters.",
     "Tracks copied lots and alpha fees only on positive finalized copied-lot profit."
   ],
   "publicBetaMode": "paper_or_public_beta",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 5,
+    "maxDailySpendUsd": 50,
+    "maxDailyLossUsd": 20,
+    "maxOpenExposureUsd": 50
+  },
   "copyRules": {
     "copyBuys": true,
     "copySells": false,
@@ -17,33 +29,40 @@
     "maxEntryPriceBps": 6000,
     "requireApprovalAboveUsd": 5
   },
-  "riskLimits": {
-    "maxBetUsd": 5,
-    "maxDailySpendUsd": 50,
-    "maxDailyLossUsd": 20,
-    "maxOpenExposureUsd": 50
-  },
   "monetization": {
+    "enabled": true,
+    "builderFeeBps": null,
     "alphaFeeBps": 200,
-    "mode": "display_or_accrual",
-    "appliesTo": "positive_finalized_copied_lot_pnl"
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
   },
-  "receiptProofBehavior": [
-    "Paid access to copy settings or alpha feed uses quote, commit, payment proof, and receipt.",
-    "Copied-lot alpha fees are visible and receipt-bound when monetized.",
-    "No fee is applied on losses, break-even lots, or unrealized profit."
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unlimited auto-copy",
+    "Success fees on losses",
+    "Success fees on unrealized profit",
+    "Backend signing"
   ],
+  "cursorPrompt": "Create a BTC 40c-60c copy agent using DNA x402. Copy buys only, copy exits, skip entries outside 40c to 60c, cap each copied bet at $5, stop after $20 daily loss, charge 2% only on positive finalized copied-lot profit, and never use backend custody or backend signing.",
   "suggestedPrompt": "Create a BTC 40c-60c copy agent using DNA x402. Copy buys only, copy exits, skip entries outside 40c to 60c, cap each copied bet at $5, stop after $20 daily loss, charge 2% only on positive finalized copied-lot profit, and never use backend custody or backend signing.",
+  "exampleFlow": [
+    "POST /v1/copy/settings",
+    "POST /v1/copy/decide",
+    "GET /v1/copy/lots/:copiedLotId",
+    "POST /v1/copy/lots/:copiedLotId/finalize"
+  ],
   "exampleApiFlow": [
     "POST /v1/copy/settings",
     "POST /v1/copy/decide",
     "GET /v1/copy/lots/:copiedLotId",
     "POST /v1/copy/lots/:copiedLotId/finalize"
   ],
-  "notInBetaScope": [
-    "Unlimited auto-copy",
-    "Success fees on losses",
-    "Success fees on unrealized profit",
-    "Backend signing"
+  "receiptProofBehavior": [
+    "Paid access to copy settings or alpha feed uses quote, commit, payment proof, and receipt.",
+    "Copied-lot alpha fees are visible and receipt-bound when monetized.",
+    "No fee is applied on losses, break-even lots, or unrealized profit."
   ]
 }

@@ -1,41 +1,67 @@
 {
   "name": "Automation Agent",
   "slug": "automation-agent",
+  "pack": "core",
   "category": "automation",
   "description": "Build paid automation jobs for monitoring, reports, workflow triggers, and agent-to-agent tasks.",
+  "degenPitch": "Paid automations that unlock only after proof.",
   "whatItDoes": [
     "Accepts paid automation requests.",
     "Verifies receipts before executing tasks.",
     "Returns task state, audit data, and receipt IDs."
   ],
   "publicBetaMode": "low_risk_capped_live_payments",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
   "riskLimits": {
-    "maxTxUsd": 200,
+    "maxBetUsd": 200,
     "maxDailySpendUsd": 1500,
     "maxDailyLossUsd": 300,
     "maxOpenExposureUsd": 500
   },
-  "monetization": {
-    "builderFeeBps": 50,
-    "mode": "display_or_accrual",
-    "appliesTo": "paid_automation_run"
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
   },
-  "receiptProofBehavior": [
-    "Receipt gates automation execution.",
-    "Task retry uses the paid retry path.",
-    "Webhook events can notify the requester after completion."
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unattended fund movement",
+    "Backend signing",
+    "Auto-sweep",
+    "High-risk categories"
   ],
+  "cursorPrompt": "Build a paid automation agent using DNA x402. Quote each automation run, verify receipt before execution, return a receipt ID, and keep the example mock-only by default.",
   "suggestedPrompt": "Build a paid automation agent using DNA x402. Quote each automation run, verify receipt before execution, return a receipt ID, and keep the example mock-only by default.",
+  "exampleFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/paid-retry"
+  ],
   "exampleApiFlow": [
     "POST /v1/quotes",
     "POST /v1/commits",
     "POST /v1/finalize",
     "POST /v1/paid-retry"
   ],
-  "notInBetaScope": [
-    "Unattended fund movement",
-    "Backend signing",
-    "Auto-sweep",
-    "High-risk categories"
+  "receiptProofBehavior": [
+    "Receipt gates automation execution.",
+    "Task retry uses the paid retry path.",
+    "Webhook events can notify the requester after completion."
   ]
 }

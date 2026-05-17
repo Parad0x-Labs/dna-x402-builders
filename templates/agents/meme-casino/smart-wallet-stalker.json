@@ -1,0 +1,74 @@
+{
+  "name": "Smart Wallet Stalker",
+  "slug": "smart-wallet-stalker",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Tracks selected public wallets and emits alerts when they buy, sell, rotate, or cluster around new tokens.",
+  "degenPitch": "Watch the wallets that move first, without handing anyone your keys.",
+  "whatItDoes": [
+    "Watches configured public wallets.",
+    "Emits buy, sell, rotation, and cluster alerts.",
+    "Can connect to copy settings with caps and user-owned wallets."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 10,
+    "maxDailySpendUsd": 100,
+    "maxDailyLossUsd": 25,
+    "maxOpenExposureUsd": 100
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Private wallet deanonymization",
+    "Backend custody",
+    "Copying without caps",
+    "Backend signing"
+  ],
+  "cursorPrompt": "Build a Smart Wallet Stalker using DNA x402. Watch selected public Solana wallets, emit paid alerts after receipt verification, make copy mode optional through copy settings, and never store private keys.",
+  "suggestedPrompt": "Build a Smart Wallet Stalker using DNA x402. Watch selected public Solana wallets, emit paid alerts after receipt verification, make copy mode optional through copy settings, and never store private keys.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

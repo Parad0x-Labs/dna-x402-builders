@@ -1,0 +1,74 @@
+{
+  "name": "Creator Wallet Tracker",
+  "slug": "creator-wallet-tracker",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Tracks deployer and creator wallets for new launches, sells, transfers, liquidity actions, and suspicious clusters.",
+  "degenPitch": "Watch the creator wallet before the chart starts screaming.",
+  "whatItDoes": [
+    "Tracks creator wallets and deployer actions.",
+    "Flags sells, transfers, liquidity actions, and clusters.",
+    "Sells premium creator-wallet alerts."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Private identity claims",
+    "Harassment workflows",
+    "Backend signing",
+    "Guaranteed rug calls"
+  ],
+  "cursorPrompt": "Build a Creator Wallet Tracker using DNA x402. Track public deployer and creator wallets for launches, sells, transfers, liquidity actions, and suspicious clusters. Gate premium alerts with receipts.",
+  "suggestedPrompt": "Build a Creator Wallet Tracker using DNA x402. Track public deployer and creator wallets for launches, sells, transfers, liquidity actions, and suspicious clusters. Gate premium alerts with receipts.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

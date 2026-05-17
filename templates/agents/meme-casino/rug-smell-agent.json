@@ -1,0 +1,74 @@
+{
+  "name": "Rug Smell Agent",
+  "slug": "rug-smell-agent",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Flags suspicious token patterns as risk signals, including liquidity weirdness, creator dumps, holder concentration, and suspicious volume.",
+  "degenPitch": "Not a crystal ball. A smoke alarm for cooked-looking tokens.",
+  "whatItDoes": [
+    "Scores rug-risk signals from available public data.",
+    "Highlights liquidity, holder, creator, and volume warnings.",
+    "Produces receipt-gated risk reports."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed rug detection",
+    "Defamation automation",
+    "Backend signing",
+    "Trade execution"
+  ],
+  "cursorPrompt": "Build a Rug Smell Agent using DNA x402. Frame results as risk signals, not guarantees. Gate detailed risk reports behind receipt verification and include liquidity, creator, holder, and volume warnings.",
+  "suggestedPrompt": "Build a Rug Smell Agent using DNA x402. Frame results as risk signals, not guarantees. Gate detailed risk reports behind receipt verification and include liquidity, creator, holder, and volume warnings.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

@@ -1,33 +1,59 @@
 {
   "name": "Paid API Agent",
   "slug": "paid-api-agent",
+  "pack": "core",
   "category": "paid-api",
   "description": "Turn an API endpoint into a receipt-gated paid product on the hosted DNA x402 rail.",
+  "degenPitch": "Put a tollbooth in front of any API and get paid with receipts.",
   "whatItDoes": [
     "Requests a quote before premium API access.",
     "Commits the quote and verifies payment proof.",
     "Unlocks the paid API response only after signed receipt verification."
   ],
   "publicBetaMode": "low_risk_capped_live_payments",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
   "riskLimits": {
-    "maxTxUsd": 200,
+    "maxBetUsd": 200,
     "maxDailySpendUsd": 1500,
     "maxDailyLossUsd": 300,
     "maxOpenExposureUsd": 500
   },
-  "monetization": {
-    "builderFeeBps": 50,
-    "dnaPlatformFee": "0.1%",
-    "mode": "visible_fee_waterfall",
-    "appliesTo": "paid_api_access"
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
   },
-  "receiptProofBehavior": [
-    "Quote is shown before payment.",
-    "Payment proof is verified by the hosted rail.",
-    "Receipt is signed and replay-safe.",
-    "Paid retry unlocks the same paid response without charging twice."
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Hidden fees",
+    "Auto-sweep",
+    "Backend custody",
+    "Physical goods"
   ],
+  "cursorPrompt": "Build a paid API endpoint using DNA x402. Use the hosted API URL from DNA_X402_API_URL, request a quote, commit it, submit payment proof, verify the signed receipt, show the fee waterfall, and unlock the paid response. Do not implement backend custody or backend signing.",
   "suggestedPrompt": "Build a paid API endpoint using DNA x402. Use the hosted API URL from DNA_X402_API_URL, request a quote, commit it, submit payment proof, verify the signed receipt, show the fee waterfall, and unlock the paid response. Do not implement backend custody or backend signing.",
+  "exampleFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/paid-retry"
+  ],
   "exampleApiFlow": [
     "POST /v1/quotes",
     "POST /v1/commits",
@@ -35,10 +61,10 @@
     "POST /v1/receipts/verify",
     "POST /v1/paid-retry"
   ],
-  "notInBetaScope": [
-    "Hidden fees",
-    "Auto-sweep",
-    "Backend custody",
-    "Physical goods"
+  "receiptProofBehavior": [
+    "Quote is shown before payment.",
+    "Payment proof is verified by the hosted rail.",
+    "Receipt is signed and replay-safe.",
+    "Paid retry unlocks the same paid response without charging twice."
   ]
 }

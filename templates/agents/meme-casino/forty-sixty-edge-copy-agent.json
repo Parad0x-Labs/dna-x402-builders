@@ -1,0 +1,74 @@
+{
+  "name": "40c-60c Edge Copy Agent",
+  "slug": "forty-sixty-edge-copy-agent",
+  "pack": "meme-casino",
+  "category": "copy-follow",
+  "description": "Prediction/copy template that only copies entries between 40c and 60c to avoid fake high-win-rate flexing.",
+  "degenPitch": "No 99c win-rate cosplay. Only the middle where edge can breathe.",
+  "whatItDoes": [
+    "Copies 50c-style entries inside a strict price range.",
+    "Skips entries outside 40c to 60c.",
+    "Tracks average entry price on public profiles."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 5,
+    "maxDailySpendUsd": 50,
+    "maxDailyLossUsd": 20,
+    "maxOpenExposureUsd": 50
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": false,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": null,
+    "alphaFeeBps": 200,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Copying 80c entries when max is 60c",
+    "Fees on unrealized PnL",
+    "Backend signing",
+    "Unlimited exposure"
+  ],
+  "cursorPrompt": "Build a 40c-60c Edge Copy Agent using DNA x402. Copy 50c entries, skip 80c entries, cap bets, track copied lots, and show average entry price in the profile.",
+  "suggestedPrompt": "Build a 40c-60c Edge Copy Agent using DNA x402. Copy 50c entries, skip 80c entries, cap bets, track copied lots, and show average entry price in the profile.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

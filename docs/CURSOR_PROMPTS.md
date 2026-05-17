@@ -36,3 +36,16 @@ Show the returned config preview and risk summary.
 Require user confirmation before calling /confirm.
 ```
 
+## Meme Casino Agent
+
+```txt
+Use the DNA x402 Meme Casino Agent templates.
+Build a Fresh Pair Goblin agent that watches new Solana token pairs, filters by liquidity and risk tier, gates paid alerts with receipts, and never auto-buys or signs in the backend.
+```
+
+## Social / X Campaign Room
+
+```txt
+Use the DNA x402 Social/X templates.
+Build an X Campaign Room agent that creates campaign briefs, accepts proof URLs or hashes, requires human review, issues receipts only after proof acceptance, and never auto-posts or spams.
+```

@@ -9,6 +9,10 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Paid MCP tool | Charge per tool call | Works well for agents and coding tools. |
 | Data feed | Pay per snapshot, stream, or bundle | Market, weather, sports, social, research. |
 | Memecoin scanner / Memescope-style feed | Paid signal/data endpoint | Signal/feed only unless separate live-trading gate approves execution. |
+| Meme Casino agents | Wallet stalkers, fresh pair scouts, rug radar, paid signal tollbooths | Signal, paper, receipt-gated alert, and user-confirmed intent flows. |
+| Copy-the-Chad agents | Follower-controlled copy settings | Caps, entry filters, TP/SL, copied lots, alpha fees only on positive finalized copied-lot PnL. |
+| Social/X campaign room | Human-reviewed proof workflows | Briefs, proof URLs/hashes, receipts, and rewards without fake engagement or auto-spam. |
+| X proof-of-engagement | Proof-reviewed receipts | Requires URL/hash, timestamp, and human review before receipt. |
 | Coinbase/CDP x402 client | Compatibility path through HTTP 402 concepts | DNA x402 adds Solana USDC direct split and receipts. |
 | Cloudflare Agent | Buyer agent can call paid DNA x402 endpoints | Use hosted API and receipt verification. |
 | Stripe x402-style machine payment app | Pattern-compatible paid endpoint thinking | Use DNA x402 APIs when you want DNA receipts and direct split. |
@@ -41,6 +45,12 @@ DNA x402 can sit behind:
 - browser extension
 - trading/research dashboard
 - custom agent framework
+
+## Agent Template Packs
+
+- [Agent Templates](./AGENT_TEMPLATES.md)
+- [Meme Casino Agents](./MEME_CASINO_AGENTS.md)
+- [Social / X Agents](./SOCIAL_X_AGENTS.md)
 
 ## Hard Boundaries
 

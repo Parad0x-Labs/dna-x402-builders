@@ -1,31 +1,59 @@
 {
   "name": "Custom Agent / Make Your Own",
   "slug": "custom-agent",
+  "pack": "core",
   "category": "custom",
   "description": "Start from a safe blank agent recipe and shape it into a paid API, tool, feed, signal, or automation flow.",
+  "degenPitch": "Blank canvas, hosted rail, no custody shortcuts.",
   "whatItDoes": [
     "Gives builders a safe default skeleton.",
     "Uses hosted DNA x402 quote, payment proof, receipt, webhook, and fee primitives.",
     "Keeps live movement client-side and user-confirmed unless a separate beta gate applies."
   ],
   "publicBetaMode": "public_beta_template",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
   "riskLimits": {
-    "maxTxUsd": 200,
+    "maxBetUsd": 200,
     "maxDailySpendUsd": 1500,
     "maxDailyLossUsd": 300,
     "maxOpenExposureUsd": 500
   },
-  "monetization": {
-    "builderFeeBps": 50,
-    "mode": "display_or_accrual",
-    "appliesTo": "custom_paid_flow"
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
   },
-  "receiptProofBehavior": [
-    "Use quote, commit, finalize, receipt verify, and paid retry for paid actions.",
-    "Show the fee waterfall before payment.",
-    "Bind paid unlocks to the signed receipt."
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Backend custody",
+    "Backend signing",
+    "Hidden fees",
+    "Unrestricted autonomous live trading"
   ],
+  "cursorPrompt": "Create a custom DNA x402 paid agent from this template. Use the hosted API, add quote, commit, finalize, receipt verification, paid retry, fee waterfall display, and webhooks. Keep examples mock by default and do not add backend custody or backend signing.",
   "suggestedPrompt": "Create a custom DNA x402 paid agent from this template. Use the hosted API, add quote, commit, finalize, receipt verification, paid retry, fee waterfall display, and webhooks. Keep examples mock by default and do not add backend custody or backend signing.",
+  "exampleFlow": [
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify",
+    "POST /v1/paid-retry"
+  ],
   "exampleApiFlow": [
     "POST /v1/quotes",
     "POST /v1/commits",
@@ -33,10 +61,9 @@
     "POST /v1/receipts/verify",
     "POST /v1/paid-retry"
   ],
-  "notInBetaScope": [
-    "Backend custody",
-    "Backend signing",
-    "Hidden fees",
-    "Unrestricted autonomous live trading"
+  "receiptProofBehavior": [
+    "Use quote, commit, finalize, receipt verify, and paid retry for paid actions.",
+    "Show the fee waterfall before payment.",
+    "Bind paid unlocks to the signed receipt."
   ]
 }

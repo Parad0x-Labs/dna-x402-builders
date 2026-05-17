@@ -18,6 +18,42 @@ Use these JSON files as starting points for paid APIs, agents, data feeds, tools
 - [Research Agent](./research/research-agent.json)
 - [Custom Agent / Make Your Own](./custom/custom-agent.json)
 
+## Meme Casino Pack
+
+- [Trench Goblin Agent](./meme-casino/trench-goblin-agent.json)
+- [Smart Wallet Stalker](./meme-casino/smart-wallet-stalker.json)
+- [Fresh Pair Goblin](./meme-casino/fresh-pair-goblin.json)
+- [Rug Smell Agent](./meme-casino/rug-smell-agent.json)
+- [Exit Liquidity Siren](./meme-casino/exit-liquidity-siren.json)
+- [Pump Radar](./meme-casino/pump-radar.json)
+- [Volume Goblin](./meme-casino/volume-goblin.json)
+- [Whale Tail Agent](./meme-casino/whale-tail-agent.json)
+- [Copy The Chad](./meme-casino/copy-the-chad.json)
+- [40c-60c Edge Copy Agent](./meme-casino/forty-sixty-edge-copy-agent.json)
+- [Paper Ape Lab](./meme-casino/paper-ape-lab.json)
+- [PnL Flex Machine](./meme-casino/pnl-flex-machine.json)
+- [Alpha Tollbooth](./meme-casino/alpha-tollbooth.json)
+- [Telegram Signal Tollbooth](./meme-casino/telegram-signal-tollbooth.json)
+- [Discord Signal Tollbooth](./meme-casino/discord-signal-tollbooth.json)
+- [Degen Research Goblin](./meme-casino/degen-research-goblin.json)
+- [Creator Wallet Tracker](./meme-casino/creator-wallet-tracker.json)
+- [Liquidity Pull Warning Agent](./meme-casino/liquidity-pull-warning-agent.json)
+- [Dead Coin Revival Watcher](./meme-casino/dead-coin-revival-watcher.json)
+- [Meme Casino Dealer](./meme-casino/meme-casino-dealer.json)
+
+## Social / X Pack
+
+- [X Campaign Brief Agent](./social-x/x-campaign-brief-agent.json)
+- [X Reply Draft Agent](./social-x/x-reply-draft-agent.json)
+- [X Proof Of Engagement Agent](./social-x/x-proof-of-engagement-agent.json)
+- [X Bounty Tollbooth](./social-x/x-bounty-tollbooth.json)
+- [X Comment Quality Reviewer](./social-x/x-comment-quality-reviewer.json)
+- [X Campaign Room](./social-x/x-campaign-room.json)
+- [X Thread Builder Agent](./social-x/x-thread-builder-agent.json)
+- [X Spaces Notes Agent](./social-x/x-spaces-notes-agent.json)
+- [X Ambassador Task Agent](./social-x/x-ambassador-task-agent.json)
+- [X Engagement Receipt Agent](./social-x/x-engagement-receipt-agent.json)
+
 ## Builder Flow
 
 Pick it. Fork it. Prompt it. Ship it. Get paid.
@@ -40,4 +76,3 @@ These templates are built around the hosted DNA x402 rail:
 - no backend custody
 - no backend signing
 - no hidden fees
-

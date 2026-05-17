@@ -1,31 +1,59 @@
 {
   "name": "Research Agent",
   "slug": "research-agent",
+  "pack": "core",
   "category": "research",
   "description": "Sell receipt-gated research digests, reports, watchlists, and analysis outputs.",
+  "degenPitch": "Sell the research report, bind the unlock to a receipt.",
   "whatItDoes": [
     "Builds premium reports or recurring research feeds.",
     "Unlocks full output only after receipt verification.",
     "Can attach builder fees and webhooks to paid access."
   ],
   "publicBetaMode": "low_risk_capped_live_payments",
+  "defaultMode": "USER_CONFIRMED_LIVE",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
   "riskLimits": {
-    "maxTxUsd": 200,
+    "maxBetUsd": 200,
     "maxDailySpendUsd": 1500,
     "maxDailyLossUsd": 300,
     "maxOpenExposureUsd": 500
   },
-  "monetization": {
-    "builderFeeBps": 100,
-    "mode": "display_or_accrual",
-    "appliesTo": "paid_research_access"
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
   },
-  "receiptProofBehavior": [
-    "Receipt gates the full report.",
-    "Preview content can be free while full output is paid.",
-    "Receipt ID is logged with report delivery."
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed investment returns",
+    "Hidden affiliate fees",
+    "High-risk regulated products",
+    "Backend custody"
   ],
+  "cursorPrompt": "Create a receipt-gated research report agent using DNA x402. Show a free preview, quote the full report, verify the signed receipt, unlock the full report, and include builder fees in the visible fee waterfall.",
   "suggestedPrompt": "Create a receipt-gated research report agent using DNA x402. Show a free preview, quote the full report, verify the signed receipt, unlock the full report, and include builder fees in the visible fee waterfall.",
+  "exampleFlow": [
+    "GET /v1/listings?category=research",
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
   "exampleApiFlow": [
     "GET /v1/listings?category=research",
     "POST /v1/quotes",
@@ -33,10 +61,9 @@
     "POST /v1/finalize",
     "POST /v1/receipts/verify"
   ],
-  "notInBetaScope": [
-    "Guaranteed investment returns",
-    "Hidden affiliate fees",
-    "High-risk regulated products",
-    "Backend custody"
+  "receiptProofBehavior": [
+    "Receipt gates the full report.",
+    "Preview content can be free while full output is paid.",
+    "Receipt ID is logged with report delivery."
   ]
 }

@@ -1,0 +1,74 @@
+{
+  "name": "Alpha Tollbooth",
+  "slug": "alpha-tollbooth",
+  "pack": "meme-casino",
+  "category": "copy-follow",
+  "description": "Alpha monetization template with 0.5% to 3% fees only on positive finalized copied-lot PnL.",
+  "degenPitch": "If followers win from your copied lot, you can take a visible cut. If they lose, you get nothing.",
+  "whatItDoes": [
+    "Configures alpha fee rates from 0.5% to 3%.",
+    "Locks fee bps at copied-lot entry.",
+    "Accrues fees only after positive finalized copied-lot PnL."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "AUTO_COPY_PUBLIC_BETA",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 5,
+    "maxDailySpendUsd": 50,
+    "maxDailyLossUsd": 20,
+    "maxOpenExposureUsd": 50
+  },
+  "copyRules": {
+    "copyBuys": true,
+    "copySells": true,
+    "copyExits": true,
+    "minEntryPriceBps": 4000,
+    "maxEntryPriceBps": 6000
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": null,
+    "alphaFeeBps": 200,
+    "appliesTo": "POSITIVE_FINALIZED_COPIED_LOT_PNL"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Fees on losses",
+    "Fees on break-even",
+    "Fees on unrealized profit",
+    "Retroactive fee changes"
+  ],
+  "cursorPrompt": "Build an Alpha Tollbooth using DNA x402. Allow 0.5% to 3% alpha fees, lock fee bps at copied-lot entry, and create fees only on positive finalized copied-lot profit.",
+  "suggestedPrompt": "Build an Alpha Tollbooth using DNA x402. Allow 0.5% to 3% alpha fees, lock fee bps at copied-lot entry, and create fees only on positive finalized copied-lot profit.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

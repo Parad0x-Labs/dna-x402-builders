@@ -1,0 +1,74 @@
+{
+  "name": "Degen Research Goblin",
+  "slug": "degen-research-goblin",
+  "pack": "meme-casino",
+  "category": "research",
+  "description": "Research agent for token, project, and social evidence with source trails, risk notes, and receipt-bound reports.",
+  "degenPitch": "A paid research goblin that shows its homework.",
+  "whatItDoes": [
+    "Builds token and project research digests.",
+    "Includes source trail and risk notes.",
+    "Unlocks full report only after receipt verification."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 100,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed investment claims",
+    "Fabricated sources",
+    "Hidden sponsorships",
+    "Backend signing"
+  ],
+  "cursorPrompt": "Build a Degen Research Goblin using DNA x402. Produce a token or project research digest with source trails and risk notes, then receipt-gate the full report.",
+  "suggestedPrompt": "Build a Degen Research Goblin using DNA x402. Produce a token or project research digest with source trails and risk notes, then receipt-gate the full report.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

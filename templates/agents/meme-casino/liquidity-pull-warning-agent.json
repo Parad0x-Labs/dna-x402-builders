@@ -1,0 +1,74 @@
+{
+  "name": "Liquidity Pull Warning Agent",
+  "slug": "liquidity-pull-warning-agent",
+  "pack": "meme-casino",
+  "category": "meme-casino",
+  "description": "Monitors liquidity pool changes and alerts users when liquidity movement looks dangerous.",
+  "degenPitch": "Pool started draining? Hear the alarm before the chart becomes a cliff.",
+  "whatItDoes": [
+    "Monitors liquidity pool deltas.",
+    "Flags large or abnormal liquidity movements.",
+    "Gates premium warnings behind receipts."
+  ],
+  "publicBetaMode": "public_beta_signal_paper_or_user_confirmed",
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "NONE_REQUIRED",
+  "backendCustody": false,
+  "backendSigning": false,
+  "riskLimits": {
+    "maxBetUsd": 0,
+    "maxDailySpendUsd": 0,
+    "maxDailyLossUsd": 0,
+    "maxOpenExposureUsd": 0
+  },
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
+  },
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Guaranteed loss prevention",
+    "Auto-selling",
+    "Backend signing",
+    "Manipulation calls"
+  ],
+  "cursorPrompt": "Build a Liquidity Pull Warning Agent using DNA x402. Monitor pool changes, flag dangerous liquidity movement, receipt-gate premium alerts, and do not auto-sell.",
+  "suggestedPrompt": "Build a Liquidity Pull Warning Agent using DNA x402. Monitor pool changes, flag dangerous liquidity movement, receipt-gate premium alerts, and do not auto-sell.",
+  "exampleFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "exampleApiFlow": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ],
+  "receiptProofBehavior": [
+    "Create template draft",
+    "Generate risk summary",
+    "Mock/devnet quote",
+    "Mock/devnet commit",
+    "Mock/devnet finalize or proof review",
+    "Verify mock receipt"
+  ]
+}

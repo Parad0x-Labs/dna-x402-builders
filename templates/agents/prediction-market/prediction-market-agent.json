@@ -1,41 +1,59 @@
 {
   "name": "Prediction Market Agent",
   "slug": "prediction-market-agent",
+  "pack": "core",
   "category": "prediction-market",
   "description": "Build a paper, signal, or user-confirmed prediction market agent with receipt-bound paid access.",
+  "degenPitch": "Prediction market signals without pretending 99c entries are genius.",
   "whatItDoes": [
     "Watches selected prediction market categories or market IDs.",
     "Publishes paper trades, signals, or user-confirmed live intents.",
     "Can monetize access through paid API responses, receipts, and visible fee waterfalls."
   ],
   "publicBetaMode": "paper_signal_or_user_confirmed",
-  "marketScope": {
-    "venue": "POLYMARKET",
-    "categories": [
-      "crypto",
-      "macro",
-      "sports"
-    ],
-    "defaultMode": "paper_or_signal"
-  },
+  "defaultMode": "SIGNAL_ONLY",
+  "walletModel": "CLIENT_SIDE_USER_OWNED",
+  "backendCustody": false,
+  "backendSigning": false,
   "riskLimits": {
     "maxBetUsd": 10,
     "maxDailySpendUsd": 100,
     "maxDailyLossUsd": 25,
     "maxOpenExposureUsd": 100
   },
-  "monetization": {
-    "builderFeeBps": 50,
-    "mode": "display_or_accrual",
-    "appliesTo": "paid_signal_or_data_access"
+  "copyRules": {
+    "copyBuys": false,
+    "copySells": false,
+    "copyExits": false,
+    "minEntryPriceBps": null,
+    "maxEntryPriceBps": null
   },
-  "receiptProofBehavior": [
-    "Request quote before paid signal access.",
-    "Commit quote before payment.",
-    "Submit payment proof or direct split proofs.",
-    "Verify signed receipt before unlocking premium signals."
+  "monetization": {
+    "enabled": true,
+    "builderFeeBps": 50,
+    "alphaFeeBps": null,
+    "appliesTo": "PROOF_REVIEWED_ACTION"
+  },
+  "receiptBehavior": {
+    "receiptRequired": true,
+    "bindsProof": true,
+    "bindsFeeWaterfall": true
+  },
+  "notInBetaScope": [
+    "Unrestricted autonomous public live betting",
+    "Backend wallet custody",
+    "Backend trade signing",
+    "Unlimited live copy betting"
   ],
+  "cursorPrompt": "Create a prediction market signal agent using DNA x402. It should publish paper and signal outputs, require receipts for paid premium signals, show a visible fee waterfall, and never use backend custody or backend signing.",
   "suggestedPrompt": "Create a prediction market signal agent using DNA x402. It should publish paper and signal outputs, require receipts for paid premium signals, show a visible fee waterfall, and never use backend custody or backend signing.",
+  "exampleFlow": [
+    "GET /v1/listings?category=prediction-market",
+    "POST /v1/quotes",
+    "POST /v1/commits",
+    "POST /v1/finalize",
+    "POST /v1/receipts/verify"
+  ],
   "exampleApiFlow": [
     "GET /v1/listings?category=prediction-market",
     "POST /v1/quotes",
@@ -43,10 +61,10 @@
     "POST /v1/finalize",
     "POST /v1/receipts/verify"
   ],
-  "notInBetaScope": [
-    "Unrestricted autonomous public live betting",
-    "Backend wallet custody",
-    "Backend trade signing",
-    "Unlimited live copy betting"
+  "receiptProofBehavior": [
+    "Request quote before paid signal access.",
+    "Commit quote before payment.",
+    "Submit payment proof or direct split proofs.",
+    "Verify signed receipt before unlocking premium signals."
   ]
 }
