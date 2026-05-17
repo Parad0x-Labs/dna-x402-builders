@@ -1,80 +1,121 @@
-# DNA x402 Builders
+# DNA x402 Builder Kit
 
-Public Beta integration kit for builders who want to monetize APIs, agents, tools, data feeds, and digital workflows through the DNA x402 payment rail.
+Build paid APIs, agents, tools, and data feeds on the DNA x402 hosted rail.
 
-This repo is for **using DNA x402**, not cloning the rail.
+**Status: Public Beta**
 
-## What You Can Build
+DNA x402 is a hosted programmable commerce rail for builders.
 
-- Paid APIs and data feeds
-- Paid MCP tools and agent services
-- Buyer agents that quote, pay, retry, and verify receipts
-- Seller endpoints protected by x402-style payment requirements
-- Builder-monetized agent services with visible fee lines
-- Webhook receivers for payment, receipt, listing, and policy events
-- Receipt verification flows for auditability
-- Agent-builder flows that create safe agent drafts from prompts/templates
-- Paper/signal/copy-agent workflows inside Public Beta scope
+Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to APIs, agents, tools, and data feeds.
 
-## What This Repo Does Not Include
+No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
-- DNA x402 backend source
-- payment verifier internals
-- replay store internals
-- production database schemas or migrations
-- treasury operations
-- monitoring and incident tooling
-- internal abuse/security test harnesses
-- production deployment scripts
+## What Is DNA x402?
 
-Those are private rail infrastructure. Public builders get the SDK contracts, API examples, and docs needed to plug into hosted DNA x402.
+DNA x402 is a hosted payment gateway for machine-speed commerce.
 
-## Public Beta Scope
+Your app keeps the product experience. DNA x402 gives you the payment loop:
 
-Open in Public Beta:
+```txt
+Quote. Pay. Verify. Receipt. Unlock.
+```
 
-- agent creation
-- paper agents
-- public/private profiles
-- copy settings
-- builder/API integrations
-- low-risk capped Solana USDC payments
-- visible receipt-bound fee waterfalls
-- DNA 10 bps direct split for live paid beta flows
+Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this repo. The backend rail is hosted by DNA x402; this repo does not include private server internals.
 
-Not in beta scope yet:
+## What Can You Build?
 
-- backend custody
-- backend signing
-- hidden fees
-- auto-sweep
-- unrestricted autonomous live trading
-- public netting
-- physical goods
-- high-risk categories
-- broad multi-chain production settlement
+- Paid APIs
+- Paid MCP tools
+- Buyer agents
+- Seller paid APIs
+- Data feeds
+- Memecoin scanner feeds
+- AI inference and compute jobs
+- Telegram and Discord bot services
+- Builder-monetized APIs
+- Receipt-gated content
+- Agent builder drafts
+- Paper agents
+- Copy settings
+- Alpha monetization accounting
 
-## Quick Start
+## 5-Minute Quickstart
 
 ```bash
 npm install
 npm run acceptance
+npm run examples:buyer
 ```
 
-Create a client:
+Create a hosted API client:
 
 ```ts
 import { DnaX402Client } from "./sdk/typescript/src/index.js";
 
 const dna = new DnaX402Client({
-  baseUrl: "https://parad0xlabs.com/x402",
+  baseUrl: process.env.DNA_X402_API_URL ?? "https://parad0xlabs.com/x402",
 });
 
 const quote = await dna.quote({
-  resource: "/weather",
-  amountAtomic: "100000",
+  resource: "/signals/btc",
+  amountAtomic: "1000000",
 });
 ```
+
+## Use With Cursor Or Coding Agents
+
+Point your coding agent at this repo and say:
+
+```txt
+Build a paid API endpoint using DNA x402.
+Use the hosted DNA x402 API and the TypeScript SDK in this repo.
+Implement quote request, commit, payment proof submit, receipt verification,
+fee waterfall display, and paid response unlock.
+Do not implement backend custody or backend signing.
+```
+
+More copy-paste prompts:
+
+- [AI IDE Quickstart](./docs/AI_IDE_QUICKSTART.md)
+- [Cursor Prompts](./docs/CURSOR_PROMPTS.md)
+- [Coding Agent Prompts](./docs/AGENT_PROMPTS.md)
+
+## Hosted API URL
+
+```txt
+https://parad0xlabs.com/x402
+```
+
+Use staging URLs provided by Parad0x Labs for development and beta onboarding.
+
+## Example Flows
+
+- Buyer agent: quote, commit, pay, receipt, paid retry
+- Seller API: publish a paid endpoint and unlock results after receipt
+- Builder fee: add visible receipt-bound builder fee lines
+- Direct split: submit provider and DNA treasury payment proofs
+- Webhook receiver: verify events and idempotency
+- Receipt verifier: verify the paid action before unlock
+- Agent builder: create safe paper/signal/copy-agent drafts
+
+## Builder Fees
+
+Builders can add visible, receipt-bound builder fees.
+
+DNA's platform fee remains first-class in the same fee waterfall. Every fee line is shown before payment and bound to the receipt.
+
+## Direct Split
+
+Direct split lets a buyer pay the provider and DNA treasury as separate proof-bound transfers.
+
+Finalize requires the required proofs before a receipt is issued:
+
+- provider proof
+- DNA treasury proof
+- correct mint
+- correct recipient
+- replay-safe proof
+- receipt-bound fee waterfall
 
 ## Docs
 
@@ -88,7 +129,6 @@ const quote = await dna.quote({
 - [Agent Builder](./docs/AGENT_BUILDER.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
-- [Internal Review Packet](./docs/INTERNAL_REVIEW_PACKET.md)
 
 ## Examples
 
@@ -98,7 +138,19 @@ const quote = await dna.quote({
 - [Webhook Receiver](./examples/webhook-receiver-ts)
 - [Receipt Verifier](./examples/receipt-verifier-ts)
 - [Agent Builder](./examples/agent-builder-ts)
+- [Paper Agent](./examples/paper-agent-ts)
+- [Copy Settings](./examples/copy-settings-ts)
+- [Alpha Monetization](./examples/alpha-monetization-ts)
+- [Direct Split Demo](./examples/direct-split-demo-ts)
 
-## Positioning
+## Public Beta Scope
 
-DNA x402 is a payment gateway for programmatic commerce. Bring your own app, agent, API, bot, MCP server, data feed, scanner, workflow, or vertical UX. DNA x402 handles the payment loop, receipt trail, fee waterfall, and integration contracts.
+Public Beta supports builder APIs, paid tools, data feeds, agent creation, paper agents, public profiles, copy settings, alpha monetization accounting, visible fee waterfalls, receipt verification, and low-risk capped live payments.
+
+Backend custody, backend signing, hidden fees, auto-sweep, physical goods, high-risk categories, public netting, and unrestricted autonomous live trading are outside Public Beta scope.
+
+## Ship
+
+Build on the money rail for agents.
+
+Plug in with a few API calls. Show the fee waterfall. Verify the receipt. Unlock the result.

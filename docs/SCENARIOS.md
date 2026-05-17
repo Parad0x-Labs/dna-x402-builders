@@ -21,7 +21,8 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Paper trading agent | Open beta | No real money movement. |
 | Polymarket signal/copy research | Paper/signal/user-confirmed design | Unattended public live betting is not in beta scope. |
 | Solana token signal agent | Paper/signal/user-confirmed design | Unrestricted autonomous token trading is not in beta scope. |
-| Builder monetized API | Builder fee display/accrual | Builder direct collection requires separate approval. |
+| Builder monetized API | Builder fee display/accrual | Visible builder fees are receipt-bound. |
+| Direct split paid API | Provider + DNA treasury proof | Live paid beta flow for Solana USDC. |
 | Affiliate/referrer fee | Architecture path | Ask for approval before live direct collection. |
 | Private enterprise marketplace | Approved seller network | Use custom review and policy scope. |
 
@@ -43,5 +44,4 @@ DNA x402 can sit behind:
 
 ## Hard Boundaries
 
-Public Beta does not mean everything is open. Backend custody, backend signing, hidden fees, auto-sweep, physical goods, public netting, and high-risk categories are outside beta scope.
-
+Public Beta does not mean every vertical is live. Backend custody, backend signing, hidden fees, auto-sweep, physical goods, public netting, and high-risk categories are outside Public Beta scope.

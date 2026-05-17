@@ -1,6 +1,6 @@
 # Public Beta Scope
 
-Public Beta is open for builders and users to test agent/API commerce with hard safety rails.
+Public Beta is open for builders and users to ship agent/API commerce with hard safety rails.
 
 Open:
 
@@ -22,15 +22,21 @@ Live payment requirements:
 - DNA 10 bps treasury proof
 - receipt verification
 
-Outside beta scope:
+Outside Public Beta scope:
 
 - backend custody
 - backend signing
 - hidden fees
 - auto-sweep
 - unrestricted autonomous live trading
+
+Coming after separate safety gates:
+
+- broader multi-chain production settlement
+- direct builder fee collection
+- unrestricted public copy trading
+- regulated/high-risk verticals
 - physical goods
 - high-risk categories
 - public netting
 - broad multi-chain production settlement
-

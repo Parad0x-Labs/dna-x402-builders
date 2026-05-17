@@ -48,5 +48,40 @@ describe("DNA x402 public builder SDK", () => {
     expect(() => assertNoBackendKeyFields({ publicKey: "safe" })).not.toThrow();
     expect(() => assertNoBackendKeyFields({ privateKey: "never" })).toThrow(/Forbidden/);
   });
-});
 
+  it("exposes hosted API helpers without backend rail internals", async () => {
+    const requested: string[] = [];
+    const client = new DnaX402Client({
+      baseUrl: "https://parad0xlabs.com/x402",
+      fetch: async (url) => {
+        requested.push(url);
+        return response({ ok: true, id: "demo" });
+      },
+    });
+
+    await client.registerAgentWalletPublicKey("agent-1", {
+      ownerWallet: "owner",
+      publicKey: "agent-public-key",
+      chain: "SOLANA",
+    });
+    await client.createPaperAgent("agent-1");
+    await client.setCopySettings({
+      followerAgentId: "follower",
+      sourceAgentId: "source",
+      enabled: true,
+      mode: "PAPER_COPY",
+      copyBuys: true,
+      copySells: false,
+      copyExits: false,
+      maxBetSizeAtomic: "5000000",
+      maxDailySpendAtomic: "25000000",
+      maxOpenExposureAtomic: "10000000",
+    });
+    await client.setAlphaFee("agent-1", { enabled: true, successFeeBps: 200, mode: "ACCRUAL" });
+
+    expect(requested.some((url) => url.includes("/wallets/register"))).toBe(true);
+    expect(requested.some((url) => url.includes("/paper-account"))).toBe(true);
+    expect(requested.some((url) => url.includes("/v1/copy/settings"))).toBe(true);
+    expect(requested.some((url) => url.includes("/monetization"))).toBe(true);
+  });
+});

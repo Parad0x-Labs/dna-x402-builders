@@ -91,6 +91,41 @@ export type AgentBuilderDraft = {
   agentConfig?: unknown;
 };
 
+export type AgentWalletRegistration = {
+  ownerWallet: string;
+  publicKey: string;
+  chain: "SOLANA" | "POLYMARKET_POLYGON" | "EVM" | "OTHER";
+  keyStorage?: "LOCAL_ENCRYPTED" | "USER_EXPORTED" | "SESSION_ONLY" | "EXTERNAL_WALLET";
+  metadata?: Record<string, unknown>;
+};
+
+export type CopySettingsInput = {
+  followerAgentId: string;
+  sourceAgentId: string;
+  enabled: boolean;
+  mode: "WATCH_ONLY" | "PAPER_COPY" | "USER_CONFIRMED_COPY" | "AUTO_COPY_PUBLIC_BETA";
+  copyBuys: boolean;
+  copySells: boolean;
+  copyExits: boolean;
+  minEntryPriceBps?: number;
+  maxEntryPriceBps?: number;
+  maxBetSizeAtomic: string;
+  maxDailySpendAtomic: string;
+  maxOpenExposureAtomic: string;
+  maxDailyLossAtomic?: string;
+  useSourceExitRules?: boolean;
+  customTakeProfitBps?: number;
+  customStopLossBps?: number;
+  requireApprovalAlways?: boolean;
+  requireApprovalAboveAtomic?: string;
+};
+
+export type AlphaFeeInput = {
+  enabled: boolean;
+  successFeeBps: 50 | 100 | 150 | 200 | 250 | 300;
+  mode: "DISPLAY_ONLY" | "ACCRUAL";
+};
+
 export class DnaX402Client {
   private readonly baseUrl: string;
   private readonly fetchImpl: FetchLike;
@@ -147,6 +182,45 @@ export class DnaX402Client {
     return this.postJson(`/v1/agent-builder/drafts/${encodeURIComponent(draftId)}/confirm`, { confirmations });
   }
 
+  async registerAgentWalletPublicKey(agentId: string, input: AgentWalletRegistration): Promise<unknown> {
+    assertNoBackendKeyFields(input);
+    return this.postJson(`/v1/agents/${encodeURIComponent(agentId)}/wallets/register`, input);
+  }
+
+  async createPaperAgent(agentId: string): Promise<unknown> {
+    return this.postJson(`/v1/agents/${encodeURIComponent(agentId)}/paper-account`, {});
+  }
+
+  async setCopySettings(input: CopySettingsInput): Promise<unknown> {
+    return this.postJson("/v1/copy/settings", input);
+  }
+
+  async setAlphaFee(agentId: string, input: AlphaFeeInput): Promise<unknown> {
+    return this.postJson(`/v1/agents/${encodeURIComponent(agentId)}/monetization`, {
+      ...input,
+      appliesTo: "POSITIVE_FINALIZED_COPIED_LOT_PNL",
+    });
+  }
+
+  async finalizeCopiedLot(copiedLotId: string, realizedPnlAtomic: string): Promise<unknown> {
+    return this.postJson(`/v1/copy/lots/${encodeURIComponent(copiedLotId)}/finalize`, { realizedPnlAtomic });
+  }
+
+  inspectFeeWaterfall(quote: QuoteResponse): {
+    provider?: FeeLine;
+    dnaPlatformFee?: FeeLine;
+    builderFee?: FeeLine;
+    requiredProofs: FeeLine[];
+  } {
+    const lines = quote.feeWaterfallV2?.lines ?? [];
+    return {
+      provider: lines.find((line) => line.kind === "PROVIDER_AMOUNT"),
+      dnaPlatformFee: lines.find((line) => line.kind === "DNA_PLATFORM_FEE"),
+      builderFee: lines.find((line) => line.kind === "BUILDER_FEE"),
+      requiredProofs: lines.filter((line) => line.requiredForFinalize),
+    };
+  }
+
   requiredSplitLines(quote: QuoteResponse): FeeLine[] {
     return quote.feeWaterfallV2?.lines.filter((line) => line.requiredForFinalize) ?? [];
   }
@@ -199,4 +273,3 @@ export function assertNoBackendKeyFields(input: unknown): void {
     }
   }
 }
-

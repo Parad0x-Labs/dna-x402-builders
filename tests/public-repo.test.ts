@@ -40,9 +40,12 @@ describe("public builder repo boundary", () => {
     expect(text).not.toMatch(/-----begin (rsa|ec|openssh) private key-----/);
   });
 
-  it("contains the one-stop review packet and public scenario docs", () => {
-    expect(fs.existsSync(path.join(root, "docs", "INTERNAL_REVIEW_PACKET.md"))).toBe(true);
+  it("contains public scenario and AI IDE docs without internal review packets", () => {
+    expect(fs.existsSync(path.join(root, "docs", "INTERNAL_REVIEW_PACKET.md"))).toBe(false);
     expect(fs.existsSync(path.join(root, "docs", "SCENARIOS.md"))).toBe(true);
     expect(fs.existsSync(path.join(root, "docs", "X402_COMPATIBILITY.md"))).toBe(true);
+    expect(fs.existsSync(path.join(root, "docs", "AI_IDE_QUICKSTART.md"))).toBe(true);
+    expect(fs.existsSync(path.join(root, "docs", "CURSOR_PROMPTS.md"))).toBe(true);
+    expect(fs.existsSync(path.join(root, "docs", "AGENT_PROMPTS.md"))).toBe(true);
   });
 });

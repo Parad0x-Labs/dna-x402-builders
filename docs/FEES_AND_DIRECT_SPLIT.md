@@ -1,6 +1,6 @@
 # Fees And Direct Split
 
-DNA x402 uses visible fee lines. No hidden fees.
+DNA x402 uses visible fee lines. Every fee is shown before payment and bound to the receipt.
 
 ## Public Beta Live Paid Flow
 
@@ -21,7 +21,7 @@ Builders can add visible builder fees in beta:
 
 Builder direct collection is a separate approval path.
 
-## What Is Never Allowed
+## Fee Rules
 
 - hidden fee
 - backend custody
@@ -54,4 +54,3 @@ Builder direct collection is a separate approval path.
   ]
 }
 ```
-

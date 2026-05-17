@@ -18,10 +18,4 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm audit --audit-level=high
-      - run: npm run examples:buyer
-      - run: npm run examples:seller
-      - run: npm run examples:builder-fee
-      - run: npm run examples:webhook
-      - run: npm run examples:receipt
-      - run: npm run examples:agent-builder
-
+      - run: npm run examples:all

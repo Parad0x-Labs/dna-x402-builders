@@ -94,6 +94,104 @@ Finalize rejects missing DNA proof, wrong treasury recipient, wrong mint, underp
 
 Fetches receipt payload and signature. Use receipts to verify quote, commit, payment proof, fee waterfall, request digest, response digest, and policy state.
 
+## Paid Retry
+
+Retry the paid endpoint after receipt verification. Your app should unlock results only after the receipt is present and valid.
+
+Common app-level header:
+
+```txt
+X-DNA-Receipt: <receipt-token-or-id>
+```
+
+## Webhooks
+
+Common public events:
+
+- `quote.created`
+- `payment.finalized`
+- `receipt.issued`
+- `fulfillment.completed`
+- `policy.review_required`
+
+Webhook handlers should verify signatures, reject stale timestamps, store idempotency keys, and avoid raw PII in logs.
+
+## Builder Fees
+
+Builder fee quote parameters:
+
+- `builderId`
+- `builderFeeBps`
+- `builderRecipient`
+- `builderFeeMode=display_only|builder_accrual`
+
+Builder fees are visible and receipt-bound. DNA's platform fee remains first-class in the same fee waterfall.
+
+## Agent Wallet Public-Key Registration
+
+`POST /v1/agents/:agentId/wallets/register`
+
+Registers public wallet metadata only:
+
+```json
+{
+  "ownerWallet": "owner-public-wallet",
+  "publicKey": "agent-wallet-public-key",
+  "chain": "SOLANA",
+  "keyStorage": "LOCAL_ENCRYPTED"
+}
+```
+
+Do not send private keys, seed phrases, mnemonics, or backend signing material.
+
+## Paper Agent Creation
+
+`POST /v1/agents/:agentId/paper-account`
+
+Creates a paper account for strategy testing.
+
+## Copy Settings
+
+`POST /v1/copy/settings`
+
+```json
+{
+  "followerAgentId": "follower",
+  "sourceAgentId": "source",
+  "enabled": true,
+  "mode": "PAPER_COPY",
+  "copyBuys": true,
+  "copySells": false,
+  "copyExits": false,
+  "minEntryPriceBps": 4000,
+  "maxEntryPriceBps": 6000,
+  "maxBetSizeAtomic": "5000000",
+  "maxDailySpendAtomic": "25000000",
+  "maxOpenExposureAtomic": "10000000"
+}
+```
+
+## Alpha Monetization
+
+`POST /v1/agents/:agentId/monetization`
+
+Alpha fees apply only to positive finalized copied-lot profit.
+
+Allowed fee bps:
+
+- `50`
+- `100`
+- `150`
+- `200`
+- `250`
+- `300`
+
+## Copied Lot Finalization
+
+`POST /v1/copy/lots/:copiedLotId/finalize`
+
+Finalizes copied-lot PnL. Winning copied lots can create alpha fee accruals. Losing, break-even, unrealized, and non-copied trades do not create success fees.
+
 ## Agent Builder
 
 `POST /v1/agent-builder/draft`
@@ -105,4 +203,3 @@ Creates a safe structured draft from a prompt, guided answers, template, or clon
 Confirms the draft after risk summary acknowledgements.
 
 Unsafe prompts are rejected. Backend custody and backend signing are never accepted.
-
