@@ -40,7 +40,7 @@ The examples default to mock mode so you can learn the flow without spending fun
 When you move to live low-risk beta payments:
 
 - use Solana USDC
-- keep transaction and daily caps
+- keep the hosted Public Beta caps: `$200` per transaction, `$1,500` daily spend, `$300` daily loss, and `$500` open exposure
 - sign client-side
 - submit provider and DNA treasury proofs for direct split quotes
 - verify the receipt before unlocking results

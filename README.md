@@ -149,6 +149,8 @@ Finalize requires the required proofs before a receipt is issued:
 
 Public Beta supports builder APIs, paid tools, data feeds, agent creation, paper agents, public profiles, copy settings, alpha monetization accounting, visible fee waterfalls, receipt verification, and low-risk capped live payments.
 
+Current hosted Public Beta live payment caps are `$200` per transaction, `$1,500` daily spend, `$300` daily loss, and `$500` open exposure.
+
 Backend custody, backend signing, hidden fees, auto-sweep, physical goods, high-risk categories, public netting, and unrestricted autonomous live trading are outside Public Beta scope.
 
 ## Ship

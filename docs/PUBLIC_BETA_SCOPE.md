@@ -17,10 +17,15 @@ Live payment requirements:
 
 - Solana USDC
 - client-side signing
-- per-transaction and daily caps
+- current Public Beta cap: `$200` per transaction
+- current Public Beta cap: `$1,500` daily spend
+- current Public Beta cap: `$300` daily loss
+- current Public Beta cap: `$500` open exposure
 - provider proof
 - DNA 0.1% treasury proof
 - receipt verification
+
+Historical dust-drill limits such as `0.10 USDC` per transaction or `5 USDC` per day are proof-drill limits only. They are not the normal hosted Public Beta payment ceiling.
 
 Outside Public Beta scope:
 
