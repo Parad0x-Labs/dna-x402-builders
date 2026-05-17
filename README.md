@@ -12,6 +12,23 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## Meme Casino + Social Agent Packs
+
+Solana builders asked for the fun stuff.
+
+Now included:
+
+- Meme Casino Agents: wallet stalkers, fresh pair goblins, rug radar, volume scouts, copy agents, paper ape labs, signal tollbooths, alpha fee agents, and custom degen machines.
+- Social/X Agents: campaign rooms, proof-of-engagement flows, reply draft agents, bounty tollbooths, Spaces notes, ambassador tasks, and receipt-gated rewards.
+
+Pick it. Fork it. Prompt it. Ship it. Get paid.
+
+- [Meme Casino Agents](./docs/MEME_CASINO_AGENTS.md)
+- [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
+- [Agent Templates](./docs/AGENT_TEMPLATES.md)
+- [Meme Casino templates](./templates/agents/meme-casino)
+- [Social/X templates](./templates/agents/social-x)
+
 ## What Is DNA x402?
 
 DNA x402 is a hosted payment gateway for machine-speed commerce.
