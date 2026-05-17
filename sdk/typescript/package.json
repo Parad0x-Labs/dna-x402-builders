@@ -1,0 +1,9 @@
+{
+  "name": "@parad0x-labs/dna-x402-builders",
+  "version": "0.1.0-public-beta",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT"
+}
+

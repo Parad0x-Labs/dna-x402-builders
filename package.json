@@ -1,0 +1,35 @@
+{
+  "name": "dna-x402-builders",
+  "version": "0.1.0-public-beta",
+  "description": "Public builder SDK, docs, and examples for integrating with the DNA x402 payment rail.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "acceptance": "npm run build && npm test",
+    "examples:buyer": "tsx examples/buyer-agent-ts/src/index.ts",
+    "examples:seller": "tsx examples/seller-paid-api-ts/src/index.ts",
+    "examples:builder-fee": "tsx examples/builder-monetized-agent-ts/src/index.ts",
+    "examples:webhook": "tsx examples/webhook-receiver-ts/src/index.ts",
+    "examples:receipt": "tsx examples/receipt-verifier-ts/src/index.ts",
+    "examples:agent-builder": "tsx examples/agent-builder-ts/src/index.ts"
+  },
+  "keywords": [
+    "x402",
+    "payments",
+    "agents",
+    "api-commerce",
+    "solana",
+    "usdc",
+    "builder-sdk"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.6"
+  }
+}
+

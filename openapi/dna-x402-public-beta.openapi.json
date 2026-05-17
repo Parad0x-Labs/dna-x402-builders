@@ -1,0 +1,107 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "DNA x402 Public Beta API",
+    "version": "0.1.0-public-beta",
+    "description": "Public builder-facing API contract for integrating with hosted DNA x402."
+  },
+  "servers": [
+    {
+      "url": "https://parad0xlabs.com/x402"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Healthy"
+          }
+        }
+      }
+    },
+    "/quote": {
+      "get": {
+        "summary": "Request a payment quote",
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amountAtomic",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote with payment requirements and optional fee waterfall."
+          }
+        }
+      }
+    },
+    "/commit": {
+      "post": {
+        "summary": "Commit to a quote",
+        "responses": {
+          "201": {
+            "description": "Commit created."
+          }
+        }
+      }
+    },
+    "/finalize": {
+      "post": {
+        "summary": "Submit payment proof or direct split proofs",
+        "responses": {
+          "200": {
+            "description": "Receipt issued."
+          },
+          "402": {
+            "description": "Payment proof rejected."
+          }
+        }
+      }
+    },
+    "/receipt/{receiptId}": {
+      "get": {
+        "summary": "Fetch a receipt",
+        "parameters": [
+          {
+            "name": "receiptId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Receipt payload."
+          }
+        }
+      }
+    },
+    "/v1/agent-builder/draft": {
+      "post": {
+        "summary": "Create a safe agent draft",
+        "responses": {
+          "200": {
+            "description": "Draft created, rejected, or routed to review."
+          }
+        }
+      }
+    }
+  }
+}
+
