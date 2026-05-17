@@ -44,3 +44,15 @@ When you move to live low-risk beta payments:
 - sign client-side
 - submit provider and DNA treasury proofs for direct split quotes
 - verify the receipt before unlocking results
+
+## 5. Optional Live Devnet Smoke
+
+The default examples are mock mode. To check live Solana devnet RPC plumbing without mainnet funds:
+
+```bash
+DNA_X402_LIVE_DEVNET_SMOKE=1 SOLANA_DEVNET_RPC_URL=https://api.devnet.solana.com npm run acceptance:live:solana-devnet
+```
+
+The smoke verifies live devnet RPC reachability, quote/commit shapes, provider and DNA proof shapes, receipt verify, paid unlock, replay rejection, wrong-recipient rejection, and underpay rejection.
+
+See [Live Devnet Smoke](./LIVE_DEVNET_SMOKE.md).

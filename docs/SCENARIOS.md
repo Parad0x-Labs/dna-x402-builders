@@ -30,6 +30,7 @@ DNA x402 is a payment gateway for programmable commerce. Builders bring the prod
 | Solana token signal agent | Paper/signal/user-confirmed design | Unrestricted autonomous token trading is not in beta scope. |
 | Builder monetized API | Builder fee display/accrual | Visible builder fees are receipt-bound. |
 | Direct split paid API | Provider + DNA treasury proof | Live paid beta flow for Solana USDC. |
+| Optional live devnet smoke | Live Solana devnet RPC plus direct split proof-shape flow | Opt-in only; no mainnet funds or private keys. |
 | Affiliate/referrer fee | Architecture path | Ask for approval before live direct collection. |
 | Private enterprise marketplace | Approved seller network | Use custom review and policy scope. |
 

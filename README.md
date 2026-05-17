@@ -147,6 +147,20 @@ const quote = await dna.quote({
 });
 ```
 
+## Optional Live Devnet Smoke
+
+The normal repo checks are mock/devnet simulations so they run without secrets.
+
+For a live Solana devnet RPC smoke:
+
+```bash
+DNA_X402_LIVE_DEVNET_SMOKE=1 SOLANA_DEVNET_RPC_URL=https://api.devnet.solana.com npm run acceptance:live:solana-devnet
+```
+
+This checks live devnet RPC reachability plus quote, commit, provider proof shape, DNA treasury proof shape, receipt verify, paid unlock, replay rejection, wrong-recipient rejection, and underpay rejection.
+
+- [Live Devnet Smoke](./docs/LIVE_DEVNET_SMOKE.md)
+
 ## Use With Cursor Or Coding Agents
 
 Point your coding agent at this repo and say:
@@ -217,6 +231,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Social / X Agents](./docs/SOCIAL_X_AGENTS.md)
 - [Telegram Agent Launcher](./docs/TELEGRAM_AGENT_LAUNCHER.md)
 - [Discord Agent Launcher](./docs/DISCORD_AGENT_LAUNCHER.md)
+- [Live Devnet Smoke](./docs/LIVE_DEVNET_SMOKE.md)
 - [Public Beta Scope](./docs/PUBLIC_BETA_SCOPE.md)
 - [Error Codes](./docs/ERROR_CODES.md)
 
