@@ -49,7 +49,7 @@ describe("DNA x402 public builder SDK", () => {
     expect(() => assertNoBackendKeyFields({ privateKey: "never" })).toThrow(/Forbidden/);
   });
 
-  it("exposes hosted API helpers without backend rail internals", async () => {
+  it("exposes hosted API helpers without backend rail implementation", async () => {
     const requested: string[] = [];
     const client = new DnaX402Client({
       baseUrl: "https://parad0xlabs.com/x402",

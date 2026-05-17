@@ -2,9 +2,11 @@
 
 Build paid APIs, agents, tools, and data feeds on the DNA x402 hosted rail.
 
+**Quote. Pay. Verify. Receipt. Unlock.**
+
 **Status: Public Beta**
 
-DNA x402 is a hosted programmable commerce rail for builders.
+DNA x402 gives builders hosted payment proof, signed receipts, direct split fees, webhooks, builder fees, paper agents, copy settings, and alpha monetization primitives through simple API calls.
 
 Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to APIs, agents, tools, and data feeds.
 
@@ -20,7 +22,7 @@ Your app keeps the product experience. DNA x402 gives you the payment loop:
 Quote. Pay. Verify. Receipt. Unlock.
 ```
 
-Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this repo. The backend rail is hosted by DNA x402; this repo does not include private server internals.
+Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this repo. The backend rail is hosted by DNA x402; this repo does not include private server implementation.
 
 ## What Can You Build?
 
@@ -86,7 +88,7 @@ More copy-paste prompts:
 https://parad0xlabs.com/x402
 ```
 
-Use staging URLs provided by Parad0x Labs for development and beta onboarding.
+Use Public Beta URLs provided by Parad0x Labs for development and beta onboarding.
 
 ## Example Flows
 

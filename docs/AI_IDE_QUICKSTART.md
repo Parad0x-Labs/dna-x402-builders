@@ -74,7 +74,7 @@ Add a visible builder fee to a DNA x402 quote.
 
 Use:
 - builderId
-- builderFeeBps
+- builderFeeBps (50 = 0.5%)
 - builderRecipient
 - builderFeeMode=builder_accrual
 

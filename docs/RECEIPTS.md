@@ -1,6 +1,6 @@
 # Receipts
 
-Receipts are the buyer and seller audit trail.
+Receipts are the buyer and seller verification trail.
 
 A receipt can prove:
 
@@ -26,5 +26,4 @@ const receipt = await dna.receipt(receiptId);
 // verify shape/signature through hosted verifier or approved SDK helper
 ```
 
-Public examples do not include private rail signing internals.
-
+Public examples do not include server-side signing implementation.

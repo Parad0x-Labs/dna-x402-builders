@@ -37,11 +37,10 @@ The examples default to mock mode so you can learn the flow without spending fun
 
 ## 4. Move To Hosted Public Beta
 
-When you are approved for live low-risk beta payments:
+When you move to live low-risk beta payments:
 
 - use Solana USDC
 - keep transaction and daily caps
 - sign client-side
 - submit provider and DNA treasury proofs for direct split quotes
 - verify the receipt before unlocking results
-

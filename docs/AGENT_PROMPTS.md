@@ -30,7 +30,7 @@ Add builder monetization to my paid API.
 
 Use DNA x402 builder fee parameters:
 - builderId
-- builderFeeBps
+- builderFeeBps (50 = 0.5%)
 - builderRecipient
 - builderFeeMode=builder_accrual
 
@@ -47,4 +47,3 @@ Find requiredForFinalize lines.
 Submit splitPaymentProofs for provider and DNA platform fee.
 Reject unlock if any required proof is missing or receipt verification fails.
 ```
-

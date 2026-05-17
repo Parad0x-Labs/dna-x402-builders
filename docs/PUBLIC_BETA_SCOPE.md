@@ -19,7 +19,7 @@ Live payment requirements:
 - client-side signing
 - per-transaction and daily caps
 - provider proof
-- DNA 10 bps treasury proof
+- DNA 0.1% treasury proof
 - receipt verification
 
 Outside Public Beta scope:
@@ -32,11 +32,9 @@ Outside Public Beta scope:
 
 Coming after separate safety gates:
 
-- broader multi-chain production settlement
+- additional settlement networks
 - direct builder fee collection
 - unrestricted public copy trading
 - regulated/high-risk verticals
 - physical goods
-- high-risk categories
 - public netting
-- broad multi-chain production settlement

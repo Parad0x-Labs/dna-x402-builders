@@ -7,7 +7,7 @@ DNA x402 uses visible fee lines. Every fee is shown before payment and bound to 
 For live paid Solana USDC Public Beta flows:
 
 - buyer pays provider/seller
-- buyer pays DNA treasury 10 bps
+- buyer pays DNA treasury 0.1%
 - finalize requires both payment proofs
 - receipt binds both proofs
 - replay/underpay/wrong recipient/wrong mint are rejected
@@ -21,7 +21,7 @@ Builders can add visible builder fees in beta:
 
 Builder direct collection is a separate approval path.
 
-## Fee Rules
+## Forbidden
 
 - hidden fee
 - backend custody

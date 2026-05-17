@@ -6,7 +6,7 @@ Base URL:
 https://parad0xlabs.com/x402
 ```
 
-Use staging URLs provided by Parad0x Labs for development.
+Use Public Beta URLs provided by Parad0x Labs for development.
 
 ## Health
 
@@ -33,7 +33,7 @@ GET /quote?resource=/signals/btc&amountAtomic=1000000&builderId=btc_builder&buil
 The response can include `feeWaterfallV2`. For live paid Public Beta Solana USDC flows, required fee lines must be paid separately:
 
 - provider/seller transfer
-- DNA treasury 10 bps transfer
+- DNA treasury 0.1% transfer
 
 ## Commit
 
@@ -121,7 +121,7 @@ Webhook handlers should verify signatures, reject stale timestamps, store idempo
 Builder fee quote parameters:
 
 - `builderId`
-- `builderFeeBps`
+- `builderFeeBps` (`50` = `0.5%`, `200` = `2%`)
 - `builderRecipient`
 - `builderFeeMode=display_only|builder_accrual`
 
@@ -177,14 +177,14 @@ Creates a paper account for strategy testing.
 
 Alpha fees apply only to positive finalized copied-lot profit.
 
-Allowed fee bps:
+Allowed alpha fee percentages:
 
-- `50`
-- `100`
-- `150`
-- `200`
-- `250`
-- `300`
+- `50` = `0.5%`
+- `100` = `1%`
+- `150` = `1.5%`
+- `200` = `2%`
+- `250` = `2.5%`
+- `300` = `3%`
 
 ## Copied Lot Finalization
 
