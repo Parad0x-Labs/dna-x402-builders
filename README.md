@@ -222,6 +222,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [Agent Templates](./examples/agent-templates)
 - [Meme Casino Agents](./examples/meme-casino-agents)
 - [Social / X Agents](./examples/social-x-agents)
+- [Telegram Agent Launcher](./launchers/telegram)
 
 ## Public Beta Scope
 
