@@ -22,3 +22,8 @@ Common integration errors:
 | `HIDDEN_FEE_REJECTED` | Signal resale or builder fee lines were hidden from the buyer. |
 | `GUARANTEED_PROFIT_CLAIM_REJECTED` | Signal resale tried to market guaranteed profit or similar claims. |
 | `SIGNAL_USAGE_CAP_EXCEEDED` | Builder signal usage exceeded the license cap. |
+| `DARK_NULL_PATH_NOT_ENABLED` | Optional Dark Null private receipt path is not enabled for this builder/account. |
+| `DARK_NULL_RECEIPT_NOT_ELIGIBLE` | DNA receipt does not have the settlement evidence required for private receipt wrapping. |
+| `DARK_NULL_NETWORK_MISMATCH` | Requested Dark Null network does not match the enabled target or receipt evidence. |
+| `DARK_NULL_RECEIPT_REPLAY` | Private receipt hash or replay key was already used. |
+| `DARK_NULL_MAINNET_EVIDENCE_REQUIRED` | Mainnet-beta private receipt request lacks promoted Dark Null evidence. |

@@ -9,6 +9,7 @@ export type DnaX402ClientOptions = {
 export type QuoteRequest = {
   resource: string;
   amountAtomic: string;
+  privacyPath?: PrivacySettlementPath;
   builderId?: string;
   builderFeeBps?: number;
   builderRecipient?: string;
@@ -72,6 +73,36 @@ export type FinalizeResponse = {
   receiptId: string;
   receipt?: unknown;
   splitPaymentResults?: unknown[];
+  darkNullReceipt?: DarkNullReceiptSummary;
+};
+
+export type PrivacySettlementPath = "normal" | "dark-null";
+
+export type DarkNullNetwork = "devnet" | "mainnet-beta";
+
+export type DarkNullReceiptRequest = {
+  receiptId: string;
+  receipt?: unknown;
+  network?: DarkNullNetwork;
+  mode?: "private_receipt_only" | "proof_bound";
+  settlementSignature?: string;
+  settlementSlot?: number;
+  previousReceiptHash?: string | null;
+};
+
+export type DarkNullReceiptSummary = {
+  schema: "dna-x402-dark-null-privacy-response-v1";
+  status: "created" | "pending" | "rejected";
+  network: DarkNullNetwork;
+  normalPath: "dna-x402";
+  privacyPath: "dark-null";
+  receiptId: string;
+  dnaReceiptHash: string;
+  darkNullReceiptHash?: string;
+  manifestLabel?: string;
+  replayKey?: string;
+  receiptSchema?: string;
+  reason?: string;
 };
 
 export type AgentBuilderDraftRequest = {
@@ -859,6 +890,7 @@ export class DnaX402Client {
     const query = new URLSearchParams();
     query.set("resource", input.resource);
     query.set("amountAtomic", input.amountAtomic);
+    if (input.privacyPath) query.set("privacyPath", input.privacyPath);
     if (input.builderId) query.set("builderId", input.builderId);
     if (input.builderFeeBps !== undefined) query.set("builderFeeBps", String(input.builderFeeBps));
     if (input.builderRecipient) query.set("builderRecipient", input.builderRecipient);
@@ -880,6 +912,14 @@ export class DnaX402Client {
 
   async receipt(receiptId: string): Promise<unknown> {
     return this.getJson(`/receipt/${encodeURIComponent(receiptId)}`);
+  }
+
+  async requestDarkNullReceipt(input: DarkNullReceiptRequest): Promise<DarkNullReceiptSummary> {
+    return this.postJson("/v1/privacy/dark-null/receipts", input) as Promise<DarkNullReceiptSummary>;
+  }
+
+  async darkNullReceipt(receiptHash: string): Promise<DarkNullReceiptSummary> {
+    return this.getJson(`/v1/privacy/dark-null/receipts/${encodeURIComponent(receiptHash)}`) as Promise<DarkNullReceiptSummary>;
   }
 
   async createAgentDraft(input: AgentBuilderDraftRequest): Promise<AgentBuilderDraft> {

@@ -40,6 +40,20 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "privacyPath",
+            "in": "query",
+            "required": false,
+            "description": "Use normal for the standard DNA receipt path or dark-null for the optional private receipt path.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "normal",
+                "dark-null"
+              ],
+              "default": "normal"
+            }
           }
         ],
         "responses": {
@@ -92,6 +106,65 @@
         }
       }
     },
+    "/v1/privacy/dark-null/receipts": {
+      "post": {
+        "summary": "Request optional Dark Null private receipt wrapping",
+        "description": "Hosted contract endpoint. Builders submit a DNA receipt reference and settlement evidence; the backend returns a Dark Null private receipt summary when the optional path is enabled for the account.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DarkNullReceiptRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Dark Null private receipt summary.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DarkNullReceiptSummary"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Receipt is not eligible for Dark Null wrapping or the path is not enabled."
+          }
+        }
+      }
+    },
+    "/v1/privacy/dark-null/receipts/{receiptHash}": {
+      "get": {
+        "summary": "Fetch a Dark Null private receipt summary",
+        "parameters": [
+          {
+            "name": "receiptHash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dark Null private receipt summary.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DarkNullReceiptSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/agent-builder/draft": {
       "post": {
         "summary": "Create a safe agent draft",
@@ -102,6 +175,115 @@
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "DarkNullReceiptRequest": {
+        "type": "object",
+        "required": [
+          "receiptId"
+        ],
+        "properties": {
+          "receiptId": {
+            "type": "string"
+          },
+          "receipt": {
+            "description": "Optional signed DNA receipt object. Hosted integrations can also pass only receiptId when the receipt is already stored by DNA x402."
+          },
+          "network": {
+            "type": "string",
+            "enum": [
+              "devnet",
+              "mainnet-beta"
+            ],
+            "default": "devnet"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "private_receipt_only",
+              "proof_bound"
+            ],
+            "default": "private_receipt_only"
+          },
+          "settlementSignature": {
+            "type": "string"
+          },
+          "settlementSlot": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "previousReceiptHash": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      },
+      "DarkNullReceiptSummary": {
+        "type": "object",
+        "required": [
+          "schema",
+          "status",
+          "network",
+          "normalPath",
+          "privacyPath",
+          "receiptId",
+          "dnaReceiptHash"
+        ],
+        "properties": {
+          "schema": {
+            "const": "dna-x402-dark-null-privacy-response-v1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "created",
+              "pending",
+              "rejected"
+            ]
+          },
+          "network": {
+            "type": "string",
+            "enum": [
+              "devnet",
+              "mainnet-beta"
+            ]
+          },
+          "normalPath": {
+            "const": "dna-x402"
+          },
+          "privacyPath": {
+            "const": "dark-null"
+          },
+          "receiptId": {
+            "type": "string"
+          },
+          "dnaReceiptHash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "darkNullReceiptHash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "manifestLabel": {
+            "type": "string"
+          },
+          "replayKey": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "receiptSchema": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
   }
 }
-

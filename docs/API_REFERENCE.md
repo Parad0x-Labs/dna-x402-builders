@@ -24,6 +24,14 @@ Finds builder APIs, data feeds, tools, and agent services listed on DNA x402.
 
 `GET /quote?resource=/resource&amountAtomic=100000`
 
+Optional privacy path:
+
+```txt
+GET /quote?resource=/signals/private-alpha&amountAtomic=1000000&privacyPath=dark-null
+```
+
+`privacyPath=normal` is the default. `privacyPath=dark-null` requests the optional Dark Null private receipt lane when the builder account and receipt are eligible.
+
 Builder fee quote:
 
 ```txt
@@ -93,6 +101,45 @@ Finalize rejects missing DNA proof, wrong treasury recipient, wrong mint, underp
 `GET /receipt/:receiptId`
 
 Fetches receipt payload and signature. Use receipts to verify quote, commit, payment proof, fee waterfall, request digest, response digest, and policy state.
+
+## Optional Dark Null Private Receipt
+
+`POST /v1/privacy/dark-null/receipts`
+
+```json
+{
+  "receiptId": "receipt-id",
+  "network": "devnet",
+  "mode": "proof_bound",
+  "settlementSignature": "solana-signature",
+  "settlementSlot": 434395918,
+  "previousReceiptHash": null
+}
+```
+
+Response:
+
+```json
+{
+  "schema": "dna-x402-dark-null-privacy-response-v1",
+  "status": "created",
+  "network": "devnet",
+  "normalPath": "dna-x402",
+  "privacyPath": "dark-null",
+  "receiptId": "receipt-id",
+  "dnaReceiptHash": "64-hex",
+  "darkNullReceiptHash": "64-hex",
+  "manifestLabel": "canonical-devnet-root-2"
+}
+```
+
+Fetch a private receipt summary:
+
+```txt
+GET /v1/privacy/dark-null/receipts/:receiptHash
+```
+
+The public builder contract exposes receipt summaries and hashes only. Backend verifier internals are not included in this repo.
 
 ## Paid Retry
 

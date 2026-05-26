@@ -12,6 +12,21 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## Optional Dark Null Privacy Path
+
+Builders can run the standard DNA x402 path or explicitly request the Dark Null privacy path.
+
+```txt
+normal:    quote -> payment proof -> signed receipt -> paid unlock
+dark-null: normal path + private receipt summary for privacy-sensitive unlocks
+```
+
+Use `normal` by default. Use `dark-null` for paid alpha reveals, private signal rooms, wallet-stalker reports, and API access receipts where raw resource paths should not become public receipt metadata.
+
+Devnet Dark Null receipt evidence is the first integration lane. Mainnet-beta Dark Null private receipts require promoted Dark Null deployment evidence and hosted account enablement. The standard DNA x402 Public Beta rail remains the live capped Solana USDC path.
+
+- [Dark Null Privacy Path](./docs/DARK_NULL_PRIVACY_PATH.md)
+
 ## Degen Mode
 
 Connect wallet. Pick agent. Set max pain. Launch.
@@ -241,6 +256,7 @@ const dna = new DnaX402Client({
 const quote = await dna.quote({
   resource: "/signals/btc",
   amountAtomic: "1000000",
+  privacyPath: "normal",
 });
 ```
 
@@ -320,6 +336,7 @@ Finalize requires the required proofs before a receipt is issued:
 - [API Reference](./docs/API_REFERENCE.md)
 - [Scenario Matrix](./docs/SCENARIOS.md)
 - [x402 Compatibility](./docs/X402_COMPATIBILITY.md)
+- [Dark Null Privacy Path](./docs/DARK_NULL_PRIVACY_PATH.md)
 - [Fees and Direct Split](./docs/FEES_AND_DIRECT_SPLIT.md)
 - [Parad0x Signal Feeds](./docs/PARADOX_SIGNAL_FEEDS.md)
 - [Signal Resale And Licensing](./docs/SIGNAL_RESALE_AND_LICENSING.md)

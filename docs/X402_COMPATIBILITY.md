@@ -22,6 +22,7 @@ DNA x402 adds hosted rail behavior for Public Beta builders:
 - webhook events
 - policy and beta-scope checks
 - agent-builder draft safety checks
+- optional Dark Null private receipt summaries for privacy-sensitive paid unlocks
 
 ## Compatibility Position
 
@@ -35,7 +36,10 @@ Use standard x402 concepts when integrating:
 
 Use DNA x402 APIs when you want the hosted DNA rail, fee waterfall, receipts, builder monetization, and Public Beta agent/payment controls.
 
+Use `privacyPath=dark-null` only when the builder account is enabled for the optional Dark Null lane. The normal x402-compatible payment path stays available and remains the default.
+
 ## Network Notes
 
 Public Beta live payments currently focus on Solana USDC with caps and direct split. EVM/Base/Polygon/Arbitrum/Coinbase facilitator paths are integration concepts, not unlimited live support unless enabled by DNA x402 for your builder account.
 
+Dark Null private receipt summaries start from the devnet evidence lane. Mainnet-beta Dark Null use requires promoted Dark Null deployment evidence and hosted account enablement.

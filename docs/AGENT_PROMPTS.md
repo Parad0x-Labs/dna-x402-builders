@@ -48,6 +48,19 @@ Submit splitPaymentProofs for provider and DNA platform fee.
 Reject unlock if any required proof is missing or receipt verification fails.
 ```
 
+## Optional Dark Null Privacy Path Prompt
+
+```txt
+Add the optional Dark Null privacy receipt path to my DNA x402 integration.
+
+Use normal DNA x402 as the default path.
+Only request privacyPath=dark-null for privacy-sensitive paid unlocks.
+After finalize returns a DNA receipt, call requestDarkNullReceipt with receiptId,
+network=devnet for integration testing, settlementSignature, and settlementSlot.
+Store only receipt hashes and summaries in my app.
+Do not store raw payment headers, raw buyer metadata, or private keys.
+```
+
 ## Meme Casino Pack Prompt
 
 ```txt

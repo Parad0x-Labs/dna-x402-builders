@@ -84,4 +84,66 @@ describe("DNA x402 public builder SDK", () => {
     expect(requested.some((url) => url.includes("/v1/copy/settings"))).toBe(true);
     expect(requested.some((url) => url.includes("/monetization"))).toBe(true);
   });
+
+  it("exposes the optional Dark Null privacy receipt path as a hosted contract", async () => {
+    const calls: Array<{ url: string; init?: RequestInit }> = [];
+    const client = new DnaX402Client({
+      baseUrl: "https://parad0xlabs.com/x402",
+      fetch: async (url, init) => {
+        calls.push({ url, init });
+        if (url.includes("/quote")) {
+          return response({ quoteId: "quote_dark_null" });
+        }
+        if (url.endsWith("/v1/privacy/dark-null/receipts")) {
+          return response({
+            schema: "dna-x402-dark-null-privacy-response-v1",
+            status: "created",
+            network: "devnet",
+            normalPath: "dna-x402",
+            privacyPath: "dark-null",
+            receiptId: "receipt_1",
+            dnaReceiptHash: "a".repeat(64),
+            darkNullReceiptHash: "b".repeat(64),
+            manifestLabel: "canonical-devnet-root-2",
+          });
+        }
+        if (url.endsWith(`/v1/privacy/dark-null/receipts/${"b".repeat(64)}`)) {
+          return response({
+            schema: "dna-x402-dark-null-privacy-response-v1",
+            status: "created",
+            network: "devnet",
+            normalPath: "dna-x402",
+            privacyPath: "dark-null",
+            receiptId: "receipt_1",
+            dnaReceiptHash: "a".repeat(64),
+            darkNullReceiptHash: "b".repeat(64),
+          });
+        }
+        throw new Error(`unexpected url ${url}`);
+      },
+    });
+
+    await client.quote({
+      resource: "/paid/private-alpha",
+      amountAtomic: "1000000",
+      privacyPath: "dark-null",
+    });
+    const created = await client.requestDarkNullReceipt({
+      receiptId: "receipt_1",
+      network: "devnet",
+      mode: "proof_bound",
+      settlementSignature: "tx-demo",
+      settlementSlot: 434395918,
+    });
+    const fetched = await client.darkNullReceipt("b".repeat(64));
+
+    expect(created.privacyPath).toBe("dark-null");
+    expect(fetched.normalPath).toBe("dna-x402");
+    expect(calls[0].url).toContain("privacyPath=dark-null");
+    expect(JSON.parse(String(calls[1].init?.body))).toMatchObject({
+      receiptId: "receipt_1",
+      network: "devnet",
+      mode: "proof_bound",
+    });
+  });
 });
