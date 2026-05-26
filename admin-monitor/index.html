@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DNA x402 Builder Admin Monitor</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Primary">
+      <div class="brand">
+        <span class="brand-mark">DX</span>
+        <div>
+          <strong>DNA x402</strong>
+          <span>Builder Admin</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#rails">Rails</a>
+        <a href="#checks">Checks</a>
+        <a href="#commands">Commands</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Public builder monitor</p>
+          <h1>Operational status</h1>
+        </div>
+        <div class="status-pill" id="overall-status">Loading</div>
+      </header>
+
+      <section id="overview" class="summary-grid" aria-label="Summary"></section>
+
+      <section id="rails" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Payment paths</p>
+            <h2>Builder rails</h2>
+          </div>
+          <button type="button" data-filter="ALL">All</button>
+        </div>
+        <div class="rail-grid" id="rail-grid"></div>
+      </section>
+
+      <section id="checks" class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Repository gate</p>
+            <h2>Cleanliness checks</h2>
+          </div>
+          <div class="segmented" role="group" aria-label="Check filter">
+            <button type="button" data-filter="ALL" class="active">All</button>
+            <button type="button" data-filter="PASS">Pass</button>
+            <button type="button" data-filter="WATCH">Watch</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Area</th>
+                <th>Evidence</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="checks-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="commands" class="panel command-panel">
+        <div>
+          <p class="eyebrow">One-command checks</p>
+          <h2>Pull, verify, launch</h2>
+        </div>
+        <div class="command-row">
+          <code>git pull --ff-only && npm ci && npm run acceptance</code>
+          <button type="button" data-copy="git pull --ff-only && npm ci && npm run acceptance">Copy</button>
+        </div>
+        <div class="command-row">
+          <code>npm run admin:monitor</code>
+          <button type="button" data-copy="npm run admin:monitor">Copy</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

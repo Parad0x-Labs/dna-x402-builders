@@ -12,6 +12,24 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## Clean Pull And Verify
+
+From an existing clone:
+
+```bash
+git pull --ff-only && npm ci && npm run acceptance
+```
+
+To open the local admin monitor:
+
+```bash
+npm run admin:monitor
+```
+
+The monitor opens at `http://127.0.0.1:4177`.
+
+- [Builder Admin Monitor](./docs/BUILDER_ADMIN_MONITOR.md)
+
 ## Optional Dark Null Privacy Path
 
 Builders can run the standard DNA x402 path or explicitly request the Dark Null privacy path.

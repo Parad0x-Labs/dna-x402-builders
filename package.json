@@ -8,6 +8,8 @@
     "build": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "acceptance": "npm run build && npm test",
+    "verify:local": "npm run acceptance",
+    "admin:monitor": "node scripts/serve-admin-monitor.mjs",
     "examples:buyer": "tsx examples/buyer-agent-ts/src/index.ts",
     "examples:seller": "tsx examples/seller-paid-api-ts/src/index.ts",
     "examples:builder-fee": "tsx examples/builder-monetized-agent-ts/src/index.ts",
