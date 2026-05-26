@@ -24,6 +24,7 @@ The monitor shows public-builder status only:
 - optional Dark Null private receipt path
 - `$NULL` flywheel metadata
 - local cleanliness checks for secrets and machine-specific paths
+- cropped local `$NULL` logo asset
 
 It does not expose private backend source, database routes, runtime secrets, operator wallets, private server config, or deployment keys.
 

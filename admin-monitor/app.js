@@ -1,6 +1,6 @@
 const summary = [
   { label: "SDK build", value: "TypeScript strict" },
-  { label: "Regression", value: "77 tests" },
+  { label: "Regression", value: "81 tests" },
   { label: "$NULL mint", value: "8EeDdvCRmFAzVD4takkBrNNwkeUTUQh4MscRK5Fzpump" },
   { label: "Flywheel", value: "5 bps to RewardsVault" },
 ];

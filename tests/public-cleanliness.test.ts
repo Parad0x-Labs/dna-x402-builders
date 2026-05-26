@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 const root = path.resolve(".");
 const ignoredDirs = new Set([".git", "node_modules"]);
 const ignoredFiles = new Set(["package-lock.json"]);
+const binaryExtensions = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico"]);
 
 function collectFiles(dir: string): string[] {
   const out: string[] = [];
@@ -12,6 +13,7 @@ function collectFiles(dir: string): string[] {
     if (ignoredDirs.has(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) out.push(...collectFiles(full));
+    else if (binaryExtensions.has(path.extname(entry.name).toLowerCase())) continue;
     else if (!ignoredFiles.has(entry.name)) out.push(full);
   }
   return out;
