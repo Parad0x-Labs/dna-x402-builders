@@ -37,6 +37,20 @@ Use DNA x402 builder fee parameters:
 Show the builder fee in the UI before payment and persist receipt ID after unlock.
 ```
 
+## NULL Flywheel Prompt
+
+```txt
+Add NULL Flywheel metadata to my premium DNA x402 unlock flow.
+
+Use the $NULL mint 8EeDdvCRmFAzVD4takkBrNNwkeUTUQh4MscRK5Fzpump.
+Tag qualifying premium actions as SIGNAL_REVEAL_FEE, RISK_CHECK_FEE,
+HINT_TIER_FEE, SNIPER_TAX_FEE, RITUAL_GATE_FEE, or OTHER_PREMIUM_FEE.
+After receipt creation, attach flywheel metadata with receiptId,
+feeEventId, feeWaterfallHash, destination=RewardsVault, and allocationBps=5.
+Show the normal quote and fee waterfall before payment.
+Do not call it yield, buyback, guaranteed reward, or a price promise.
+```
+
 ## Direct Split Prompt
 
 ```txt

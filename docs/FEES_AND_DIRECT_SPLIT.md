@@ -40,6 +40,22 @@ Parad0x source fees cannot be removed when the source is:
 
 Receipts should bind `signalId`, `signalSource`, `usageType`, `sourceAttribution`, `signalDigest`, and `feeWaterfallHash`.
 
+## NULL Flywheel Allocation
+
+Qualifying premium fee events can attach `$NULL` flywheel metadata.
+
+`$NULL` mint: `8EeDdvCRmFAzVD4takkBrNNwkeUTUQh4MscRK5Fzpump`
+
+The builder-facing shape is:
+
+- premium action emits a fee event
+- SDK tags the event with `feeSource`, `receiptId`, `feeEventId`, and `feeWaterfallHash`
+- `5` bps allocation is routed to the flywheel metadata path
+- randomized execution writes public receipt metadata
+- destination is `RewardsVault`
+
+This is not an extra hidden buyer fee line. The buyer-facing quote and fee waterfall stay visible before payment.
+
 ## Forbidden
 
 - hidden fee

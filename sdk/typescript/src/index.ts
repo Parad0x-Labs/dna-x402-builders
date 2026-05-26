@@ -42,6 +42,31 @@ export type FeeLine = {
   metadata?: Record<string, unknown>;
 };
 
+export const NULL_MINT = "8EeDdvCRmFAzVD4takkBrNNwkeUTUQh4MscRK5Fzpump" as const;
+export const NULL_FLYWHEEL_ALLOCATION_BPS = 5 as const;
+
+export type NullFlywheelFeeSource =
+  | "SIGNAL_REVEAL_FEE"
+  | "RISK_CHECK_FEE"
+  | "HINT_TIER_FEE"
+  | "SNIPER_TAX_FEE"
+  | "RITUAL_GATE_FEE"
+  | "OTHER_PREMIUM_FEE";
+
+export type NullFlywheelReceiptMetadata = {
+  schema: "dna-x402-null-flywheel-receipt-metadata-v1";
+  mint: typeof NULL_MINT;
+  destination: "RewardsVault";
+  allocationBps: typeof NULL_FLYWHEEL_ALLOCATION_BPS;
+  feeSource: NullFlywheelFeeSource;
+  receiptId: string;
+  feeEventId: string;
+  feeWaterfallHash: string;
+  commitmentHash?: string;
+  executionReceiptHash?: string;
+  epochAggregateHash?: string;
+};
+
 export type FeeWaterfallV2 = {
   version?: string;
   grossAmount?: string;
@@ -610,6 +635,33 @@ export function buildParadoxSignalFeeWaterfall(input: ParadoxSignalFeeWaterfallI
     totalBuyerCost: input.buyerTotalAtomic,
     feeWaterfallHash: `signal_${input.signalId}_${input.usageType}_${input.source}`,
     lines,
+  };
+}
+
+export function buildNullFlywheelReceiptMetadata(input: {
+  feeSource: NullFlywheelFeeSource;
+  receiptId: string;
+  feeEventId: string;
+  feeWaterfallHash: string;
+  commitmentHash?: string;
+  executionReceiptHash?: string;
+  epochAggregateHash?: string;
+}): NullFlywheelReceiptMetadata {
+  if (!input.receiptId || !input.feeEventId || !input.feeWaterfallHash) {
+    throw new Error("NULL flywheel metadata requires receiptId, feeEventId, and feeWaterfallHash.");
+  }
+  return {
+    schema: "dna-x402-null-flywheel-receipt-metadata-v1",
+    mint: NULL_MINT,
+    destination: "RewardsVault",
+    allocationBps: NULL_FLYWHEEL_ALLOCATION_BPS,
+    feeSource: input.feeSource,
+    receiptId: input.receiptId,
+    feeEventId: input.feeEventId,
+    feeWaterfallHash: input.feeWaterfallHash,
+    commitmentHash: input.commitmentHash,
+    executionReceiptHash: input.executionReceiptHash,
+    epochAggregateHash: input.epochAggregateHash,
   };
 }
 

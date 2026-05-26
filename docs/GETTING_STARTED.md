@@ -17,6 +17,7 @@ Use this repo when you want to build on the hosted DNA x402 rail.
 - Webhook receiver: listens for payment and receipt events.
 - Receipt verifier: proves what was paid for and fulfilled.
 - Optional Dark Null path: adds a private receipt summary for privacy-sensitive paid unlocks.
+- NULL Flywheel: tags qualifying premium fee events for the `$NULL` RewardsVault loop.
 
 ## 2. Configure Environment
 
@@ -79,3 +80,20 @@ const privateReceipt = await dna.requestDarkNullReceipt({
 ```
 
 Read [Dark Null Privacy Path](./DARK_NULL_PRIVACY_PATH.md) for the network boundary and error codes.
+
+## 7. Add NULL Flywheel Metadata
+
+Use the flywheel helper when a paid unlock is a qualifying premium action.
+
+```ts
+import { buildNullFlywheelReceiptMetadata } from "dna-x402-builders";
+
+const flywheel = buildNullFlywheelReceiptMetadata({
+  feeSource: "SIGNAL_REVEAL_FEE",
+  receiptId: "receipt-id",
+  feeEventId: "fee-event-id",
+  feeWaterfallHash: "fee-waterfall-hash",
+});
+```
+
+Read [NULL Flywheel](./NULL_FLYWHEEL.md) for the `$NULL` mint, RewardsVault loop, and builder copy.

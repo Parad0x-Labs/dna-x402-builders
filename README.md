@@ -53,6 +53,26 @@ Trust rules stay hard: no backend custody, no backend signing, no hidden fees, n
 - [Alpha Profit Share](./docs/ALPHA_PROFIT_SHARE.md)
 - [Degen templates](./templates/agents/degen-live)
 
+## NULL Flywheel
+
+`$NULL` mint: `8EeDdvCRmFAzVD4takkBrNNwkeUTUQh4MscRK5Fzpump`
+
+Premium paid actions can feed the `$NULL` RewardsVault through a capped 5 bps flywheel allocation.
+
+```txt
+signal reveal / risk check / hint tier / sniper tax
+-> DNA x402 receipt
+-> randomized flywheel execution
+-> public receipt metadata
+-> RewardsVault
+```
+
+Current evidence includes 25 Rust tests across accumulator logic, commit-reveal schedule randomization, public receipts, epoch aggregation, and an end-to-end simulation with `all_steps_proven=true`.
+
+Use it for paid alpha reveals, risk bots, hint ladders, private rooms, and premium APIs where every monetized action should leave a receipt-bound rewards trail.
+
+- [NULL Flywheel](./docs/NULL_FLYWHEEL.md)
+
 ## Build On Parad0x Signals
 
 Want to build a paid signal bot, dashboard, alpha room, copy alert feed, or research product?
@@ -157,6 +177,7 @@ Builders use the hosted API, SDK helpers, OpenAPI spec, and examples in this rep
 - Degen Mode agents
 - Fresh pair and wallet stalker agents
 - Live PnL leaderboards
+- NULL flywheel reward metadata
 - Referral links
 - Builder-monetized APIs
 - Receipt-gated content

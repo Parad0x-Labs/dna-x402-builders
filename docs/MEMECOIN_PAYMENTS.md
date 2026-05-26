@@ -20,3 +20,18 @@ Rules:
 Good template:
 
 [`meme-token-payment-agent.json`](../templates/agents/degen-live/meme-token-payment-agent.json)
+
+## NULL Ecosystem Token
+
+`$NULL` mint: `8EeDdvCRmFAzVD4takkBrNNwkeUTUQh4MscRK5Fzpump`
+
+The `$NULL` builder angle is the flywheel, not random checkout token sprawl:
+
+- premium paid action
+- receipt-bound fee event
+- capped 5 bps flywheel allocation
+- randomized execution
+- public receipt metadata
+- `RewardsVault`
+
+Use [NULL Flywheel](./NULL_FLYWHEEL.md) when a builder product sells alpha reveals, risk checks, hint tiers, private-room unlocks, or premium API access.

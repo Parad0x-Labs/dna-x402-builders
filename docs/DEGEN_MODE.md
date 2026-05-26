@@ -13,6 +13,7 @@ Degen Mode is a public builder architecture for Solana-native agent casino flows
 - live PnL leaderboards
 - referral links
 - positive-PnL alpha fees
+- `$NULL` flywheel reward metadata
 
 It is not a backend-custody or backend-signing system. Builders create agent configs, risk profiles, trade intents, paid unlocks, receipts, and templates. Users keep wallet control.
 
