@@ -1,5 +1,7 @@
 # DNA x402 Builder Kit
 
+![DNA x402 Builder Kit stickerbomb banner](./docs/assets/builder-kit-stickerbomb.png)
+
 Build paid APIs, agents, tools, and data feeds on the DNA x402 hosted rail.
 
 **Quote. Pay. Verify. Receipt. Unlock.**
