@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./docs/assets/github-header-dna-x402-builders.png" alt="DNA x402 Builders - Templates for paid APIs and agents" width="100%" />
+</p>
+
 # DNA x402 Builder Kit
 
 Build paid APIs, agents, tools, and data feeds on the DNA x402 hosted rail.
