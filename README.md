@@ -12,6 +12,20 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+### How this fits the Parad0x stack
+
+Parad0x Labs builds Web0 on Solana — money and agents that settle themselves. **You are here: 🛠️ Build.**
+
+| Layer | Repo | Does |
+|---|---|---|
+| 💸 Payments | [dna-x402](https://github.com/Parad0x-Labs/dna-x402) | x402 rail: quote → pay → verify → receipt → anchor |
+| 🛠️ Build | **dna-x402-builders** (this repo) | Hosted kit: turn any API/bot into a paid agent |
+| 🕶️ Privacy | [Dark-Null-Protocol](https://github.com/Parad0x-Labs/Dark-Null-Protocol) | Groth16 privacy settlement, published proofs |
+| 🗜️ Data | [liquefy](https://github.com/Parad0x-Labs/liquefy) | Columnar compression that beats Zstd + audit trails |
+| 🧠 Local AI | [nulla-local](https://github.com/Parad0x-Labs/nulla-local) | Local-first agent runtime — your machine, your memory |
+
+**See it live** (a consumer app running on these rails): **[parad0xlabs.com](https://parad0xlabs.com)**
+
 ## Clean Pull And Verify
 
 From an existing clone:
