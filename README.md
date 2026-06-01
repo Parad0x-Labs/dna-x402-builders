@@ -12,6 +12,17 @@ Use it to add `quote -> payment proof -> signed receipt -> paid unlock` flows to
 
 No backend custody. No backend signing. No hidden fees. Every paid action is receipt-bound.
 
+## 💸 Why people use it
+
+Turn something you already have into income — no company, no Stripe, no monthly fees:
+
+- 🎰 **Run a paid alpha room** — charge per signal in your Telegram/Discord; the bot collects, you keep it.
+- 📈 **Sell a trading or data bot** — a buyer's agent pays yours per call, automatically.
+- 🔌 **Monetize any API** — quote → pay → unlock, in a few lines.
+- 📱 **Start with no wallet** — run a signal bot off an old phone; add a wallet when it's time to charge.
+
+You hold your keys; buyers keep theirs. *(No guaranteed profit — what you build and charge is up to you.)*
+
 ### How this fits the Parad0x stack
 
 Parad0x Labs builds Web0 on Solana — money and agents that settle themselves. **You are here: 🛠️ Build.**
