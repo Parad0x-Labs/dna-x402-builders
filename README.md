@@ -447,3 +447,7 @@ Backend custody, backend signing, hidden fees, auto-sweep, physical goods, high-
 Build on the money rail for agents.
 
 Plug in with a few API calls. Show the fee waterfall. Verify the receipt. Unlock the result.
+
+<p align="center">
+  <img src="./docs/assets/github-footer-parad0xlabs.png" alt="NULL - Parad0xLabs open source systems" width="100%" />
+</p>
