@@ -1,5 +1,9 @@
 # DNA x402 Builder Kit
 
+<p align="center">
+  <img src="./docs/assets/github-header-dna-x402-builders.png" alt="Parad0x Labs" width="100%" />
+</p>
+
 Build paid APIs, agents, tools, and data feeds on the DNA x402 hosted rail.
 
 **Quote. Pay. Verify. Receipt. Unlock.**
@@ -455,3 +459,7 @@ Backend custody, backend signing, hidden fees, auto-sweep, physical goods, high-
 Build on the money rail for agents.
 
 Plug in with a few API calls. Show the fee waterfall. Verify the receipt. Unlock the result.
+
+<p align="center">
+  <img src="./docs/assets/github-footer-parad0xlabs.png" alt="NULL — Parad0x Labs open source systems" width="100%" />
+</p>
